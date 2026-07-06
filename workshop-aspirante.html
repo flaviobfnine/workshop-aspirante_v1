@@ -307,9 +307,9 @@
 
     <main class="relative z-10">
         
-        <!-- SEÇÃO 1: HERO (Tela Cheia, 5 notificações responsivas) -->
-        <section class="w-full bg-[#020d14] relative">
-            <div class="min-h-screen flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-16 text-center relative">
+        <!-- SEÇÃO 1: HERO (Preenchimento 100%, 2 Colunas, Sem Vídeo) -->
+        <section class="w-full bg-[#020d14] relative min-h-screen flex items-center">
+            <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-16 relative">
             
             <!-- Notificações Flutuantes no Desktop (5 bancos) -->
             <div class="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
@@ -364,45 +364,73 @@
                 </div>
             </div>
 
-            <!-- Sobrancelha Destacada -->
-            <div class="mx-auto w-fit mb-6 animate-fade-in relative z-20">
-                <span class="inline-flex items-center gap-2 rounded-full border border-yellow-500/40 bg-yellow-500/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-yellow-400 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
-                    ⚡ LIBERDADE FINANCEIRA E TRABALHO PRÓPRIO
-                </span>
-            </div>
+            <!-- Grid de 2 Colunas -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-20">
+                
+                <!-- Coluna Esquerda: Copywriting e CTA -->
+                <div class="lg:col-span-7 text-center lg:text-left flex flex-col justify-center items-center lg:items-start space-y-6">
+                    
+                    <!-- Sobrancelha Destacada -->
+                    <div class="animate-fade-in">
+                        <span class="inline-flex items-center gap-2 rounded-full border border-yellow-500/40 bg-yellow-500/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-yellow-400 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                            ⚡ LIBERDADE FINANCEIRA E TRABALHO PRÓPRIO
+                        </span>
+                    </div>
 
-            <!-- Headline -->
-            <div class="animate-fade-in relative z-20" style="animation-delay: 0.1s;">
-                <h1 class="mx-auto max-w-5xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                    Como sair do seu emprego CLT e montar sua marca de uniformes da sala da sua casa
-                </h1>
-                <p class="mx-auto mt-6 max-w-3xl text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
-                    Aprenda a faturar alto com <span class="text-yellow-400 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500">uniformes de futebol 100% personalizados com sua própria marca</span> de **R$ 2.500,00 por pedido** usando computadores comuns e terceirizando a estamparia industrial. Sem replay posterior.
-                </p>
-            </div>
+                    <!-- Headline -->
+                    <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
+                            Como sair do seu emprego CLT e montar sua marca de uniformes da sala de casa
+                        </h1>
+                        <p class="mt-6 text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+                            Aprenda a faturar alto com <span class="text-yellow-400 font-extrabold">uniformes de futebol 100% personalizados com sua própria marca</span> de **R$ 2.500,00 por pedido** usando computadores comuns e terceirizando a estamparia industrial. Sem replay posterior.
+                        </p>
+                    </div>
 
-            <!-- VSL -->
-            <div class="mx-auto w-full max-w-4xl mt-12 animate-fade-in relative z-20" style="animation-delay: 0.2s;">
-                <div class="overflow-hidden rounded-3xl border border-yellow-500/20 bg-slate-900/50 backdrop-blur-xl p-2 relative shadow-2xl transition-all duration-500 hover:shadow-yellow-500/10" style="border-radius: 24px;">
-                    <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-black group cursor-pointer">
-                        <div id="video-placeholder" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500 z-20" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('assets/357cb3d1-9f65-4810-884b-f0072a_b391591fa18c.webp');">
-                            <div class="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full bg-yellow-500 text-slate-950 font-bold pulse-effect hover:scale-105 transition-transform duration-300">
-                                <svg aria-hidden="true" data-height="28" data-icon="solar:play-bold" data-width="28" height="28" role="img" viewBox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19.376 12.416L8.777 19.382A.5.5 0 0 1 8 18.966V5.034a.5.5 0 0 1 .777-.416l10.599 6.966a.5.5 0 0 1 0 .832z" fill="currentColor"></path>
-                                </svg>
+                    <!-- CTA Inicial (Sem preço) -->
+                    <div class="w-full max-w-md animate-fade-in" style="animation-delay: 0.2s;">
+                        <a href="#comprar" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-8 py-4 text-xs font-bold uppercase tracking-widest text-yellow-400 hover:text-white transition-all btn-shimmer" style="border-radius: 9999px;">
+                            Garantir Minha Vaga Ao Vivo
+                        </a>
+                        
+                        <!-- Barra de Carregamento de Escassez -->
+                        <div class="mt-5 max-w-xs sm:max-w-sm mx-auto lg:mx-0">
+                            <div class="flex justify-between items-center text-[10px] text-slate-400 font-bold mb-1.5 uppercase tracking-wider">
+                                <span>🔥 Ingressos do LOTE 1 (R$ 19) quase esgotados</span>
+                                <span class="text-yellow-500 font-extrabold">87% Vendidos</span>
                             </div>
-                            <p class="mt-4 text-xs font-bold tracking-widest text-yellow-500 uppercase">Assista ao Cronograma do Workshop</p>
+                            <div class="w-full bg-slate-950 rounded-full h-2 border border-yellow-500/20 overflow-hidden p-0.5">
+                                <div class="bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-500 h-full rounded-full animate-pulse" style="width: 87%;"></div>
+                            </div>
                         </div>
-                        <div id="video-player-container" class="absolute inset-0 w-full h-full hidden">
-                            <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                </div>
+
+                <!-- Coluna Direita: Imagem de Resultado (Especialista + Produto) -->
+                <div class="lg:col-span-5 flex justify-center items-center animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="relative group w-full max-w-[400px]" style="border-radius: 28px;">
+                        <!-- Efeito de Brilho Dourado de Fundo -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-[30px] blur-xl opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                        
+                        <!-- Contêiner da Imagem -->
+                        <div class="relative rounded-3xl border border-yellow-500/10 bg-slate-900 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 28px;">
+                            <img alt="Especialista Bfnine e Manto Premium" class="w-full h-auto object-cover rounded-2xl" src="assets/especialista_hero.png" style="border-radius: 20px;"/>
+                            
+                            <!-- Badge Flutuante de Transformação -->
+                            <div class="absolute bottom-6 left-6 right-6 rounded-2xl bg-slate-950/90 border border-yellow-500/20 backdrop-blur p-4 text-left">
+                                <p class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">O Método Bfnine</p>
+                                <p class="text-xs font-bold text-white mt-1">Aprenda a criar fardamentos premium de alto valor da sala da sua casa.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <!-- Notificações Mobile -->
-            <div class="lg:hidden w-full max-w-md mx-auto mt-8 flex flex-col gap-3 relative z-20">
-                <p class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Confirmações de Vaga Recentes</p>
+            <div class="lg:hidden w-full max-w-md mx-auto mt-12 flex flex-col gap-3 relative z-20">
+                <p class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest text-center">Confirmações de Vaga Recentes</p>
                 <div class="grid grid-cols-1 gap-2">
                     <div class="flex items-center gap-3 p-3 rounded-xl bg-purple-600/10 border border-purple-500/20 text-left">
                         <div class="w-7 h-7 rounded-lg bg-purple-600 flex items-center justify-center text-white font-bold text-[10px] flex-shrink-0">NB</div>
@@ -416,34 +444,9 @@
                         <div class="w-7 h-7 rounded-lg bg-sky-500 flex items-center justify-center text-white font-bold text-[10px] flex-shrink-0">MP</div>
                         <div class="text-xs font-semibold text-white">Amanda R. garantiu o ingresso</div>
                     </div>
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-rose-600/10 border border-rose-500/20 text-left">
-                        <div class="w-7 h-7 rounded-lg bg-rose-600 flex items-center justify-center text-white font-bold text-[10px] flex-shrink-0">BD</div>
-                        <div class="text-xs font-semibold text-white">Fernando C. garantiu o ingresso</div>
-                    </div>
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-yellow-600/10 border border-yellow-500/20 text-left">
-                        <div class="w-7 h-7 rounded-lg bg-yellow-600 flex items-center justify-center text-white font-bold text-[10px] flex-shrink-0">BB</div>
-                        <div class="text-xs font-semibold text-white">Thiago K. garantiu o ingresso</div>
-                    </div>
                 </div>
             </div>
 
-            <!-- CTA Inicial (Sem preço) -->
-            <div class="mt-8 animate-fade-in relative z-20" style="animation-delay: 0.3s;">
-                <a href="#comprar" class="inline-flex items-center gap-3 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-8 py-4 text-xs font-bold uppercase tracking-widest text-yellow-400 hover:text-white transition-all btn-shimmer" style="border-radius: 9999px;">
-                    Garantir Minha Vaga Ao Vivo
-                </a>
-                
-                <!-- Barra de Carregamento de Escassez -->
-                <div class="mt-5 max-w-xs sm:max-w-sm mx-auto">
-                    <div class="flex justify-between items-center text-[10px] text-slate-400 font-bold mb-1.5 uppercase tracking-wider">
-                        <span>🔥 Ingressos do LOTE 1 (R$ 19) quase esgotados</span>
-                        <span class="text-yellow-500 font-extrabold">87% Vendidos</span>
-                    </div>
-                    <div class="w-full bg-slate-950 rounded-full h-2 border border-yellow-500/20 overflow-hidden p-0.5">
-                        <div class="bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-500 h-full rounded-full animate-pulse" style="width: 87%;"></div>
-                    </div>
-                </div>
-            </div>
             </div>
         </section>
 
