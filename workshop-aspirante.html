@@ -74,6 +74,15 @@
             }
         }
 
+        /* Esconder barra de rolagem horizontal no carrossel de dores, depoimentos e processos */
+        .scrollbar-none::-webkit-scrollbar {
+            display: none !important;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
+        }
+
         /* Bordas de Gradiente em Dourado */
         .border-gradient {
             position: relative;
@@ -268,6 +277,17 @@
 </head>
 <body class="min-h-screen bg-slate-950 text-white antialiased" style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
     
+    <!-- Notificação de PIX Rotativa Global (Flutua no canto inferior esquerdo) -->
+    <div id="pix-notification-popup" class="fixed bottom-4 left-4 z-50 max-w-[280px] sm:max-w-[320px] rounded-2xl border border-yellow-500/20 bg-slate-950/95 backdrop-blur p-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transform translate-y-20 opacity-0 transition-all duration-500 flex items-start gap-3 pointer-events-auto">
+        <div id="pix-bank-icon" class="w-9 h-9 rounded-xl bg-purple-600 flex items-center justify-center text-white font-black text-xs flex-shrink-0">NB</div>
+        <div class="text-left flex-1 min-w-0">
+            <p id="pix-bank-name" class="text-[9px] font-bold text-purple-400 uppercase tracking-wider">Nubank</p>
+            <p class="text-[11px] font-semibold text-white mt-0.5">PIX Recebido!</p>
+            <p id="pix-buyer-name" class="text-[10px] text-neutral-300 font-bold mt-0.5 truncate">Amanda Costa do Mafu Futsal</p>
+        </div>
+        <button onclick="closePixPopup()" class="text-neutral-500 hover:text-white text-xs font-bold leading-none focus:outline-none">&times;</button>
+    </div>
+
     <!-- Background Grid -->
     <div class="fixed inset-0 -z-10 bg-gradient-to-b from-[#03151f] via-[#052130] to-[#021017]">
         <div class="absolute inset-0 opacity-[0.025]">
@@ -307,62 +327,11 @@
 
     <main class="relative z-10">
         
-        <!-- SEÇÃO 1: HERO (Preenchimento 100%, 2 Colunas, Sem Vídeo) -->
-        <section class="w-full bg-[#020d14] relative min-h-screen flex items-center">
+        <!-- SEÇÃO 1: HERO (Preenchimento 100%, 2 Colunas, Sem Vídeo, Fundo de Várzea Premium) -->
+        <section class="w-full relative min-h-screen flex items-center bg-[#020d14]" style="background-image: linear-gradient(to right, rgba(2, 13, 20, 0.98) 35%, rgba(2, 13, 20, 0.6) 100%), url('assets/varzea_hero_bg.png'); background-size: cover; background-position: center;">
             <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-16 relative">
             
-            <!-- Notificações Flutuantes no Desktop (5 bancos) -->
-            <div class="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
-                <!-- Nubank -->
-                <div class="absolute top-[8%] left-[2%] w-52 rounded-2xl p-3.5 pix-notification float-nb flex items-start gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center text-white font-bold text-xs">NB</div>
-                    <div class="text-left">
-                        <p class="text-[9px] font-bold text-purple-400 uppercase tracking-wider">Nubank</p>
-                        <p class="text-[11px] font-semibold text-white mt-0.5">PIX Recebido!</p>
-                        <p class="text-[8px] text-neutral-400 mt-0.5">Pedro S.</p>
-                    </div>
-                </div>
-
-                <!-- Itaú -->
-                <div class="absolute top-[12%] right-[2%] w-52 rounded-2xl p-3.5 pix-notification float-it flex items-start gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-orange-600 flex items-center justify-center text-white font-bold text-xs">IT</div>
-                    <div class="text-left">
-                        <p class="text-[9px] font-bold text-orange-400 uppercase tracking-wider">Itaú</p>
-                        <p class="text-[11px] font-semibold text-white mt-0.5">PIX Creditado</p>
-                        <p class="text-[8px] text-neutral-400 mt-0.5">Gabriel M.</p>
-                    </div>
-                </div>
-
-                <!-- Mercado Pago -->
-                <div class="absolute top-[55%] left-[1%] w-52 rounded-2xl p-3.5 pix-notification float-merp flex items-start gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center text-white font-bold text-xs">MP</div>
-                    <div class="text-left">
-                        <p class="text-[9px] font-bold text-sky-400 uppercase tracking-wider">Mercado Pago</p>
-                        <p class="text-[11px] font-semibold text-white mt-0.5">Venda Aprovada</p>
-                        <p class="text-[8px] text-neutral-400 mt-0.5">Amanda R.</p>
-                    </div>
-                </div>
-
-                <!-- Bradesco -->
-                <div class="absolute top-[62%] right-[1%] w-52 rounded-2xl p-3.5 pix-notification float-br flex items-start gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-rose-600 flex items-center justify-center text-white font-bold text-xs">BD</div>
-                    <div class="text-left">
-                        <p class="text-[9px] font-bold text-rose-400 uppercase tracking-wider">Bradesco</p>
-                        <p class="text-[11px] font-semibold text-white mt-0.5">PIX Recebido</p>
-                        <p class="text-[8px] text-neutral-400 mt-0.5">Fernando C.</p>
-                    </div>
-                </div>
-
-                <!-- Banco do Brasil -->
-                <div class="absolute top-[80%] left-[3%] w-52 rounded-2xl p-3.5 pix-notification float-bancob flex items-start gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-yellow-600 flex items-center justify-center text-white font-bold text-xs">BB</div>
-                    <div class="text-left">
-                        <p class="text-[9px] font-bold text-yellow-400 uppercase tracking-wider">Banco do Brasil</p>
-                        <p class="text-[11px] font-semibold text-white mt-0.5">PIX Recebido</p>
-                        <p class="text-[8px] text-neutral-400 mt-0.5">Thiago K.</p>
-                    </div>
-                </div>
-            </div>
+            
 
             <!-- Grid de 2 Colunas -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-20">
@@ -383,7 +352,7 @@
                             Como sair do seu emprego CLT e montar sua marca de uniformes da sala de casa
                         </h1>
                         <p class="mt-6 text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
-                            Aprenda a faturar alto com <span class="text-yellow-400 font-extrabold">uniformes de futebol 100% personalizados com sua própria marca</span> de **R$ 2.500,00 por pedido** usando computadores comuns e terceirizando a estamparia industrial. Sem replay posterior.
+                            Aprenda a faturar alto com <span class="text-yellow-400 font-extrabold">uniformes de futebol 100% personalizados com sua própria marca</span> de **R$ 2.500,00 por pedido** usando computadores comuns e terceirizando a estamparia industrial.
                         </p>
                     </div>
 
@@ -396,7 +365,7 @@
                         <!-- Barra de Carregamento de Escassez -->
                         <div class="mt-5 max-w-xs sm:max-w-sm mx-auto lg:mx-0">
                             <div class="flex justify-between items-center text-[10px] text-slate-400 font-bold mb-1.5 uppercase tracking-wider">
-                                <span>🔥 Ingressos do LOTE 1 (R$ 19) quase esgotados</span>
+                                <span>🔥 Ingressos do LOTE 1 quase esgotados</span>
                                 <span class="text-yellow-500 font-extrabold">87% Vendidos</span>
                             </div>
                             <div class="w-full bg-slate-950 rounded-full h-2 border border-yellow-500/20 overflow-hidden p-0.5">
@@ -428,150 +397,262 @@
 
             </div>
 
-            <!-- Notificações Mobile -->
-            <div class="lg:hidden w-full max-w-md mx-auto mt-12 flex flex-col gap-3 relative z-20">
-                <p class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest text-center">Confirmações de Vaga Recentes</p>
-                <div class="grid grid-cols-1 gap-2">
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-purple-600/10 border border-purple-500/20 text-left">
-                        <div class="w-7 h-7 rounded-lg bg-purple-600 flex items-center justify-center text-white font-bold text-[10px] flex-shrink-0">NB</div>
-                        <div class="text-xs font-semibold text-white">Pedro S. garantiu o ingresso</div>
-                    </div>
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-orange-600/10 border border-orange-500/20 text-left">
-                        <div class="w-7 h-7 rounded-lg bg-orange-600 flex items-center justify-center text-white font-bold text-[10px] flex-shrink-0">IT</div>
-                        <div class="text-xs font-semibold text-white">Gabriel M. garantiu o ingresso</div>
-                    </div>
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-sky-600/10 border border-sky-500/20 text-left">
-                        <div class="w-7 h-7 rounded-lg bg-sky-500 flex items-center justify-center text-white font-bold text-[10px] flex-shrink-0">MP</div>
-                        <div class="text-xs font-semibold text-white">Amanda R. garantiu o ingresso</div>
-                    </div>
-                </div>
-            </div>
+            
 
             </div>
         </section>
 
-        <!-- SEÇÃO 2: MOSAICO DE DORES (CLT, Sem vídeo, Tela Cheia) -->
+        <!-- SEÇÃO 2: A REALIDADE E AS DORES DO CLT (Preenchimento 100%, Interação por Scroll do Usuário) -->
         <section class="w-full bg-[#051f2d] border-t border-white/5 relative">
-            <div class="min-h-screen flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20">
+            <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-24">
             
             <!-- Sobrancelha Destacada -->
             <div class="mb-16 text-center max-w-2xl mx-auto animate-on-scroll">
                 <span class="inline-flex items-center rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1.5 text-xs font-black uppercase tracking-widest text-red-400">
-                    ❌ OS DESAFIOS DO CLT
+                    ❌ A REALIDADE QUE TE PRENDE
                 </span>
-                <h2 class="text-3xl font-extrabold text-white mt-4 tracking-tight">Até quando você vai adiar o sonho de ter seu próprio negócio de futebol amador?</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight leading-tight">Até quando você vai adiar o sonho de ter seu próprio negócio no futebol amador?</h2>
                 <div class="mt-4 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
+                <p class="text-xs text-slate-400 mt-4">Arraste para o lado para ler os maiores obstáculos enfrentados por quem tenta começar sozinho.</p>
             </div>
 
-            <!-- Mosaico -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch w-full">
+            <!-- Contêiner de Cards Snap com Scroll Horizontal Manual -->
+            <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-8 pt-2 w-full" style="-webkit-overflow-scrolling: touch;">
                 
-                <div class="md:col-span-4 rounded-3xl border border-yellow-500/10 bg-slate-900/40 p-6 flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px;">
+                <!-- Card 1: A Prisão do CLT -->
+                <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-red-500/10 bg-slate-900/40 overflow-hidden flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px;">
                     <div>
-                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">A ROTINA FRUSTRANTE</span>
-                        <h3 class="text-xl font-bold text-white mt-2">Falta de valorização profissional no emprego fixo</h3>
-                        <p class="text-xs text-slate-300 mt-4 leading-relaxed">
-                            Trabalhar de segunda a sexta para enriquecer o patrão, sem perspectiva de crescimento e tempo livre. Você ama o futebol amador, mas a falta de direcionamento técnico te paralisa no CLT.
-                        </p>
+                        <div class="w-full h-44 overflow-hidden relative">
+                            <img src="assets/dor_clt_cansado.png" alt="Cansaço CLT e ônibus lotado" class="w-full h-full object-cover opacity-75"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[9px] font-bold text-red-400 uppercase tracking-widest">01. ROTINA EXAUSTIVA</span>
+                            <h3 class="text-lg font-bold text-white mt-2 leading-snug">Você gasta sua vida enriquecendo a empresa dos outros</h3>
+                            <p class="text-[11px] text-slate-300 mt-4 leading-relaxed">
+                                Acordar cedo todos os dias, enfrentar o trânsito ou o transporte público lotado, e aguentar cobranças de chefes chatos. No fim do mês, você ganha o mesmo salário fixo que mal paga as contas enquanto seu patrão fatura alto.
+                            </p>
+                        </div>
                     </div>
-                    <div class="mt-6 border-t border-white/5 pt-4">
-                        <p class="text-[10px] text-slate-400">❌ Medo infundado de estoque inicial: você pode terceirizar a estamparia industrial sem comprar equipamentos.</p>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <p class="text-[9px] text-slate-400">❌ Frustração diária de não ver o dinheiro render e não ter tempo livre para fazer o que ama.</p>
                     </div>
                 </div>
 
-                <!-- Card Central Grande (Sem vídeo) -->
-                <div class="md:col-span-5 rounded-3xl border border-yellow-500/10 bg-[#052637]/70 p-8 flex flex-col justify-between relative overflow-hidden hover-card-effect animate-on-scroll" style="border-radius: 28px; animation-delay: 0.1s;">
-                    <div class="absolute -right-24 -bottom-24 w-48 h-48 bg-yellow-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                <!-- Card 2: O Alto Custo das Máquinas -->
+                <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-red-500/10 bg-slate-900/40 overflow-hidden flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px; animation-delay: 0.1s;">
+                    <div>
+                        <div class="w-full h-44 overflow-hidden relative">
+                            <img src="assets/dor_maquina_cara.png" alt="Maquinário sublimático caro" class="w-full h-full object-cover opacity-75"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[9px] font-bold text-red-400 uppercase tracking-widest">02. BARREIRA FINANCEIRA</span>
+                            <h3 class="text-lg font-bold text-white mt-2 leading-snug">Achar que precisa de R$ 115 mil em equipamentos</h3>
+                            <p class="text-[11px] text-slate-300 mt-4 leading-relaxed">
+                                A maioria acha que para vender uniformes de futebol precisa comprar impressora plotter de R$ 70.000, prensa térmica de R$ 25.000 e maquinário de costura de R$ 20.000. Esse medo de investir o que não tem paralisa qualquer tentativa de começar.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <p class="text-[9px] text-slate-400">❌ O segredo é que você não precisa comprar nenhuma máquina. Você pode começar da sala de casa.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Erros Técnicos e Reputação -->
+                <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-red-500/10 bg-slate-900/40 overflow-hidden flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px; animation-delay: 0.2s;">
+                    <div>
+                        <div class="w-full h-44 overflow-hidden relative">
+                            <img src="assets/dor_costura_torta.png" alt="Costura torta e tecidos defeituosos" class="w-full h-full object-cover opacity-75"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[9px] font-bold text-red-400 uppercase tracking-widest">03. ERROS TÉCNICOS</span>
+                            <h3 class="text-lg font-bold text-white mt-2 leading-snug">Medo de entregar uniformes tortos e queimar sua marca</h3>
+                            <p class="text-[11px] text-slate-300 mt-4 leading-relaxed">
+                                Tentar aprender sozinho geralmente resulta em designs deformados, golas tortas, escudos borrados ou tecido Dry Fit de péssima qualidade que encolhe na primeira lavagem. Um único erro e o time de várzea inteiro vai falar mal da sua marca.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <p class="text-[9px] text-slate-400">❌ Perder tempo e tecido tentando errar sozinho por falta de um método profissional de fechamento.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: WhatsApp Vazio -->
+                <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-red-500/10 bg-slate-900/40 overflow-hidden flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px; animation-delay: 0.3s;">
+                    <div>
+                        <div class="w-full h-44 overflow-hidden relative">
+                            <img src="assets/dor_whatsapp_vazio.png" alt="Whatsapp sem mensagens de clientes" class="w-full h-full object-cover opacity-75"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[9px] font-bold text-red-400 uppercase tracking-widest">04. FALTA DE CLIENTES</span>
+                            <h3 class="text-lg font-bold text-white mt-2 leading-snug">Montar toda a marca de camisas e ninguém te chamar para comprar</h3>
+                            <p class="text-[11px] text-slate-300 mt-4 leading-relaxed">
+                                Montar um Instagram bonito, fazer alguns posts, mas ver seu WhatsApp ficar em silêncio absoluto. A angústia de não saber como fazer os diretores dos clubes amadores locais te procurarem dispostos a pagar R$ 2.500 no fardamento mínimo.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <p class="text-[9px] text-slate-400">❌ Falta de estratégias locais de tráfego pago no Instagram/Facebook voltadas para diretores de ligas.</p>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: PROCESSO COMPLETO (Preenchimento 100%, Scroll Transform no Desktop) -->
+        <section id="processo-section" class="w-full relative border-t border-white/5 bg-[#020d14]" style="height: 220vh;">
+            <div id="sticky-process-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center" style="height: 100vh;">
+                <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 py-12 relative flex flex-col justify-center h-full">
                     
-                    <div>
-                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">A OPORTUNIDADE</span>
-                        <h3 class="text-2xl font-extrabold text-white mt-2">Venda uniformes esportivos completos sem precisar de fábrica</h3>
-                        <p class="text-xs text-slate-300 mt-4 leading-relaxed">
-                            O futebol de várzea e as ligas amadoras compram novos uniformes de time todos os anos. No workshop, você aprenderá a desenhar no seu computador de casa e enviar as artes prontas direto para confecções parceiras costurarem.
-                        </p>
-                        <p class="text-xs text-slate-300 mt-4 leading-relaxed">
-                            Nós vamos detalhar a estrutura exata do ciclo de vendas, do tráfego ao atendimento no WhatsApp, para que você fature alto desde o início.
-                        </p>
+                    <div class="mb-10 text-center lg:text-left z-20">
+                        <span class="inline-flex items-center rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-green-400">
+                            🏆 PASSO A PASSO DO MÉTODO
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight leading-tight">
+                            O Processo Completo do Zero ao Uniforme Pronto
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-2">No workshop, você aprenderá o método exato de fabricação da Bfnine Camisetas. Veja as etapas:</p>
                     </div>
-                    <div class="mt-6 flex items-center justify-between border-t border-white/5 pt-4">
-                        <span class="text-xs text-yellow-500 font-bold uppercase tracking-wider">Acesso Promocional</span>
-                        <span class="text-base font-bold text-white">Lote 1</span>
-                    </div>
-                </div>
 
-                <div class="md:col-span-3 flex flex-col gap-6">
-                    <div class="rounded-3xl border border-yellow-500/10 bg-slate-900/40 p-6 flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px; animation-delay: 0.2s; flex-grow: 1;">
-                        <div>
-                            <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">DIVULGAÇÃO ATIVA</span>
-                            <h3 class="text-lg font-bold text-white mt-1">Conquiste Clientes</h3>
-                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                                Atraia os primeiros times de futebol amador e ligas locais de forma ágil por mensagens de impacto no WhatsApp.
-                            </p>
+                    <!-- Trilho Deslizante dos Cards de Processo -->
+                    <div id="process-track-container" class="overflow-x-auto lg:overflow-hidden w-full relative snap-x snap-mandatory scrollbar-none pb-4">
+                        <div id="process-track" class="flex gap-6 transition-transform duration-100 ease-out lg:w-[1400px]">
+                            
+                            <!-- Passo 1 -->
+                            <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[260px]" style="border-radius: 24px;">
+                                <div>
+                                    <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs mb-4">
+                                        01
+                                    </div>
+                                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Desenho do Absoluto Zero</h4>
+                                    <p class="text-[11px] text-slate-300 mt-3 leading-relaxed">
+                                        Crie e personalize o design do uniforme de futebol completo (camisa e calção) diretamente no seu computador comum, traduzindo exatamente o desejo da diretoria do time cliente.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Passo 2 -->
+                            <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[260px]" style="border-radius: 24px;">
+                                <div>
+                                    <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs mb-4">
+                                        02
+                                    </div>
+                                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Modelagem de Arte no Molde</h4>
+                                    <p class="text-[11px] text-slate-300 mt-3 leading-relaxed">
+                                        Aprenda a encaixar a arte nos moldes corretos de confecção (frente, costas, mangas, gola e recortes) no Clo3D sem distorções, listras desalinhadas ou proporções incorretas na hora de estampar.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Passo 3 -->
+                            <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[260px]" style="border-radius: 24px;">
+                                <div>
+                                    <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs mb-4">
+                                        03
+                                    </div>
+                                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Preparação de Arquivo para Impressão</h4>
+                                    <p class="text-[11px] text-slate-300 mt-3 leading-relaxed">
+                                        Configure os arquivos técnicos finais no padrão industrial correto de cores (CMYK vs RGB) pronto para enviar direto a estamparias e oficinas de costura parceiras.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Passo 4 -->
+                            <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[260px]" style="border-radius: 24px;">
+                                <div>
+                                    <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs mb-4">
+                                        04
+                                    </div>
+                                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Terceirização e Entrega de Elite</h4>
+                                    <p class="text-[11px] text-slate-300 mt-3 leading-relaxed">
+                                        Envie o arquivo final pronto, receba o fardamento costurado de altíssima qualidade por terceiros e entregue para o time, embolsando a margem de lucro sem tocar em uma única máquina.
+                                    </p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="rounded-3xl border border-yellow-500/10 bg-slate-900/40 p-6 flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px; animation-delay: 0.3s; flex-grow: 1;">
-                        <div>
-                            <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">ANÚNCIOS LOCAIS</span>
-                            <h3 class="text-lg font-bold text-white mt-1">Tráfego no Meta Ads</h3>
-                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                                Configure campanhas direcionadas a diretores de clubes esportivos para bater R$ 2.500,00 por fechamento de pedido.
-                            </p>
-                        </div>
-                    </div>
                 </div>
-
-            </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 3: RESULTADOS E CONQUISTAS (CLT / Aspirante, R$ 2.500,00, Tela Cheia) -->
-        <section class="w-full bg-[#020d14] border-t border-white/5 relative">
-            <div class="min-h-screen flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20">
-            
-            <div class="mb-16 text-center max-w-2xl mx-auto animate-on-scroll">
-                <span class="inline-flex items-center rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-black uppercase tracking-widest text-green-400">
-                    🏆 RESULTADOS TANGÍVEIS
-                </span>
-                <h2 class="text-3xl font-extrabold text-white mt-4 tracking-tight">O que você vai conseguir fazer após o Workshop:</h2>
-                <div class="mt-4 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-                <!-- Conquista 1 -->
-                <div class="rounded-3xl border border-yellow-500/10 bg-[#052637]/40 p-8 hover-card-effect animate-on-scroll" style="border-radius: 24px;">
-                    <div class="text-3xl font-black text-yellow-500">Transição</div>
-                    <h3 class="text-lg font-bold text-white mt-4">Liberdade Profissional</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Tenha os processos claros para abrir a sua própria marca e sair do emprego CLT de forma planejada, segura e muito lucrativa.
-                    </p>
-                </div>
-
-                <!-- Conquista 2 -->
-                <div class="rounded-3xl border border-yellow-500/10 bg-[#052637]/40 p-8 hover-card-effect animate-on-scroll" style="border-radius: 24px; animation-delay: 0.1s;">
-                    <div class="text-3xl font-black text-yellow-500">R$ 2.500,00</div>
-                    <h3 class="text-lg font-bold text-white mt-4">Terceirização Completa</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Feche pedidos de uniformes esportivos de R$ 2.500,00 e envie os arquivos prontos para confecções costurarem, lucrando sem maquinário.
-                    </p>
-                </div>
-
-                <!-- Conquista 3 -->
-                <div class="rounded-3xl border-gradient bg-[#052637]/40 p-8 hover-card-effect animate-on-scroll" style="border-radius: 24px; animation-delay: 0.2s;">
-                    <div class="text-3xl font-black text-yellow-500">Prospecção</div>
-                    <h3 class="text-lg font-bold text-white mt-4">Atração de Clientes</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Como atrair presidentes de times amadores da sua cidade, fechando orçamentos de alto nível pelo WhatsApp de forma recorrente.
-                    </p>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 4: CUBO ROTATIVO 3D (Cronograma no scroll) -->
-        <section id="cronograma-3d-section" class="w-full relative border-t border-b border-white/5 bg-[#051f2d]" style="height: 250vh;">
-            <div id="sticky-cube-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center" style="height: 100vh;">
+        <!-- SEÇÃO 3.5: A ECONOMIA DA TERCEIRIZAÇÃO (Preenchimento 100%, Texto Organizado e Claro) -->
+        <section class="w-full bg-[#051f2d] border-t border-b border-white/5 py-24 relative">
+            <div class="mx-auto max-w-[900px] px-4 sm:px-6 lg:px-8 text-center">
                 
+                <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400 mb-6">
+                    📉 A Economia Real da Terceirização (Método Bfnine)
+                </span>
+                
+                <h2 class="text-3xl font-extrabold text-white tracking-tight leading-tight">
+                    Por que gastar R$ 115.000,00 se você pode fabricar sem comprar nenhuma máquina?
+                </h2>
+                <p class="text-slate-300 text-xs mt-4 leading-relaxed max-w-2xl mx-auto">
+                    Montar uma estrutura industrial própria exige capital gigante, espaço físico e manutenção cara. Com o nosso método, você elimina totalmente esses custos iniciais.
+                </p>
+
+                <!-- Bloco de Texto Organizado e Claro com Gastos Evitados -->
+                <div class="mt-12 bg-[#020d14]/60 border border-yellow-500/10 rounded-3xl p-8 text-left max-w-2xl mx-auto" style="border-radius: 24px;">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 text-center border-b border-white/5 pb-4">Gastos industriais que você vai evitar</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center gap-4 py-2 border-b border-white/5">
+                            <div>
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Plotter de Impressão Industrial</h4>
+                                <p class="text-[10px] text-slate-400">Evite comprar impressora de grande formato</p>
+                            </div>
+                            <span class="text-xs font-bold text-red-400">- R$ 70.000,00</span>
+                        </div>
+                        
+                        <div class="flex justify-between items-center gap-4 py-2 border-b border-white/5">
+                            <div>
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Prensa Térmica de Sublimação</h4>
+                                <p class="text-[10px] text-slate-400">Evite prensa térmica de calor industrial</p>
+                            </div>
+                            <span class="text-xs font-bold text-red-400">- R$ 25.000,00</span>
+                        </div>
+
+                        <div class="flex justify-between items-center gap-4 py-2 border-b border-white/5">
+                            <div>
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Máquinas de Costura (Overloque/Reta)</h4>
+                                <p class="text-[10px] text-slate-400">Evite gastar com maquinário de confecção</p>
+                            </div>
+                            <span class="text-xs font-bold text-red-400">- R$ 20.000,00</span>
+                        </div>
+
+                        <div class="flex justify-between items-center gap-4 py-2">
+                            <div>
+                                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Curva de Aprendizado Sozinho</h4>
+                                <p class="text-[10px] text-slate-400">Economize tempo e tecidos perdidos com erros</p>
+                            </div>
+                            <span class="text-xs font-bold text-amber-400">- 2 Anos de Vida</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-xs font-bold text-white uppercase tracking-wider">Economia Inicial Garantida:</span>
+                        <span class="text-base font-black text-green-400">+ R$ 115.000,00</span>
+                    </div>
+                </div>
+
+                <!-- Mockup de Uniforme Pronto 3D -->
+                <div class="mt-12 max-w-md mx-auto relative rounded-3xl border border-yellow-500/10 bg-slate-900 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 28px;">
+                    <img src="assets/resultado_uniforme_3d.png" alt="Mockup Uniforme 3D Clo3D" class="w-full h-auto object-cover rounded-2xl opacity-80" style="border-radius: 20px;"/>
+                    <div class="absolute bottom-6 left-6 right-6 rounded-xl bg-slate-950/90 border border-yellow-500/20 p-3 text-left">
+                        <p class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Resultado do Método</p>
+                        <p class="text-[11px] font-semibold text-white">Uniformes de Futebol projetados no software e impressos sem defeito por terceiros.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>        <!-- SEÇÃO 4: CRONOGRAMA 3D (Rotativo com Scroll Transform no Desktop) -->
+        <section id="cronograma-3d-section" class="w-full relative border-t border-b border-white/5 bg-[#051f2d]" style="height: 220vh;">
+            <div id="sticky-cube-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center" style="height: 100vh;">
                 <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative h-full py-16" style="height: 100%;">
                     
                     <!-- Lado Esquerdo -->
@@ -581,9 +662,10 @@
                                 📅 ENCONTRO AO VIVO
                             </span>
                             <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-none mt-4">
-                                Cronograma 3D
+                                Cronograma Prático
                             </h2>
                             <div class="h-0.5 w-16 bg-yellow-500/40 mt-4"></div>
+                            <p class="text-xs text-slate-400 mt-2">Gire a barra de rolagem para ver os detalhes de cada módulo no cubo 3D.</p>
                         </div>
 
                         <div class="space-y-4">
@@ -609,7 +691,7 @@
                     <!-- Lado Direito (Cubo 3D) -->
                     <div class="lg:col-span-6 flex items-center justify-center h-full relative">
                         <div class="cube-scene">
-                            <div id="cubo-3d" class="cube">
+                            <div id="cubo-3d" class="cube" style="transition: transform 0.2s ease-out;">
                                 
                                 <!-- Módulo 1 -->
                                 <div class="cube-face face-front">
@@ -617,7 +699,7 @@
                                         <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">MÓDULO 01</span>
                                         <h3 class="text-xl font-bold text-white mt-2 leading-tight">Design & Clo3D</h3>
                                         <p class="text-xs text-slate-300 mt-3 leading-relaxed">
-                                            Aprenda a vetorizar logos, golas polo e recriar designs esportivos de elite in 3D usando o Clo3D.
+                                            Aprenda a vetorizar logos, golas polo e recriar designs esportivos de elite em 3D usando o Clo3D.
                                         </p>
                                     </div>
                                     <div class="flex items-center justify-between border-t border-white/5 pt-4 text-[10px] text-slate-500 font-semibold uppercase">
@@ -677,14 +759,19 @@
 
                 </div>
             </div>
-            
+        </section>
+
+        <!-- SEÇÃO 4.5: GRADE DE CHECKS (Preenchimento 100%, Fundo de Várzea/Estádio) -->
+        <section class="w-full bg-[#020d14] py-20 relative">
             <!-- Grade de 16 Entregas do Print para Provar o Valor (Seção Unificada) -->
-            <div class="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5 relative z-30 bg-[#051f2d] animate-on-scroll">
-                <h3 class="text-center text-lg font-bold text-yellow-500 uppercase tracking-widest mb-8">Por que este Workshop NÃO será tempo perdido?</h3>
+            <div class="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-30 animate-on-scroll">
+                <h3 class="text-center text-xl font-extrabold text-white tracking-tight uppercase tracking-wider mb-12">
+                    Tudo o que você vai <span class="text-yellow-400">dominar no Workshop ao vivo</span>
+                </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
                     <div class="rounded-2xl border border-yellow-500/5 bg-[#041a26]/40 p-4 flex gap-3 items-start hover-card-effect">
                         <span class="text-green-400 font-bold">✓</span>
-                        <p class="text-[11px] text-slate-300 leading-normal"><strong>16h de conteúdo ao Vivo</strong> de fabricação, vendas e escala de marca esportiva.</p>
+                        <p class="text-[11px] text-slate-300 leading-normal"><strong>16h de conteúdo ao Vivo</strong> de fabricação e escala de marca esportiva.</p>
                     </div>
                     <div class="rounded-2xl border border-yellow-500/5 bg-[#041a26]/40 p-4 flex gap-3 items-start hover-card-effect">
                         <span class="text-green-400 font-bold">✓</span>
@@ -692,11 +779,11 @@
                     </div>
                     <div class="rounded-2xl border border-yellow-500/5 bg-[#041a26]/40 p-4 flex gap-3 items-start hover-card-effect">
                         <span class="text-green-400 font-bold">✓</span>
-                        <p class="text-[11px] text-slate-300 leading-normal"><strong>Publicação de Camisetas</strong> em um <strong>E-commerce esportivo</strong>.</p>
+                        <p class="text-[11px] text-slate-300 leading-normal"><strong>Publicação de Camisetas e Uniformes</strong> em um <strong>E-commerce esportivo</strong>.</p>
                     </div>
                     <div class="rounded-2xl border border-yellow-500/5 bg-[#041a26]/40 p-4 flex gap-3 items-start hover-card-effect">
                         <span class="text-green-400 font-bold">✓</span>
-                        <p class="text-[11px] text-slate-300 leading-normal"><strong>Funil de Vendas</strong> específico para vender Camisetas Esportivas.</p>
+                        <p class="text-[11px] text-slate-300 leading-normal"><strong>Funil de Vendas</strong> específico para vender Uniformes.</p>
                     </div>
                     <div class="rounded-2xl border border-yellow-500/5 bg-[#041a26]/40 p-4 flex gap-3 items-start hover-card-effect">
                         <span class="text-green-400 font-bold">✓</span>
@@ -759,7 +846,7 @@
                     <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400">
                         🎨 PORTFÓLIO DE SUCESSO
                     </span>
-                    <h2 class="text-3xl font-extrabold text-white mt-4 tracking-tight">Alguns dos mantos premium fabricados pela Bfnine</h2>
+                    <h2 class="text-3xl font-extrabold text-white mt-4 tracking-tight">Alguns dos Uniformes de Futebol premium fabricados pela Bfnine</h2>
                     <div class="mt-4 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
                 </div>
 
@@ -769,21 +856,21 @@
                     <!-- Imagem 1 (Base, Estática no fundo) -->
                     <div id="port-img-1" class="absolute inset-0 rounded-3xl border border-yellow-500/15 bg-slate-900 p-3 shadow-2xl transition-all duration-100 z-10">
                         <div class="overflow-hidden rounded-2xl w-full h-full bg-slate-950">
-                            <img alt="Manto Premium Real" class="w-full h-full object-cover" src="assets/manto_premium_real.png"/>
+                            <img alt="Uniforme Premium Real" class="w-full h-full object-cover" src="assets/manto_premium_real.png"/>
                         </div>
                     </div>
 
                     <!-- Imagem 2 (Sobe do fundo) -->
-                    <div id="port-img-2" class="absolute inset-0 rounded-3xl border border-yellow-500/15 bg-slate-900 p-3 shadow-2xl transition-all duration-100 z-20 transform translate-y-[100%] opacity-0">
+                    <div id="port-img-2" class="absolute inset-0 rounded-3xl border border-yellow-500/15 bg-slate-900 p-3 shadow-2xl z-20" style="transform: translateY(100%); opacity: 0; transition: transform 0.1s ease-out, opacity 0.1s ease-out;">
                         <div class="overflow-hidden rounded-2xl w-full h-full bg-slate-950">
-                            <img alt="Manto Gola Premium" class="w-full h-full object-cover" src="assets/manto_gola_premium.png"/>
+                            <img alt="Uniforme Gola Premium" class="w-full h-full object-cover" src="assets/manto_gola_premium.png"/>
                         </div>
                     </div>
 
                     <!-- Imagem 3 (Sobe do fundo) -->
-                    <div id="port-img-3" class="absolute inset-0 rounded-3xl border border-yellow-500/15 bg-slate-900 p-3 shadow-2xl transition-all duration-100 z-30 transform translate-y-[100%] opacity-0">
+                    <div id="port-img-3" class="absolute inset-0 rounded-3xl border border-yellow-500/15 bg-slate-900 p-3 shadow-2xl z-30" style="transform: translateY(100%); opacity: 0; transition: transform 0.1s ease-out, opacity 0.1s ease-out;">
                         <div class="overflow-hidden rounded-2xl w-full h-full bg-slate-950">
-                            <img alt="Manto Vestiário Premium" class="w-full h-full object-cover" src="assets/manto_vestiario_premium.png"/>
+                            <img alt="Uniforme Vestiário Premium" class="w-full h-full object-cover" src="assets/manto_vestiario_premium.png"/>
                         </div>
                     </div>
 
@@ -792,263 +879,216 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 6: DEPOIMENTOS EM SCROLL TRANSFORM HORIZONTAL (Cards retangulares cumpridos verticais, Tela Cheia) -->
-        <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5" style="height: 350vh;">
-            <div id="sticky-dep-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center" style="height: 100vh;">
-                <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center relative h-full py-16" style="height: 100%;">
-                    
-                    <!-- Header -->
-                    <div class="mb-10 text-center lg:text-left z-20">
-                        <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-yellow-400">
-                            💬 DEPOIMENTOS DE QUEM CHEGOU LÁ
-                        </span>
-                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mt-4">
-                            Quem já participou do Workshop
-                        </h2>
-                    </div>
-
-                    <!-- Track Deslizante (12 Depoimentos alongados verticais) -->
-                    <div id="dep-track-container" class="overflow-hidden w-full relative">
-                        <div id="dep-track" class="flex gap-6 transition-transform duration-100 ease-out">
-                            
-                            <!-- Depoimento 1 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"Eu me sentia muito desvalorizado no CLT. Decidi arriscar e comecei a montar designs de uniformes na minha sala à noite. Terceirizei com a lista de confecções dele e fechei meu primeiro time! Ganhei em uma venda o que levava o mês para receber."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Lucas Fonseca</p>
-                                        <p class="text-[9px] text-yellow-500">Fonseca Sublimações - SC</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 2 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"O maior medo que eu tinha era o fechamento dos arquivos e os erros de costura que minhas prensas pequenas não resolviam. O workshop ensinou passo a passo como gabaritar modelagens esportivas para calandra e enviar sem distorções."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Gabriela Medeiros</p>
-                                        <p class="text-[9px] text-yellow-500">Designer Têxtil - SP</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 3 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"O módulo de perfil de cores me economizou mais de R$ 2.000 em tecidos calandrados borrados. Consegui alinhar minhas plotters industriais rapidamente. A economia com insumos pagou o workshop logo no primeiro lote."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Roberto Martins</p>
-                                        <p class="text-[9px] text-yellow-500">RM Estamparia - SP</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 4 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"O caimento das modelagens slim europeias que vi nas aulas valorizaram muito meu catálogo. Os clientes amaram as novas camisas que vestem perfeitamente no corpo sem sobras."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Antônio Neto</p>
-                                        <p class="text-[9px] text-yellow-500">Neto Sports - PE</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 5 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"As aulas de tráfego pago para presidentes de times mudaram a forma como prospecto. Hoje tenho contatos vindo direto no WhatsApp buscando fardamentos de várzea de elite."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Jeferson Silva</p>
-                                        <p class="text-[9px] text-yellow-500">Jeferson Sublimação - RJ</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 6 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px; flex-grow: 0;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"Excelente didática. O passo a passo de como separar os tamanhos das peças economizou tempo precioso na minha costura industrial no chão de fábrica."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Mariana Santos</p>
-                                        <p class="text-[9px] text-yellow-500">Santos Uniformes - PR</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 7 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"Zerei as manchas de vinco na prensa sublimática depois de aprender a calibração de pressão nas aulas. Chega de perder material caro de Dry Fit."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">André Farias</p>
-                                        <p class="text-[9px] text-yellow-500">Farias Estampas - GO</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 8 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"Eu fabricava uniformes baratos de R$ 30. Hoje não vendo por menos de R$ 85 usando as técnicas e os moldes premium europeus. O faturamento explodiu."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Carlos Lacerda</p>
-                                        <p class="text-[9px] text-yellow-500">Lacerda Sports - MG</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 9 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"Terceirizar a calandragem como ele ensinou me tirou do operacional exaustivo. Hoje me concentro em vender, fechando contratos gordos de R$ 2.500,00."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Tiago Lima</p>
-                                        <p class="text-[9px] text-yellow-500">Lima Camisetas - BA</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 10 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"As aulas de tráfego pago no Google Ads me colocaram no topo quando os times buscam uniformes personalizados de várzea. Orçamentos diretos todo dia."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Paula Souza</p>
-                                        <p class="text-[9px] text-yellow-500">Paula Estamparia - DF</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 11 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"A facilidade do e-commerce esportivo me trouxe recorrência. Os times entram e fazem o pedido dos uniformes direto, de forma automática."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Renato Neto</p>
-                                        <p class="text-[9px] text-yellow-500">Neto Uniformes - ES</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Depoimento 12 -->
-                            <div class="rounded-2xl border border-yellow-500/10 bg-[#052637]/80 backdrop-blur p-6 flex flex-col justify-between hover-card-effect" style="width: 300px; flex-shrink: 0; min-height: 380px;">
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">"O processo de Inteligência Artificial para gerar as apresentações dos modelos nos economizou dezenas de sessões fotográficas caras de modelos."</p>
-                                <div class="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                                    <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 font-bold text-xs overflow-hidden">
-                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[11px] font-bold text-white">Alexandre Dias</p>
-                                        <p class="text-[9px] text-yellow-500">Dias Confecções - RS</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 7: FAQ DE DUAS COLUNAS (Tela Cheia) -->
-        <section id="faq-section" class="w-full bg-[#020d14] border-t border-white/5 relative">
-            <div class="min-h-screen flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start w-full">
+        <!-- SEÇÃO 6: DEPOIMENTOS DE ALUNOS (Preenchimento 100%, Scroll Snap Manual) -->
+        <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5 py-24">
+            <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8">
                 
-                <!-- Lado Esquerdo FAQ -->
-                <div class="lg:col-span-5 space-y-6 animate-on-scroll">
+                <!-- Header -->
+                <div class="mb-16 text-center max-w-2xl mx-auto">
                     <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-yellow-400">
-                        💬 PERGUNTAS FREQUENTES
+                        💬 DEPOIMENTOS DE QUEM CHEGOU LÁ
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-                        Perguntas e respostas sobre o workshop
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-4">
+                        Quem já aprendeu o método e vive de Uniformes de Futebol
                     </h2>
-                    <div class="h-0.5 w-16 bg-yellow-500/40"></div>
-                    
-                    <!-- Bloco de Suporte Escuro -->
-                    <div class="rounded-2xl border border-yellow-500/10 bg-slate-950 p-5 mt-6">
-                        <p class="text-xs text-slate-300 leading-relaxed">
-                            Dúvidas técnicas adicionais ou problemas com pagamento? Fale diretamente com o nosso suporte comercial pelo WhatsApp.
-                        </p>
-                    </div>
+                    <div class="mt-4 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
+                    <p class="text-xs text-slate-400 mt-4">Arraste para o lado para ver o depoimento dos nossos alunos.</p>
                 </div>
 
-                <!-- Lado Direito FAQ (Accordions) -->
-                <div class="lg:col-span-7 space-y-4 animate-on-scroll" style="animation-delay: 0.1s;">
+                <!-- Track Deslizante (Carrossel manual Snap) -->
+                <div id="dep-track-container" class="overflow-x-auto snap-x snap-mandatory scrollbar-none w-full pb-8">
+                    <div id="dep-track" class="flex gap-6">
+                        
+                        <!-- Depoimento 1 -->
+                        <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[340px]" style="border-radius: 28px;">
+                            <div>
+                                <!-- Topo do Card: Foto, Nome e Time -->
+                                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
+                                    <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                        <img src="assets/res_aluno_1.png" alt="Lucas Fonseca" class="w-full h-full object-cover"/>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Lucas Fonseca</h4>
+                                        <p class="text-[9px] text-yellow-500">Fonseca Uniformes - SC</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                                    "Eu me sentia muito desvalorizado no meu emprego CLT. Decidi arriscar e comecei a montar designs de uniformes na minha sala à noite. Terceirizei a estamparia e fechei meu primeiro time! Ganhei em uma única venda o que levava o mês inteiro para receber no meu antigo emprego."
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Depoimento 2 -->
+                        <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[340px]" style="border-radius: 28px; animation-delay: 0.1s;">
+                            <div>
+                                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
+                                    <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                        <img src="assets/res_aluno_2.png" alt="Gabriela Medeiros" class="w-full h-full object-cover"/>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Gabriela Medeiros</h4>
+                                        <p class="text-[9px] text-yellow-500">Designer Esportiva - SP</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                                    "O maior medo que eu tinha era errar no fechamento de arquivos e a estampa sair borrada. O workshop me ensinou a gabaritar uniformes de futebol no computador de forma perfeita. Hoje os times me elogiam pelas cores vivas e a modelagem exata do Dry Fit."
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Depoimento 3 -->
+                        <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[340px]" style="border-radius: 28px; animation-delay: 0.2s;">
+                            <div>
+                                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
+                                    <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                        <img src="assets/res_aluno_3.png" alt="Felipe Souza" class="w-full h-full object-cover"/>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Felipe Souza</h4>
+                                        <p class="text-[9px] text-yellow-500">Souza Sportswear - RJ</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                                    "Antes do workshop, eu achava que precisava investir em prensa e impressora industrial cara. O método de terceirização me salvou: fechei 4 times de futebol amador local e montei minha marca de dentro de casa usando só o meu notebook."
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 7: FAQ DE DUAS COLUNAS (Fundo Branco Estilo Print) -->
+        <section id="faq-section" class="w-full bg-white text-slate-900 border-t border-slate-200 py-20 relative">
+            <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+                
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-12 text-center lg:text-left">
+                    Perguntas Frequentes
+                </h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start w-full">
                     
-                    <!-- Accordion 1 -->
-                    <div class="faq-item rounded-2xl border border-yellow-500/10 bg-[#052637]/30 p-5 transition-all">
-                        <button class="faq-trigger w-full flex items-center justify-between text-left text-sm font-bold text-white focus:outline-none">
-                            O Workshop terá gravação disponível após o evento?
-                        </button>
-                        <div class="faq-content">
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                **Não.** O Workshop é um evento estritamente **ao vivo e interativo**, planejado para acontecer nos dias 08 e 09 de agosto. Não haverá replays ou gravações disponibilizadas pós-evento.
-                            </p>
+                    <!-- Lado Esquerdo: Accordions das Perguntas -->
+                    <div class="lg:col-span-7 space-y-3">
+                        
+                        <!-- Accordion 1 -->
+                        <div class="faq-item rounded-2xl bg-slate-100 p-4 transition-all">
+                            <button class="faq-trigger w-full flex items-center justify-between text-left text-sm font-bold text-slate-800 focus:outline-none">
+                                O Workshop vai ficar gravado?
+                            </button>
+                            <div class="faq-content">
+                                <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                                    Não. O Workshop será 100% ao vivo e interativo. Queremos que você esteja presente para tirar dúvidas em tempo real e interagir com o método.
+                                </p>
+                            </div>
                         </div>
+
+                        <!-- Accordion 2 -->
+                        <div class="faq-item rounded-2xl bg-slate-100 p-4 transition-all">
+                            <button class="faq-trigger w-full flex items-center justify-between text-left text-sm font-bold text-slate-800 focus:outline-none">
+                                Posso desistir do meu ingresso?
+                            </button>
+                            <div class="faq-content">
+                                <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                                    Sim. Se você se inscrever e por qualquer motivo não puder participar ou achar que não é para você, pode solicitar reembolso integral em até 48 horas após o encerramento do evento.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 3 -->
+                        <div class="faq-item rounded-2xl bg-slate-100 p-4 transition-all">
+                            <button class="faq-trigger w-full flex items-center justify-between text-left text-sm font-bold text-slate-800 focus:outline-none">
+                                O evento oferece certificado?
+                            </button>
+                            <div class="faq-content">
+                                <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                                    Sim, todos os participantes do Workshop ao vivo receberão certificado de participação emitido pela Bfnine.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 4 -->
+                        <div class="faq-item rounded-2xl bg-slate-100 p-4 transition-all">
+                            <button class="faq-trigger w-full flex items-center justify-between text-left text-sm font-bold text-slate-800 focus:outline-none">
+                                Estou começando do zero, consigo participar?
+                            </button>
+                            <div class="faq-content">
+                                <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                                    Com certeza. O método foi desenhado exatamente para quem não tem maquinário ou conhecimento prévio. Vamos te guiar do absoluto zero ao fardamento pronto.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 5 -->
+                        <div class="faq-item rounded-2xl bg-slate-100 p-4 transition-all">
+                            <button class="faq-trigger w-full flex items-center justify-between text-left text-sm font-bold text-slate-800 focus:outline-none">
+                                Como saber se o WorkShop da Marca Esportiva é para mim?
+                            </button>
+                            <div class="faq-content">
+                                <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                                    Se você quer sair do seu emprego CLT, trabalhar da sala de casa com futebol e ter um negócio lucrativo sem investir fortunas em maquinário, este workshop é para você.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 6 -->
+                        <div class="faq-item rounded-2xl bg-slate-100 p-4 transition-all">
+                            <button class="faq-trigger w-full flex items-center justify-between text-left text-sm font-bold text-slate-800 focus:outline-none">
+                                Vão me vender algo durante o WorkShop ou é 100% conteúdo?
+                            </button>
+                            <div class="faq-content">
+                                <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                                    Nosso foco é entregar 16 horas de puro conteúdo prático e aplicável. Ao final, apresentaremos nosso treinamento completo de acompanhamento individual (High Ticket) para quem desejar dar o próximo passo conosco, mas o workshop in si é totalmente prático.
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Accordion 2 -->
-                    <div class="faq-item rounded-2xl border border-yellow-500/10 bg-[#052637]/30 p-5 transition-all">
-                        <button class="faq-trigger w-full flex items-center justify-between text-left text-sm font-bold text-white focus:outline-none">
-                            Consigo assistir pelo celular?
-                        </button>
-                        <div class="faq-content">
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Sim. A transmissão será realizada por uma plataforma dedicada. Você poderá assistir a toda a mentoria técnica no computador, tablet ou celular.
-                            </p>
+                    <!-- Lado Direito: Suporte WhatsApp -->
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center text-center space-y-6 lg:pt-8">
+                        
+                        <!-- Box do Avatar Suporte Inclinado -->
+                        <div class="relative w-36 h-36">
+                            <!-- Background Inclinado Azul-Piscina -->
+                            <div class="absolute inset-0 bg-[#00a3c4] rounded-[28px] transform rotate-12"></div>
+                            <!-- Imagem da Atendente Loja/Suporte -->
+                            <div class="absolute inset-0 overflow-hidden rounded-[28px] border-4 border-white bg-slate-200">
+                                <img src="assets/res_aluno_3.png" alt="Suporte Bfnine" class="w-full h-full object-cover"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Accordion 3 -->
-                    <div class="faq-item rounded-2xl border border-yellow-500/10 bg-[#052637]/30 p-5 transition-all">
-                        <button class="faq-trigger w-full flex items-center justify-between text-left text-sm font-bold text-white focus:outline-none">
-                            Não sei vetorizar no CorelDRAW. Posso participar?
-                        </button>
-                        <div class="faq-content">
-                            <p class="text-xs text-slate-300 leading-relaxed">
-                                Sim. Abordaremos desde os conceitos de vetorização básica até técnicas avançadas de encaixe em modelagens Slim no Clo3D.
-                            </p>
+                        <div class="space-y-4">
+                            <h4 class="text-base font-bold text-slate-800 leading-snug max-w-xs mx-auto">
+                                Se ainda estiver com dúvidas nossa equipe está a disposição:
+                            </h4>
+                            
+                            <a href="https://wa.me/5511999999999" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-[#39eb00] hover:bg-[#32ce00] border-2 border-slate-950 px-6 py-3 text-slate-950 font-extrabold text-sm shadow-[4px_4px_0px_#000] hover:shadow-[2px_2px_0px_#000] active:translate-y-0.5 transition-all" style="border-radius: 12px;">
+                                Falar com o suporte
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.966C16.59 1.977 14.113.953 11.493.953 6.059.953 1.633 5.325 1.629 10.756c-.002 1.674.452 3.308 1.311 4.733L1.925 21.8l6.598-1.728.124-.078z"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
 
                 </div>
+
+                <!-- Abaixo FAQ: Avatar circular do Flávio e Instagram Rosa -->
+                <div class="mt-16 border-t border-slate-100 pt-12 flex flex-col items-center justify-center space-y-4">
+                    <div class="w-16 h-16 rounded-full border-4 border-slate-950 overflow-hidden shadow-lg bg-slate-200">
+                        <img src="assets/especialista_hero.png" alt="Flávio Bfnine" class="w-full h-full object-cover object-top"/>
+                    </div>
+                    
+                    <a href="https://instagram.com/flaviobfnine" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#bc1888] hover:opacity-90 px-6 py-2.5 text-white font-extrabold text-xs shadow-md" style="border-radius: 8px;">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051C.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                        @flaviobfnine
+                    </a>
+                </div>
+
             </div>
         </section>
 
@@ -1083,14 +1123,12 @@
         <section id="comprar" class="w-full bg-[#020d14] border-t border-white/5 relative">
             <div class="min-h-screen flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20">
             
-            <div class="text-center max-w-3xl mx-auto mb-12 animate-on-scroll">
-                <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400">
+            <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
+                <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400 mb-6">
                     O que está incluso neste Workshop da Sublimação Esportiva?
                 </span>
-                <p class="text-slate-400 text-sm mt-4 font-bold">Não é curso.</p>
-                <p class="text-slate-400 text-sm mt-1 font-bold">Não é teoria.</p>
-                <p class="text-yellow-500 text-base mt-2 font-black uppercase tracking-wider">É Método de Fabricação com Estratégias de Vendas Validadas.</p>
-                <p class="text-slate-300 text-xs mt-1">E você pode garantir a sua participação agora.</p>
+                <h2 class="text-yellow-500 text-xl sm:text-2xl mt-4 font-black uppercase tracking-wider">UM método de fabricação com estratégias validadas.</h2>
+                <p class="text-slate-300 text-xs mt-2">E você pode garantir o seu ingresso agora.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start w-full">
@@ -1098,7 +1136,7 @@
                 <!-- Caixa de Oferta -->
                 <div class="lg:col-span-7 rounded-3xl border border-yellow-500/10 bg-[#052637]/50 backdrop-blur-xl p-8 relative shadow-2xl animate-on-scroll hover-card-effect" style="border-radius: 24px;">
                     <span class="inline-flex items-center rounded-full bg-yellow-500/10 text-yellow-400 px-3 py-1 text-xs font-bold border border-yellow-500/30 mb-6">
-                        LOTE 1 - INGRESSO PROMOCIONAL
+                        O que está incluso neste Workshop da Sublimação Esportiva?
                     </span>
                     <h3 class="text-2xl font-extrabold tracking-tight">Um Workshop que você participa uma vez e usa o conhecimento por anos.</h3>
                     <p class="text-slate-300 text-xs mt-3 leading-relaxed">
@@ -1198,9 +1236,9 @@
                 <!-- CTA Final -->
                 <div class="lg:col-span-5 space-y-6 animate-on-scroll" style="animation-delay: 0.1s;">
                     <div class="rounded-3xl border border-yellow-500/10 bg-slate-900/60 p-8 shadow-xl hover-card-effect" style="border-radius: 24px;">
-                        <h3 class="text-lg font-bold text-white">Garanta Sua Cadeira</h3>
+                        <h3 class="text-lg font-bold text-white">Garanta Seu Ingresso</h3>
                         <p class="text-slate-400 text-xs mt-4 leading-relaxed">
-                            O preço de R$ 19,00 é simbólico para garantir o comprometimento dos participantes. Não haverá replays ou gravações.
+                            O preço de R$ 19,00 é simbólico para garantir o comprometimento dos participantes. O Workshop é 100% ao vivo e interativo.
                         </p>
                         <p class="text-xs text-red-400 font-bold mt-2">Quando virar o lote, volta mais caro ou encerra.</p>
                         
@@ -1292,14 +1330,38 @@
     </footer>
 
     <script>
-        document.getElementById('video-placeholder').addEventListener('click', function() {
-            var placeholder = document.getElementById('video-placeholder');
-            var container = document.getElementById('video-player-container');
-            var iframe = document.getElementById('video-iframe');
-            iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
-            placeholder.classList.add('hidden');
-            container.classList.remove('hidden');
-        });
+        // Função Global para rotacionar o Cubo 3D na seção de cronograma
+        function rotateCube(deg, index) {
+            const cubo = document.getElementById('cubo-3d');
+            if (cubo) {
+                cubo.style.transform = `rotateY(${deg}deg) rotateX(10deg)`;
+            }
+            // Atualizar abas
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`btn-modulo-${i}`);
+                if (btn) {
+                    if (i === index) {
+                        btn.style.opacity = "1";
+                        btn.style.borderLeftColor = "#eab308";
+                    } else {
+                        btn.style.opacity = "0.4";
+                        btn.style.borderLeftColor = "transparent";
+                    }
+                }
+            }
+        }
+
+        const videoPlaceholder = document.getElementById('video-placeholder');
+        if (videoPlaceholder) {
+            videoPlaceholder.addEventListener('click', function() {
+                var placeholder = document.getElementById('video-placeholder');
+                var container = document.getElementById('video-player-container');
+                var iframe = document.getElementById('video-iframe');
+                iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+                placeholder.classList.add('hidden');
+                container.classList.remove('hidden');
+            });
+        }
 
         document.querySelectorAll('.faq-trigger').forEach(trigger => {
             trigger.addEventListener('click', () => {
@@ -1317,6 +1379,14 @@
         });
 
         (function() {
+            const processSection = document.getElementById('processo-section');
+            const processTrack = document.getElementById('process-track');
+            const processTrackContainer = document.getElementById('process-track-container');
+
+            const portSection = document.getElementById('portfolio-section');
+            const img2 = document.getElementById('port-img-2');
+            const img3 = document.getElementById('port-img-3');
+
             const cronoSection = document.getElementById('cronograma-3d-section');
             const cubo = document.getElementById('cubo-3d');
             const txt1 = document.getElementById('modulo-txt-1');
@@ -1324,27 +1394,32 @@
             const txt3 = document.getElementById('modulo-txt-3');
             const txt4 = document.getElementById('modulo-txt-4');
 
-            const portSection = document.getElementById('portfolio-section');
-            const img2 = document.getElementById('port-img-2');
-            const img3 = document.getElementById('port-img-3');
-
-            const depSection = document.getElementById('depoimentos-section');
-            const depTrack = document.getElementById('dep-track');
-            const depTrackContainer = document.getElementById('dep-track-container');
-
             function handleVisualScrolls() {
                 if (window.innerWidth < 1024) {
-                    if (cubo) cubo.style.transform = '';
-                    if (txt1) { txt1.style.opacity = "1"; txt1.style.borderLeftColor = "#eab308"; }
-                    if (txt2) { txt2.style.opacity = "1"; txt2.style.borderLeftColor = "#eab308"; }
-                    if (txt3) { txt3.style.opacity = "1"; txt3.style.borderLeftColor = "#eab308"; }
-                    if (txt4) { txt4.style.opacity = "1"; txt4.style.borderLeftColor = "#eab308"; }
                     if (img2) { img2.style.transform = ''; img2.style.opacity = ''; }
                     if (img3) { img3.style.transform = ''; img3.style.opacity = ''; }
-                    if (depTrack) depTrack.style.transform = '';
+                    if (processTrack) processTrack.style.transform = '';
+                    if (cubo) cubo.style.transform = '';
                     return;
                 }
 
+                // Scroll Transform dos Cards de Processo
+                if (processSection && processTrack && processTrackContainer) {
+                    const procRect = processSection.getBoundingClientRect();
+                    const viewHeight = window.innerHeight;
+                    const totalHeight = processSection.clientHeight;
+                    
+                    if (procRect.top <= 0 && procRect.bottom >= viewHeight) {
+                        const scrolled = -procRect.top;
+                        const totalScrollable = totalHeight - viewHeight;
+                        const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
+                        
+                        const maxTranslate = processTrack.scrollWidth - processTrackContainer.clientWidth + 32;
+                        processTrack.style.transform = `translateX(-${pct * maxTranslate}px)`;
+                    }
+                }
+
+                // Cubo 3D no Scroll
                 if (cronoSection && cubo) {
                     const sectionRect = cronoSection.getBoundingClientRect();
                     const viewHeight = window.innerHeight;
@@ -1359,29 +1434,30 @@
                         cubo.style.transform = `rotateY(${rotationY}deg) rotateX(10deg)`;
 
                         if (pct < 0.25) {
-                            txt1.style.opacity = "1"; txt1.style.borderLeftColor = "#eab308";
-                            txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent";
-                            txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent";
-                            txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent";
+                            if (txt1) { txt1.style.opacity = "1"; txt1.style.borderLeftColor = "#eab308"; }
+                            if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
+                            if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
+                            if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
                         } else if (pct >= 0.25 && pct < 0.5) {
-                            txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent";
-                            txt2.style.opacity = "1"; txt2.style.borderLeftColor = "#eab308";
-                            txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent";
-                            txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent";
+                            if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
+                            if (txt2) { txt2.style.opacity = "1"; txt2.style.borderLeftColor = "#eab308"; }
+                            if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
+                            if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
                         } else if (pct >= 0.5 && pct < 0.75) {
-                            txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent";
-                            txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent";
-                            txt3.style.opacity = "1"; txt3.style.borderLeftColor = "#eab308";
-                            txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent";
+                            if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
+                            if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
+                            if (txt3) { txt3.style.opacity = "1"; txt3.style.borderLeftColor = "#eab308"; }
+                            if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
                         } else {
-                            txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent";
-                            txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent";
-                            txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent";
-                            txt4.style.opacity = "1"; txt4.style.borderLeftColor = "#eab308";
+                            if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
+                            if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
+                            if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
+                            if (txt4) { txt4.style.opacity = "1"; txt4.style.borderLeftColor = "#eab308"; }
                         }
                     }
                 }
 
+                // Stacking do Portfólio
                 if (portSection && img2 && img3) {
                     const rect = portSection.getBoundingClientRect();
                     const viewHeight = window.innerHeight;
@@ -1411,27 +1487,77 @@
                         }
                     }
                 }
-
-                if (depSection && depTrack && depTrackContainer) {
-                    const depRect = depSection.getBoundingClientRect();
-                    const viewHeight = window.innerHeight;
-                    const totalHeight = depSection.clientHeight;
-                    
-                    if (depRect.top <= 0 && depRect.bottom >= viewHeight) {
-                        const scrolled = -depRect.top;
-                        const totalScrollable = totalHeight - viewHeight;
-                        const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
-                        
-                        const maxTranslate = depTrack.scrollWidth - depTrackContainer.clientWidth + 32;
-                        depTrack.style.transform = `translateX(-${pct * maxTranslate}px)`;
-                    }
-                }
             }
 
             window.addEventListener('scroll', handleVisualScrolls);
             window.addEventListener('resize', handleVisualScrolls);
             handleVisualScrolls();
         })();
+
+        // Notificações PIX Rotativas (Flutuante no canto inferior esquerdo)
+        const pixNotifications = [
+            { bank: "Nubank", icon: "NB", bg: "bg-purple-600", text: "text-purple-400", buyer: "Amanda Costa do Mafu Futsal" },
+            { bank: "Itaú", icon: "IT", bg: "bg-orange-600", text: "text-orange-400", buyer: "Thiago Santos do Aliança Várzea" },
+            { bank: "Mercado Pago", icon: "MP", bg: "bg-sky-500", text: "text-sky-400", buyer: "Bruno Oliveira do Resenha Futsal" },
+            { bank: "Bradesco", icon: "BD", bg: "bg-rose-600", text: "text-rose-400", buyer: "Ricardo Silva do União Várzea" },
+            { bank: "Banco do Brasil", icon: "BB", bg: "bg-yellow-600", text: "text-yellow-400", buyer: "Diego Souza do E.C. Real" }
+        ];
+
+        let currentPixIndex = 0;
+        let pixTimeout = null;
+
+        function showNextPixNotification() {
+            const popup = document.getElementById('pix-notification-popup');
+            if (!popup) return;
+            
+            // Esconder
+            popup.classList.add('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                const current = pixNotifications[currentPixIndex];
+                
+                const iconEl = document.getElementById('pix-bank-icon');
+                const bankEl = document.getElementById('pix-bank-name');
+                const buyerEl = document.getElementById('pix-buyer-name');
+                
+                if (iconEl && bankEl && buyerEl) {
+                    // Atualizar classes de fundo do ícone
+                    iconEl.className = `w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-xs flex-shrink-0 ${current.bg}`;
+                    iconEl.textContent = current.icon;
+                    
+                    // Atualizar textos e classes de cor do banco
+                    bankEl.className = `text-[9px] font-bold uppercase tracking-wider ${current.text}`;
+                    bankEl.textContent = current.bank;
+                    
+                    buyerEl.textContent = current.buyer;
+                    
+                    // Mostrar
+                    popup.classList.remove('translate-y-20', 'opacity-0');
+                }
+                
+                currentPixIndex = (currentPixIndex + 1) % pixNotifications.length;
+                
+                // Agendar fechamento
+                pixTimeout = setTimeout(() => {
+                    popup.classList.add('translate-y-20', 'opacity-0');
+                    // Agendar próxima exibição
+                    setTimeout(showNextPixNotification, 4000);
+                }, 6000);
+            }, 500);
+        }
+
+        function closePixPopup() {
+            const popup = document.getElementById('pix-notification-popup');
+            if (popup) {
+                popup.classList.add('translate-y-20', 'opacity-0');
+                if (pixTimeout) clearTimeout(pixTimeout);
+            }
+        }
+
+        // Inicializar Notificação PIX
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(showNextPixNotification, 3000);
+        });
     </script>
 </body>
 </html>
