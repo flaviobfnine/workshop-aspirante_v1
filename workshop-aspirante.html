@@ -472,21 +472,23 @@
         </section>
 
         <!-- SEÇÃO 2: A REALIDADE E AS DORES DO CLT (Preenchimento 100%, Interação por Scroll do Usuário) -->
-        <section class="w-full bg-[#051f2d] border-t border-white/5 relative">
-            <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-24">
-            
-            <!-- Sobrancelha Destacada -->
-            <div class="mb-16 text-center max-w-2xl mx-auto animate-on-scroll">
-                <span class="inline-flex items-center rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1.5 text-xs font-black uppercase tracking-widest text-red-400">
-                    ❌ A REALIDADE QUE TE PRENDE
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight leading-tight">Até quando você vai adiar o sonho de ter seu próprio negócio no futebol amador?</h2>
-                <div class="mt-4 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
-                <p class="text-xs text-slate-400 mt-4">Arraste para o lado para ler os maiores obstáculos enfrentados por quem tenta começar sozinho.</p>
-            </div>
+        <section id="dores-section" class="w-full bg-[#051f2d] border-t border-white/5 relative" style="height: 220vh;">
+            <div id="sticky-dores-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center w-full" style="height: 100vh;">
+                <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 py-12 relative flex flex-col justify-center h-full">
+                
+                <!-- Sobrancelha Destacada -->
+                <div class="mb-12 text-center max-w-2xl mx-auto animate-on-scroll">
+                    <span class="inline-flex items-center rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1.5 text-xs font-black uppercase tracking-widest text-red-400">
+                        ❌ A REALIDADE QUE TE PRENDE
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight leading-tight">Até quando você vai adiar o sonho de ter seu próprio negócio no futebol amador?</h2>
+                    <div class="mt-4 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
+                    <p class="text-xs text-slate-400 mt-4">Conheça os maiores obstáculos enfrentados por quem tenta começar sozinho.</p>
+                </div>
 
-            <!-- Contêiner de Cards Snap com Scroll Horizontal Manual -->
-            <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-8 pt-2 w-full" style="-webkit-overflow-scrolling: touch;">
+                <!-- Contêiner de Cards com Scroll Transform -->
+                <div id="dores-track-container" class="overflow-hidden w-full relative scrollbar-none pb-8 pt-2">
+                    <div id="dores-track" class="flex gap-6 transition-transform duration-100 ease-out">
                 
                 <!-- Card 1: A Prisão do CLT -->
                 <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-red-500/10 bg-slate-900/40 overflow-hidden flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px;">
@@ -568,6 +570,48 @@
                     </div>
                 </div>
 
+                <!-- Card 5: O Labirinto dos Fornecedores -->
+                <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-red-500/10 bg-slate-900/40 overflow-hidden flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px; animation-delay: 0.4s;">
+                    <div>
+                        <div class="w-full h-44 overflow-hidden relative">
+                            <img src="assets/dor_fornecedor_atrasado.png" alt="Atrasos e fornecedores ruins" class="w-full h-full object-cover opacity-75"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[9px] font-bold text-red-400 uppercase tracking-widest">05. PARCEIROS RUINS</span>
+                            <h3 class="text-lg font-bold text-white mt-2 leading-snug">Medo de sofrer com atrasos e queimar sua palavra com os times</h3>
+                            <p class="text-[11px] text-slate-300 mt-4 leading-relaxed">
+                                A terceirização só funciona se você tiver parceiros de costura e estamparia de elite. Se você cair na mão de oficinas desorganizadas que atrasam a entrega, erram os tamanhos ou usam tecido de baixa qualidade, você vai queimar sua reputação na várzea.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <p class="text-[9px] text-slate-400">❌ O método ensina como acessar a lista secreta de fornecedores testados da própria Bfnine.</p>
+                    </div>
+                </div>
+
+                <!-- Card 6: A Guerra de Preços -->
+                <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-red-500/10 bg-slate-900/40 overflow-hidden flex flex-col justify-between hover-card-effect animate-on-scroll" style="border-radius: 28px; animation-delay: 0.5s;">
+                    <div>
+                        <div class="w-full h-44 overflow-hidden relative">
+                            <img src="assets/dor_guerra_precos.png" alt="Briga de preços baixos" class="w-full h-full object-cover opacity-75"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"></div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[9px] font-bold text-red-400 uppercase tracking-widest">06. PREÇOS PROSTITUÍDOS</span>
+                            <h3 class="text-lg font-bold text-white mt-2 leading-snug">Medo de ter que vender barato por R$ 35 e não ter lucro</h3>
+                            <p class="text-[11px] text-slate-300 mt-4 leading-relaxed">
+                                Muitos acreditam que o mercado de fardamentos esportivos está saturado e prostituído por confecções locais baratas. A verdade é que os diretores de times de várzea pagam R$ 90 a R$ 120 por camisa rindo se o design for exclusivo em 3D e o tecido for premium.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-white/5 bg-slate-950/20">
+                        <p class="text-[9px] text-slate-400">❌ O método ensina como se posicionar como marca de elite e sair da guerra de centavos.</p>
+                    </div>
+                </div>
+
+            </div>
+            </div>
             </div>
             </div>
         </section>
@@ -588,8 +632,8 @@
                     </div>
 
                     <!-- Trilho Deslizante dos Cards de Processo -->
-                    <div id="process-track-container" class="overflow-x-auto lg:overflow-hidden w-full relative snap-x snap-mandatory scrollbar-none pb-4">
-                        <div id="process-track" class="flex gap-6 transition-transform duration-100 ease-out lg:w-[1400px]">
+                    <div id="process-track-container" class="overflow-hidden w-full relative scrollbar-none pb-4">
+                        <div id="process-track" class="flex gap-6 transition-transform duration-100 ease-out">
                             
                             <!-- Passo 1 -->
                             <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[260px]" style="border-radius: 24px;">
@@ -1448,6 +1492,10 @@
         });
 
         (function() {
+            const doresSection = document.getElementById('dores-section');
+            const doresTrack = document.getElementById('dores-track');
+            const doresTrackContainer = document.getElementById('dores-track-container');
+
             const processSection = document.getElementById('processo-section');
             const processTrack = document.getElementById('process-track');
             const processTrackContainer = document.getElementById('process-track-container');
@@ -1464,95 +1512,121 @@
             const txt4 = document.getElementById('modulo-txt-4');
 
             function handleVisualScrolls() {
-                if (window.innerWidth < 1024) {
+                const isMobile = window.innerWidth < 1024;
+
+                // Reset de efeitos específicos para celular
+                if (isMobile) {
                     if (img2) { img2.style.transform = ''; img2.style.opacity = ''; }
                     if (img3) { img3.style.transform = ''; img3.style.opacity = ''; }
-                    if (processTrack) processTrack.style.transform = '';
                     if (cubo) cubo.style.transform = '';
-                    return;
                 }
 
-                // Scroll Transform dos Cards de Processo
-                if (processSection && processTrack && processTrackContainer) {
-                    const procRect = processSection.getBoundingClientRect();
+                // 1. Scroll Transform dos Cards de Dores (Seção 2) (Roda em todas as telas)
+                if (doresSection && doresTrack && doresTrackContainer) {
+                    const rect = doresSection.getBoundingClientRect();
                     const viewHeight = window.innerHeight;
-                    const totalHeight = processSection.clientHeight;
-                    
-                    if (procRect.top <= 0 && procRect.bottom >= viewHeight) {
-                        const scrolled = -procRect.top;
-                        const totalScrollable = totalHeight - viewHeight;
-                        const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
-                        
-                        const maxTranslate = processTrack.scrollWidth - processTrackContainer.clientWidth + 32;
-                        processTrack.style.transform = `translateX(-${pct * maxTranslate}px)`;
-                    }
-                }
-
-                // Cubo 3D no Scroll
-                if (cronoSection && cubo) {
-                    const sectionRect = cronoSection.getBoundingClientRect();
-                    const viewHeight = window.innerHeight;
-                    const totalHeight = cronoSection.clientHeight;
-                    
-                    if (sectionRect.top <= 0 && sectionRect.bottom >= viewHeight) {
-                        const scrolled = -sectionRect.top;
-                        const totalScrollable = totalHeight - viewHeight;
-                        const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
-                        
-                        const rotationY = -pct * 270; 
-                        cubo.style.transform = `rotateY(${rotationY}deg) rotateX(10deg)`;
-
-                        if (pct < 0.25) {
-                            if (txt1) { txt1.style.opacity = "1"; txt1.style.borderLeftColor = "#eab308"; }
-                            if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
-                            if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
-                            if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
-                        } else if (pct >= 0.25 && pct < 0.5) {
-                            if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
-                            if (txt2) { txt2.style.opacity = "1"; txt2.style.borderLeftColor = "#eab308"; }
-                            if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
-                            if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
-                        } else if (pct >= 0.5 && pct < 0.75) {
-                            if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
-                            if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
-                            if (txt3) { txt3.style.opacity = "1"; txt3.style.borderLeftColor = "#eab308"; }
-                            if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
-                        } else {
-                            if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
-                            if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
-                            if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
-                            if (txt4) { txt4.style.opacity = "1"; txt4.style.borderLeftColor = "#eab308"; }
-                        }
-                    }
-                }
-
-                // Stacking do Portfólio
-                if (portSection && img2 && img3) {
-                    const rect = portSection.getBoundingClientRect();
-                    const viewHeight = window.innerHeight;
-                    const totalHeight = portSection.clientHeight;
+                    const totalHeight = doresSection.clientHeight;
                     
                     if (rect.top <= 0 && rect.bottom >= viewHeight) {
                         const scrolled = -rect.top;
                         const totalScrollable = totalHeight - viewHeight;
                         const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
                         
-                        if (pct < 0.5) {
-                            const subPct = pct / 0.5; // 0 a 1
-                            const transY = 100 - (subPct * 100);
-                            img2.style.transform = `translateY(${transY}%)`;
-                            img2.style.opacity = subPct;
+                        const trackWidth = doresTrack.scrollWidth;
+                        const containerWidth = doresTrackContainer.clientWidth;
+                        
+                        const maxTranslate = Math.max(trackWidth - containerWidth + 48, 0);
+                        doresTrack.style.transform = `translateX(-${pct * maxTranslate}px)`;
+                    }
+                }
+
+                // 2. Scroll Transform dos Cards de Processo (Roda em todas as telas)
+                if (processSection && processTrack && processTrackContainer) {
+                    const procRect = processSection.getBoundingClientRect();
+                    const viewHeight = window.innerHeight;
+                    const totalHeight = processSection.clientHeight;
+                    
+                    if (procRect.top < viewHeight && procRect.bottom > 0) {
+                        const totalScrollable = totalHeight + viewHeight;
+                        const scrolled = viewHeight - procRect.top;
+                        const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
+                        
+                        const trackScrollWidth = processTrack.scrollWidth;
+                        const containerWidth = processTrackContainer.clientWidth;
+                        
+                        const maxTranslate = Math.max(trackScrollWidth - containerWidth + 48, 0);
+                        processTrack.style.transform = `translateX(-${pct * maxTranslate}px)`;
+                    }
+                }
+
+                // 2. Efeitos exclusivos de Desktop (Cubo 3D e Portfólio)
+                if (!isMobile) {
+                    // Cubo 3D no Scroll
+                    if (cronoSection && cubo) {
+                        const sectionRect = cronoSection.getBoundingClientRect();
+                        const viewHeight = window.innerHeight;
+                        const totalHeight = cronoSection.clientHeight;
+                        
+                        if (sectionRect.top <= 0 && sectionRect.bottom >= viewHeight) {
+                            const scrolled = -sectionRect.top;
+                            const totalScrollable = totalHeight - viewHeight;
+                            const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
                             
-                            img3.style.transform = `translateY(100%)`;
-                            img3.style.opacity = 0;
-                        } else {
-                            img2.style.transform = `translateY(0%)`;
-                            img2.style.opacity = 1;
+                            const rotationY = -pct * 270; 
+                            cubo.style.transform = `rotateY(${rotationY}deg) rotateX(10deg)`;
+
+                            if (pct < 0.25) {
+                                if (txt1) { txt1.style.opacity = "1"; txt1.style.borderLeftColor = "#eab308"; }
+                                if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
+                                if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
+                                if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
+                            } else if (pct >= 0.25 && pct < 0.5) {
+                                if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
+                                if (txt2) { txt2.style.opacity = "1"; txt2.style.borderLeftColor = "#eab308"; }
+                                if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
+                                if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
+                            } else if (pct >= 0.5 && pct < 0.75) {
+                                if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
+                                if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
+                                if (txt3) { txt3.style.opacity = "1"; txt3.style.borderLeftColor = "#eab308"; }
+                                if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
+                            } else {
+                                if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
+                                if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
+                                if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
+                                if (txt4) { txt4.style.opacity = "1"; txt4.style.borderLeftColor = "#eab308"; }
+                            }
+                        }
+                    }
+
+                    // Stacking do Portfólio
+                    if (portSection && img2 && img3) {
+                        const rect = portSection.getBoundingClientRect();
+                        const viewHeight = window.innerHeight;
+                        const totalHeight = portSection.clientHeight;
+                        
+                        if (rect.top <= 0 && rect.bottom >= viewHeight) {
+                            const scrolled = -rect.top;
+                            const totalScrollable = totalHeight - viewHeight;
+                            const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
                             
-                            const subPct = (pct - 0.5) / 0.5; // 0 a 1
-                            const transY = 100 - (subPct * 100);
-                            img3.style.transform = `translateY(${transY}%)`;
-                            img3.style.opacity = subPct;
+                            if (pct < 0.5) {
+                                const subPct = pct / 0.5; // 0 a 1
+                                const transY = 100 - (subPct * 100);
+                                img2.style.transform = `translateY(${transY}%)`;
+                                img2.style.opacity = subPct;
+                                
+                                img3.style.transform = `translateY(100%)`;
+                                img3.style.opacity = 0;
+                            } else {
+                                img2.style.transform = `translateY(0%)`;
+                                img2.style.opacity = 1;
+                                
+                                const subPct = (pct - 0.5) / 0.5; // 0 a 1
+                                const transY = 100 - (subPct * 100);
+                                img3.style.transform = `translateY(${transY}%)`;
+                                img3.style.opacity = subPct;
+                            }
                         }
                     }
                 }
