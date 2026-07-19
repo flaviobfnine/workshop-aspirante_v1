@@ -32,6 +32,18 @@
             pointer-events: none;
             z-index: 30;
         }
+        /* Efeito de Vidro Premium */
+        .pix-notification-glass {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: 40;
+        }
 
         /* Flutuação Parallax */
         @keyframes float-nubank {
@@ -71,6 +83,11 @@
                 animation: none !important;
                 transform: scale(0.95) !important;
                 background: rgba(4, 28, 44, 0.95);
+            }
+            .pix-notification-glass {
+                animation: none !important;
+                transform: scale(0.95) !important;
+                background: rgba(255, 255, 255, 0.1) !important;
             }
         }
 
@@ -277,16 +294,7 @@
 </head>
 <body class="min-h-screen bg-slate-950 text-white antialiased" style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
     
-    <!-- Notificação de PIX Rotativa Global (Flutua no canto inferior esquerdo) -->
-    <div id="pix-notification-popup" class="fixed bottom-4 left-4 z-50 max-w-[280px] sm:max-w-[320px] rounded-2xl border border-yellow-500/20 bg-slate-950/95 backdrop-blur p-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transform translate-y-20 opacity-0 transition-all duration-500 flex items-start gap-3 pointer-events-auto">
-        <div id="pix-bank-icon" class="w-9 h-9 rounded-xl bg-purple-600 flex items-center justify-center text-white font-black text-xs flex-shrink-0">NB</div>
-        <div class="text-left flex-1 min-w-0">
-            <p id="pix-bank-name" class="text-[9px] font-bold text-purple-400 uppercase tracking-wider">Nubank</p>
-            <p class="text-[11px] font-semibold text-white mt-0.5">PIX Recebido!</p>
-            <p id="pix-buyer-name" class="text-[10px] text-neutral-300 font-bold mt-0.5 truncate">Amanda Costa do Mafu Futsal</p>
-        </div>
-        <button onclick="closePixPopup()" class="text-neutral-500 hover:text-white text-xs font-bold leading-none focus:outline-none">&times;</button>
-    </div>
+
 
     <!-- Background Grid -->
     <div class="fixed inset-0 -z-10 bg-gradient-to-b from-[#03151f] via-[#052130] to-[#021017]">
@@ -314,11 +322,18 @@
                         <path d="M2 6.5a4.5 4.5 0 0 1 9 0v3c0 .349 0 .523-.038.666a1.13 1.13 0 0 1-.796.796C10.023 11 9.85 11 9.5 11h-3A4.5 4.5 0 0 1 2 6.5m11 8c0-.349 0-.523.038-.666c.104-.388.408-.692.796-.796c.143-.038.317-.038.666-.038h3a4.5 4.5 0 1 1-4.5 4.5z" fill="currentColor" opacity=".5"></path>
                     </svg>
                 </span>
-                <span class="text-lg font-bold tracking-tight text-white">BFNINE <span class="text-yellow-500 font-light">WORKSHOP</span></span>
+                <span class="text-lg font-bold tracking-tight text-white">Workshop da <span class="text-yellow-500">Marca Esportiva</span></span>
             </a>
+
+            <!-- Data e Tipo de Evento no Topo -->
+            <div class="hidden md:flex items-center gap-3 text-xs font-semibold text-slate-300">
+                <span>📅 15 e 16 de Agosto</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-yellow-400">⚡ 100% Online e Ao Vivo</span>
+            </div>
             
             <div class="flex items-center gap-3">
-                <a href="#comprar" class="inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-2 text-xs sm:text-sm font-semibold text-yellow-400 hover:text-white transition-all btn-shimmer" style="border-radius: 9999px;">
+                <a href="#comprar" class="inline-flex items-center gap-2 rounded-full bg-green-600 hover:bg-green-500 text-white px-4 py-2 text-xs sm:text-sm font-semibold transition-all btn-shimmer shadow-[0_2px_10px_rgba(34,197,94,0.2)]" style="border-radius: 9999px;">
                     Garantir Vaga
                 </a>
             </div>
@@ -339,37 +354,46 @@
                 <!-- Coluna Esquerda: Copywriting e CTA -->
                 <div class="lg:col-span-7 text-center lg:text-left flex flex-col justify-center items-center lg:items-start space-y-6">
                     
-                    <!-- Sobrancelha Destacada -->
+                    <!-- Sobrancelha Discreta (Efeito Vidro Fosco) -->
                     <div class="animate-fade-in">
-                        <span class="inline-flex items-center gap-2 rounded-full border border-yellow-500/40 bg-yellow-500/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-yellow-400 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
-                            ⚡ LIBERDADE FINANCEIRA E TRABALHO PRÓPRIO
+                        <span class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur px-3 py-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-300 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                            ⚡ Liberdade Financeira Fabricando Uniforme de Futebol
                         </span>
                     </div>
 
                     <!-- Headline -->
                     <div class="animate-fade-in" style="animation-delay: 0.1s;">
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
-                            Como sair do seu emprego CLT e montar sua marca de uniformes da sala de casa
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white">
+                            Como sair do CLT e criar sua própria <span class="text-yellow-500">marca esportiva</span> de dentro de casa em <span class="text-yellow-500">2 dias</span>
                         </h1>
                         <p class="mt-6 text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
-                            Aprenda a faturar alto com <span class="text-yellow-400 font-extrabold">uniformes de futebol 100% personalizados com sua própria marca</span> de **R$ 2.500,00 por pedido** usando computadores comuns e terceirizando a estamparia industrial.
+                            Aprenda a faturar de <span class="text-yellow-400 font-extrabold">5 a 15 mil reais por mês</span> fabricando uniformes de futebol 100% personalizados com a sua própria marca. <span class="text-white font-semibold">Usando o computador de dentro do seu quarto.</span>
                         </p>
                     </div>
 
                     <!-- CTA Inicial (Sem preço) -->
                     <div class="w-full max-w-md animate-fade-in" style="animation-delay: 0.2s;">
-                        <a href="#comprar" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-8 py-4 text-xs font-bold uppercase tracking-widest text-yellow-400 hover:text-white transition-all btn-shimmer" style="border-radius: 9999px;">
+                        <a href="#comprar" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 rounded-full bg-green-600 hover:bg-green-500 text-white px-8 py-4 text-xs font-bold uppercase tracking-widest transition-all btn-shimmer shadow-[0_4px_20px_rgba(34,197,94,0.3)] hover:shadow-[0_4px_25px_rgba(34,197,94,0.5)]" style="border-radius: 9999px;">
                             Garantir Minha Vaga Ao Vivo
                         </a>
                         
                         <!-- Barra de Carregamento de Escassez -->
                         <div class="mt-5 max-w-xs sm:max-w-sm mx-auto lg:mx-0">
-                            <div class="flex justify-between items-center text-[10px] text-slate-400 font-bold mb-1.5 uppercase tracking-wider">
-                                <span>🔥 Ingressos do LOTE 1 quase esgotados</span>
+                            <div class="flex justify-between items-center text-[9px] sm:text-[10px] text-slate-400 font-bold mb-1.5 uppercase tracking-wider whitespace-nowrap gap-2">
+                                <span>🔥 Lote 1 quase esgotado</span>
                                 <span class="text-yellow-500 font-extrabold">87% Vendidos</span>
                             </div>
                             <div class="w-full bg-slate-950 rounded-full h-2 border border-yellow-500/20 overflow-hidden p-0.5">
                                 <div class="bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-500 h-full rounded-full animate-pulse" style="width: 87%;"></div>
+                            </div>
+                            <!-- Informações de Data e Transmissão -->
+                            <div class="mt-4 flex flex-col gap-2 items-center lg:items-start text-center lg:text-left">
+                                <span class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-300 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                                    📅 15 e 16 de Agosto
+                                </span>
+                                <p class="text-[11px] text-slate-300 font-medium tracking-wide mt-1 text-center lg:text-left">
+                                    ⚡ Evento <span class="text-yellow-400 font-bold">100% Online e Ao Vivo</span> (Sem replay e sem gravação).
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -382,15 +406,60 @@
                         <!-- Efeito de Brilho Dourado de Fundo -->
                         <div class="absolute -inset-1.5 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-[30px] blur-xl opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
                         
+                        <!-- Notificações Flutuantes Laterais (Efeito Vidro Transparente) -->
+                        <!-- Nubank (Superior Esquerdo) -->
+                        <div class="absolute left-1 lg:-left-16 top-4 lg:top-6 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-nb pointer-events-none">
+                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-purple-600 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">NB</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] sm:text-[8px] font-bold text-purple-400 uppercase tracking-wider">Nubank</p>
+                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 2.500,00</p>
+                            </div>
+                        </div>
+
+                        <!-- Itaú (Médio Direito) -->
+                        <div class="absolute right-1 sm:right-2 lg:-right-16 top-20 lg:top-24 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-it pointer-events-none">
+                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-orange-600 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">IT</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] sm:text-[8px] font-bold text-orange-400 uppercase tracking-wider">Itaú</p>
+                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 3.200,00</p>
+                            </div>
+                        </div>
+
+                        <!-- Banco do Brasil (Médio Esquerdo) -->
+                        <div class="absolute left-2 lg:-left-20 top-36 lg:top-40 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-bancob pointer-events-none">
+                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-yellow-600 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">BB</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] sm:text-[8px] font-bold text-yellow-400 uppercase tracking-wider">Banco do Brasil</p>
+                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 2.100,00</p>
+                            </div>
+                        </div>
+
+                        <!-- Bradesco (Inferior Direito) -->
+                        <div class="absolute right-2 lg:-right-14 bottom-16 lg:bottom-16 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-br pointer-events-none">
+                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-rose-600 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">BD</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] sm:text-[8px] font-bold text-rose-400 uppercase tracking-wider">Bradesco</p>
+                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 2.450,00</p>
+                            </div>
+                        </div>
+
+                        <!-- Mercado Pago (Inferior Esquerdo) -->
+                        <div class="absolute left-1 sm:left-2 lg:-left-12 bottom-2 lg:bottom-4 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-merp pointer-events-none">
+                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-sky-500 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">MP</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] sm:text-[8px] font-bold text-sky-400 uppercase tracking-wider">Mercado Pago</p>
+                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 2.800,00</p>
+                            </div>
+                        </div>
+
                         <!-- Contêiner da Imagem -->
                         <div class="relative rounded-3xl border border-yellow-500/10 bg-slate-900 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 28px;">
                             <img alt="Especialista Bfnine e Manto Premium" class="w-full h-auto object-cover rounded-2xl" src="assets/especialista_hero.png" style="border-radius: 20px;"/>
-                            
-                            <!-- Badge Flutuante de Transformação -->
-                            <div class="absolute bottom-6 left-6 right-6 rounded-2xl bg-slate-950/90 border border-yellow-500/20 backdrop-blur p-4 text-left">
-                                <p class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">O Método Bfnine</p>
-                                <p class="text-xs font-bold text-white mt-1">Aprenda a criar fardamentos premium de alto valor da sala da sua casa.</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1140,7 +1209,7 @@
                     </span>
                     <h3 class="text-2xl font-extrabold tracking-tight">Um Workshop que você participa uma vez e usa o conhecimento por anos.</h3>
                     <p class="text-slate-300 text-xs mt-3 leading-relaxed">
-                        Garante o seu acesso exclusivo de participação ao vivo ao Workshop nos dias 08 e 09 de agosto de 2026.
+                        Garante o seu acesso exclusivo de participação ao vivo ao Workshop nos dias 15 e 16 de agosto de 2026.
                     </p>
                     
                     <div class="mt-8 border-t border-b border-white/5 py-6">
@@ -1243,7 +1312,7 @@
                         <p class="text-xs text-red-400 font-bold mt-2">Quando virar o lote, volta mais caro ou encerra.</p>
                         
                         <div class="mt-8">
-                            <a href="https://checkout.kiwify.com.br/workshop-ingresso" target="_blank" class="w-full text-center inline-block rounded-full bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold px-6 py-4 shadow-[0_4px_20px_rgba(212,175,55,0.2)] transition-all uppercase tracking-widest text-xs btn-shimmer pulse-effect" style="border-radius: 9999px;">
+                            <a href="https://checkout.kiwify.com.br/workshop-ingresso" target="_blank" class="w-full text-center inline-block rounded-full bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-4 shadow-[0_4px_20px_rgba(34,197,94,0.3)] transition-all uppercase tracking-widest text-xs btn-shimmer pulse-effect" style="border-radius: 9999px;">
                                 GARANTIR INGRESSO AO VIVO - R$ 19
                             </a>
                             
@@ -1300,7 +1369,7 @@
                 </div>
 
                 <div class="mt-10 animate-on-scroll">
-                    <a href="https://checkout.kiwify.com.br/workshop-ingresso" target="_blank" class="inline-block rounded-full bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold px-10 py-5 shadow-[0_4px_30px_rgba(212,175,55,0.2)] transition-all uppercase tracking-widest text-xs btn-shimmer" style="border-radius: 9999px;">
+                    <a href="https://checkout.kiwify.com.br/workshop-ingresso" target="_blank" class="inline-block rounded-full bg-green-600 hover:bg-green-500 text-white font-bold px-10 py-5 shadow-[0_4px_30px_rgba(34,197,94,0.3)] transition-all uppercase tracking-widest text-xs btn-shimmer" style="border-radius: 9999px;">
                         Garantir Minha Vaga Sem Risco
                     </a>
                 </div>
@@ -1494,70 +1563,7 @@
             handleVisualScrolls();
         })();
 
-        // Notificações PIX Rotativas (Flutuante no canto inferior esquerdo)
-        const pixNotifications = [
-            { bank: "Nubank", icon: "NB", bg: "bg-purple-600", text: "text-purple-400", buyer: "Amanda Costa do Mafu Futsal" },
-            { bank: "Itaú", icon: "IT", bg: "bg-orange-600", text: "text-orange-400", buyer: "Thiago Santos do Aliança Várzea" },
-            { bank: "Mercado Pago", icon: "MP", bg: "bg-sky-500", text: "text-sky-400", buyer: "Bruno Oliveira do Resenha Futsal" },
-            { bank: "Bradesco", icon: "BD", bg: "bg-rose-600", text: "text-rose-400", buyer: "Ricardo Silva do União Várzea" },
-            { bank: "Banco do Brasil", icon: "BB", bg: "bg-yellow-600", text: "text-yellow-400", buyer: "Diego Souza do E.C. Real" }
-        ];
 
-        let currentPixIndex = 0;
-        let pixTimeout = null;
-
-        function showNextPixNotification() {
-            const popup = document.getElementById('pix-notification-popup');
-            if (!popup) return;
-            
-            // Esconder
-            popup.classList.add('translate-y-20', 'opacity-0');
-            
-            setTimeout(() => {
-                const current = pixNotifications[currentPixIndex];
-                
-                const iconEl = document.getElementById('pix-bank-icon');
-                const bankEl = document.getElementById('pix-bank-name');
-                const buyerEl = document.getElementById('pix-buyer-name');
-                
-                if (iconEl && bankEl && buyerEl) {
-                    // Atualizar classes de fundo do ícone
-                    iconEl.className = `w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-xs flex-shrink-0 ${current.bg}`;
-                    iconEl.textContent = current.icon;
-                    
-                    // Atualizar textos e classes de cor do banco
-                    bankEl.className = `text-[9px] font-bold uppercase tracking-wider ${current.text}`;
-                    bankEl.textContent = current.bank;
-                    
-                    buyerEl.textContent = current.buyer;
-                    
-                    // Mostrar
-                    popup.classList.remove('translate-y-20', 'opacity-0');
-                }
-                
-                currentPixIndex = (currentPixIndex + 1) % pixNotifications.length;
-                
-                // Agendar fechamento
-                pixTimeout = setTimeout(() => {
-                    popup.classList.add('translate-y-20', 'opacity-0');
-                    // Agendar próxima exibição
-                    setTimeout(showNextPixNotification, 4000);
-                }, 6000);
-            }, 500);
-        }
-
-        function closePixPopup() {
-            const popup = document.getElementById('pix-notification-popup');
-            if (popup) {
-                popup.classList.add('translate-y-20', 'opacity-0');
-                if (pixTimeout) clearTimeout(pixTimeout);
-            }
-        }
-
-        // Inicializar Notificação PIX
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(showNextPixNotification, 3000);
-        });
     </script>
 </body>
 </html>
