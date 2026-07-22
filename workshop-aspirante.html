@@ -642,20 +642,92 @@
             <div id="sticky-process-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center" style="height: 100vh;">
                 <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 py-12 relative flex flex-col justify-center h-full">
                     
-                    <div class="mb-10 text-center lg:text-left z-20">
-                        <span class="inline-flex items-center rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-green-400">
-                            🏆 PASSO A PASSO DA FABRICAÇÃO
+                    <div class="mb-10 text-center lg:text-left z-20 max-w-3xl">
+                        <span class="inline-flex items-center rounded-full border border-green-500/30 bg-green-500/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-green-400">
+                            💡 A SOLUÇÃO DEFINITIVA PARA O SEU NEGÓCIO
                         </span>
                         <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight leading-tight">
-                            O Processo de Fabricação do Zero ao Uniforme em Jogo
+                            Como Vencer Cada Um Desses Medos e Criar Sua Marca Sem Comprar Nenhuma Máquina
                         </h2>
-                        <p class="text-xs text-slate-400 mt-2">Veja como funciona o fluxo completo do método da Bfnine Camisetas:</p>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                            No Workshop da Marca Esportiva, você não precisa arriscar seu capital nem tentar adivinhar o caminho sozinho. Veja como o nosso método de fabricação terceirizada resolve todos esses obstáculos do zero ao uniforme entregue para seu cliente:
+                        </p>
                     </div>
 
-                    <!-- Grid de Animação de 7 Passos -->
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-20">
+                    <!-- Layout Responsivo do Processo em 7 Passos -->
+                    <div class="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full relative z-20">
                         
-                        <!-- Lado Esquerdo: Timeline Interativa -->
+                        <!-- 1. Trilho de Cards Deslizantes (Visível no Mobile no Topo / Escondido no Desktop) -->
+                        <div id="process-track-container" class="lg:hidden w-full overflow-hidden relative scrollbar-none">
+                            <div id="process-track" class="flex gap-4 transition-transform duration-150 ease-out w-max">
+                                
+                                <!-- Card 1 -->
+                                <button onclick="activateStep(1)" class="snap-start text-left w-[260px] sm:w-[280px] bg-[#052637]/70 border border-yellow-500/20 rounded-2xl p-5 flex flex-col justify-between hover:border-yellow-500 transition-all" style="border-radius: 20px;">
+                                    <div>
+                                        <div class="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-bold text-xs mb-2">01</div>
+                                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Arte em Branco</h3>
+                                        <p class="text-[10px] text-slate-300 mt-2 leading-relaxed">A base neutra do tecido Dry Fit de alto desempenho pronta para o design.</p>
+                                    </div>
+                                </button>
+
+                                <!-- Card 2 -->
+                                <button onclick="activateStep(2)" class="snap-start text-left w-[260px] sm:w-[280px] bg-[#052637]/70 border border-yellow-500/20 rounded-2xl p-5 flex flex-col justify-between hover:border-yellow-500 transition-all" style="border-radius: 20px;">
+                                    <div>
+                                        <div class="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-bold text-xs mb-2">02</div>
+                                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">O Desenho (Vetor)</h3>
+                                        <p class="text-[10px] text-slate-300 mt-2 leading-relaxed">Criação vetorial das listras, estampas e detalhes no CorelDRAW ou Photoshop.</p>
+                                    </div>
+                                </button>
+
+                                <!-- Card 3 -->
+                                <button onclick="activateStep(3)" class="snap-start text-left w-[260px] sm:w-[280px] bg-[#052637]/70 border border-yellow-500/20 rounded-2xl p-5 flex flex-col justify-between hover:border-yellow-500 transition-all" style="border-radius: 20px;">
+                                    <div>
+                                        <div class="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-bold text-xs mb-2">03</div>
+                                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Arte no Molde (Clo3D)</h3>
+                                        <p class="text-[10px] text-slate-300 mt-2 leading-relaxed">Modelagem precisa no Clo3D, separando frente, costas e mangas sem erros.</p>
+                                    </div>
+                                </button>
+
+                                <!-- Card 4 -->
+                                <button onclick="activateStep(4)" class="snap-start text-left w-[260px] sm:w-[280px] bg-[#052637]/70 border border-yellow-500/20 rounded-2xl p-5 flex flex-col justify-between hover:border-yellow-500 transition-all" style="border-radius: 20px;">
+                                    <div>
+                                        <div class="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-bold text-xs mb-2">04</div>
+                                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Fabricação Terceirizada</h3>
+                                        <p class="text-[10px] text-slate-300 mt-2 leading-relaxed">Envio da ficha técnica para nossa rede de confecções credenciadas parceiras.</p>
+                                    </div>
+                                </button>
+
+                                <!-- Card 5 -->
+                                <button onclick="activateStep(5)" class="snap-start text-left w-[260px] sm:w-[280px] bg-[#052637]/70 border border-yellow-500/20 rounded-2xl p-5 flex flex-col justify-between hover:border-yellow-500 transition-all" style="border-radius: 20px;">
+                                    <div>
+                                        <div class="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-bold text-xs mb-2">05</div>
+                                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">A Sublimação</h3>
+                                        <p class="text-[10px] text-slate-300 mt-2 leading-relaxed">Impressão e calandragem da estampa no tecido com brilho e definição máxima.</p>
+                                    </div>
+                                </button>
+
+                                <!-- Card 6 -->
+                                <button onclick="activateStep(6)" class="snap-start text-left w-[260px] sm:w-[280px] bg-[#052637]/70 border border-yellow-500/20 rounded-2xl p-5 flex flex-col justify-between hover:border-yellow-500 transition-all" style="border-radius: 20px;">
+                                    <div>
+                                        <div class="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-bold text-xs mb-2">06</div>
+                                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">A Costura</h3>
+                                        <p class="text-[10px] text-slate-300 mt-2 leading-relaxed">Fechamento das golas e mangas com linhas reforçadas de nível profissional.</p>
+                                    </div>
+                                </button>
+
+                                <!-- Card 7 -->
+                                <button onclick="activateStep(7)" class="snap-start text-left w-[260px] sm:w-[280px] bg-[#052637]/70 border border-yellow-500/20 rounded-2xl p-5 flex flex-col justify-between hover:border-yellow-500 transition-all" style="border-radius: 20px;">
+                                    <div>
+                                        <div class="w-8 h-8 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-bold text-xs mb-2">07</div>
+                                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Uniforme em Campo</h3>
+                                        <p class="text-[10px] text-slate-300 mt-2 leading-relaxed">O fardamento completo entregue ao time amador local e o dinheiro no bolso.</p>
+                                    </div>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!-- 2. Timeline de Botões no Desktop (Escondido no Mobile) -->
                         <div class="lg:col-span-5 space-y-3 z-20 hidden lg:block">
                             
                             <!-- Passo 1 -->
@@ -702,54 +774,47 @@
 
                         </div>
 
-                        <!-- Lado Direito: Visualizador de Camadas Dinâmicas -->
-                        <div class="lg:col-span-7 w-full relative min-h-[460px] flex items-center justify-center bg-slate-950/40 rounded-[32px] border border-yellow-500/10 p-6 overflow-hidden">
+                        <!-- 3. Visualizador de Camadas Dinâmicas (Abaixo dos Cards no Mobile / Lado Direito no Desktop) -->
+                        <div class="w-full lg:col-span-7 relative h-[320px] sm:h-[420px] lg:min-h-[460px] flex items-center justify-center bg-slate-950/40 rounded-[28px] sm:rounded-[32px] border border-yellow-500/10 p-4 sm:p-6 overflow-hidden">
                             
                             <!-- Camada 1: Arte em Branco -->
-                            <div id="layer-step-1" class="absolute inset-0 flex flex-col justify-center items-center p-8 transition-all duration-500 opacity-100 pointer-events-auto transform scale-100 active-layer">
-                                <!-- Camiseta Branca SVG -->
-                                <svg class="w-48 h-48 text-slate-700/60" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18 2h-3l-1 2h-4l-1-2H6L2 5v3l3 1v12h14V9l3-1V5l-4-3zm1 6l-3-.9V20H7V7.1L4 8V6l3-2.2 2 4.2h6l2-4.2 3 2.2v2z"/>
-                                </svg>
+                            <div id="layer-step-1" class="absolute inset-0 flex flex-col justify-center items-center p-3 sm:p-4 transition-all duration-500 opacity-100 pointer-events-auto transform scale-100 active-layer">
+                                <!-- Print Real da Modelagem Branca no Clo3D -->
+                                <div class="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center p-1 sm:p-2">
+                                    <img src="assets/branco.png" alt="Base do Uniforme em Branco e Moldes 2D no Clo3D" class="w-full h-full object-contain rounded-xl opacity-95 shadow-2xl"/>
+                                </div>
                                 
                                 <!-- Cartões Flutuantes -->
-                                <div class="absolute top-[12%] left-[10%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1">
-                                    <span class="text-emerald-400">📄</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Base 100% Limpa</span>
+                                <div class="absolute top-[6%] left-[4%] sm:left-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1 z-30">
+                                    <span class="text-emerald-400 text-xs">📄</span>
+                                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-white">Base 100% Limpa</span>
                                 </div>
-                                <div class="absolute bottom-[15%] right-[10%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2">
-                                    <span class="text-amber-400">🧶</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Poliéster Dry Fit Cru</span>
+                                <div class="absolute bottom-[8%] right-[4%] sm:right-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2 z-30">
+                                    <span class="text-amber-400 text-xs">🧶</span>
+                                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-white">Poliéster Dry Fit Cru</span>
                                 </div>
                             </div>
 
-                            <!-- Camada 2: Desenho -->
-                            <div id="layer-step-2" class="absolute inset-0 flex flex-col justify-center items-center p-8 transition-all duration-500 opacity-0 pointer-events-none transform scale-95 animate-layer-fade">
-                                <!-- Camiseta com Guias de Desenho SVG -->
-                                <div class="relative w-48 h-48 flex items-center justify-center">
-                                    <svg class="absolute inset-0 w-full h-full text-slate-700/30" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M18 2h-3l-1 2h-4l-1-2H6L2 5v3l3 1v12h14V9l3-1V5l-4-3zm1 6l-3-.9V20H7V7.1L4 8V6l3-2.2 2 4.2h6l2-4.2 3 2.2v2z"/>
-                                    </svg>
-                                    <!-- Linhas de Vetor Neon -->
-                                    <svg class="absolute inset-0 w-full h-full text-yellow-500 stroke-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M12 4v16M4 12h16" stroke-dasharray="2 2" />
-                                        <rect x="7" y="6" width="10" height="12" rx="1" stroke-dasharray="1 1" />
-                                    </svg>
+                            <!-- Camada 2: Desenho (Estampa Aplicada) -->
+                            <div id="layer-step-2" class="absolute inset-0 flex flex-col justify-center items-center p-3 sm:p-4 transition-all duration-500 opacity-0 pointer-events-none transform scale-95 animate-layer-fade">
+                                <!-- Print Real do Uniforme Estilizado Argentina no Clo3D -->
+                                <div class="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center p-1 sm:p-2">
+                                    <img src="assets/argentina.png" alt="Uniforme Estilo Argentina com Arte Aplicada no Clo3D" class="w-full h-full object-contain rounded-xl opacity-95 shadow-2xl"/>
                                 </div>
                                 
                                 <!-- Cartões Flutuantes -->
-                                <div class="absolute top-[10%] right-[10%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2">
-                                    <span class="text-yellow-400">✏️</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Vetorização Corel/PS</span>
+                                <div class="absolute top-[6%] right-[4%] sm:right-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2 z-30">
+                                    <span class="text-yellow-400 text-xs">✏️</span>
+                                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-white">Vetorização Corel/PS</span>
                                 </div>
-                                <div class="absolute bottom-[10%] left-[8%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-3">
-                                    <span class="text-blue-400">🛡️</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Criação do Escudo do Time</span>
+                                <div class="absolute bottom-[8%] left-[4%] sm:left-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-3 z-30">
+                                    <span class="text-blue-400 text-xs">🛡️</span>
+                                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-white">Criação do Escudo do Time</span>
                                 </div>
                             </div>
 
                             <!-- Camada 3: Arte no Molde -->
-                            <div id="layer-step-3" class="absolute inset-0 flex flex-col justify-center items-center p-8 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
+                            <div id="layer-step-3" class="absolute inset-0 flex flex-col justify-center items-center p-6 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
                                 <!-- Partes Separadas do Molde 2D -->
                                 <div class="flex gap-4 items-center justify-center">
                                     <!-- Frente -->
@@ -769,214 +834,106 @@
                                 </div>
                                 
                                 <!-- Cartões Flutuantes -->
-                                <div class="absolute top-[8%] left-[10%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1">
-                                    <span class="text-purple-400">🧥</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Modelagem no Clo3D</span>
+                                <div class="absolute top-[8%] left-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1 z-30">
+                                    <span class="text-purple-400 text-xs">🧥</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Modelagem no Clo3D</span>
                                 </div>
-                                <div class="absolute bottom-[8%] right-[10%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2">
-                                    <span class="text-green-400">📐</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Zero Distorção</span>
+                                <div class="absolute bottom-[8%] right-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2 z-30">
+                                    <span class="text-green-400 text-xs">📐</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Zero Distorção</span>
                                 </div>
                             </div>
 
                             <!-- Camada 4: Fabricação -->
-                            <div id="layer-step-4" class="absolute inset-0 flex flex-col justify-center items-center p-8 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
+                            <div id="layer-step-4" class="absolute inset-0 flex flex-col justify-center items-center p-6 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
                                 <!-- Mapa e Conexões Neon -->
-                                <div class="relative w-48 h-48 flex items-center justify-center">
-                                    <!-- Círculo de Redes -->
+                                <div class="relative w-40 h-40 flex items-center justify-center">
                                     <svg class="w-full h-full text-yellow-500/40 animate-spin" style="animation-duration: 20s;" viewBox="0 0 100 100">
                                         <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" fill="none"/>
                                         <circle cx="50" cy="10" r="4" fill="currentColor"/>
                                         <circle cx="90" cy="50" r="4" fill="currentColor"/>
                                         <circle cx="50" cy="90" r="4" fill="currentColor"/>
                                     </svg>
-                                    <div class="absolute w-12 h-12 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-400 font-bold border border-yellow-500/30">
+                                    <div class="absolute w-12 h-12 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-400 font-bold border border-yellow-500/30 text-xs">
                                         PC
                                     </div>
                                 </div>
                                 
                                 <!-- Cartões Flutuantes -->
-                                <div class="absolute top-[12%] right-[8%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-3">
-                                    <span class="text-sky-400">🏭</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Confecções Parceiras</span>
+                                <div class="absolute top-[10%] right-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-3 z-30">
+                                    <span class="text-sky-400 text-xs">🏭</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Confecções Parceiras</span>
                                 </div>
-                                <div class="absolute bottom-[12%] left-[10%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1">
-                                    <span class="text-rose-400">🚫</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Sem Máquina Própria</span>
+                                <div class="absolute bottom-[10%] left-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1 z-30">
+                                    <span class="text-rose-400 text-xs">🚫</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Sem Máquina Própria</span>
                                 </div>
                             </div>
 
                             <!-- Camada 5: Sublimação -->
-                            <div id="layer-step-5" class="absolute inset-0 flex flex-col justify-center items-center p-8 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
-                                <!-- Prensa Térmica Descendo -->
-                                <div class="relative w-48 h-48 flex flex-col items-center justify-center">
-                                    <!-- Tampa Superior da Prensa -->
-                                    <div class="w-32 h-6 bg-red-600 border border-red-500 rounded-t-lg shadow-lg transform translate-y-2 animate-pulse"></div>
-                                    <!-- Base da Prensa com Camiseta Colorida -->
-                                    <div class="w-36 h-28 bg-[#052637] border border-yellow-500/20 rounded-b-lg flex items-center justify-center mt-1 relative overflow-hidden">
+                            <div id="layer-step-5" class="absolute inset-0 flex flex-col justify-center items-center p-6 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
+                                <div class="relative w-40 h-40 flex flex-col items-center justify-center">
+                                    <div class="w-28 h-5 bg-red-600 border border-red-500 rounded-t-lg shadow-lg transform translate-y-2 animate-pulse"></div>
+                                    <div class="w-32 h-24 bg-[#052637] border border-yellow-500/20 rounded-b-lg flex items-center justify-center mt-1 relative overflow-hidden">
                                         <div class="absolute inset-0 bg-gradient-to-tr from-yellow-500/20 to-transparent animate-pulse"></div>
-                                        <svg class="w-16 h-16 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
+                                        <svg class="w-14 h-14 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M18 2h-3l-1 2h-4l-1-2H6L2 5v3l3 1v12h14V9l3-1V5l-4-3zm1 6l-3-.9V20H7V7.1L4 8V6l3-2.2 2 4.2h6l2-4.2 3 2.2v2z"/>
                                         </svg>
                                     </div>
                                 </div>
                                 
                                 <!-- Cartões Flutuantes -->
-                                <div class="absolute top-[10%] left-[10%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2">
-                                    <span class="text-red-400">🔥</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Calandra a 200°C</span>
+                                <div class="absolute top-[8%] left-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2 z-30">
+                                    <span class="text-red-400 text-xs">🔥</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Calandra a 200°C</span>
                                 </div>
-                                <div class="absolute bottom-[10%] right-[10%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1">
-                                    <span class="text-orange-400">🎨</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Fusão Total da Cor</span>
+                                <div class="absolute bottom-[8%] right-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1 z-30">
+                                    <span class="text-orange-400 text-xs">🎨</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Fusão Total da Cor</span>
                                 </div>
                             </div>
 
                             <!-- Camada 6: Costura -->
-                            <div id="layer-step-6" class="absolute inset-0 flex flex-col justify-center items-center p-8 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
-                                <!-- Detalhes da Costura (Manequim) -->
-                                <div class="relative w-48 h-48 flex items-center justify-center">
-                                    <!-- Camiseta Completa Colorida -->
-                                    <svg class="w-36 h-36 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
+                            <div id="layer-step-6" class="absolute inset-0 flex flex-col justify-center items-center p-6 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
+                                <div class="relative w-40 h-40 flex items-center justify-center">
+                                    <svg class="w-32 h-32 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M18 2h-3l-1 2h-4l-1-2H6L2 5v3l3 1v12h14V9l3-1V5l-4-3zm1 6l-3-.9V20H7V7.1L4 8V6l3-2.2 2 4.2h6l2-4.2 3 2.2v2z"/>
                                     </svg>
-                                    <!-- Efeito de Costura (Linhas) -->
                                     <svg class="absolute inset-0 w-full h-full text-emerald-400 stroke-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path d="M7 8l-3 .9M17 8l3 .9M7 10v10M17 10v10" stroke-dasharray="1 1" />
                                     </svg>
                                 </div>
                                 
                                 <!-- Cartões Flutuantes -->
-                                <div class="absolute top-[8%] right-[8%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1">
-                                    <span class="text-emerald-400">🧵</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Costura Reforçada</span>
+                                <div class="absolute top-[8%] right-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1 z-30">
+                                    <span class="text-emerald-400 text-xs">🧵</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Costura Reforçada</span>
                                 </div>
-                                <div class="absolute bottom-[8%] left-[10%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2">
-                                    <span class="text-yellow-400">🏷️</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Etiqueta da sua Marca</span>
+                                <div class="absolute bottom-[8%] left-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-2 z-30">
+                                    <span class="text-yellow-400 text-xs">🏷️</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Etiqueta da sua Marca</span>
                                 </div>
                             </div>
 
                             <!-- Camada 7: Uniforme Pronto -->
-                            <div id="layer-step-7" class="absolute inset-0 flex flex-col justify-center items-center p-8 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
-                                <!-- Mockup Completo do Uniforme Pronto -->
+                            <div id="layer-step-7" class="absolute inset-0 flex flex-col justify-center items-center p-6 transition-all duration-500 opacity-0 pointer-events-none transform scale-95">
                                 <div class="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center">
-                                    <img src="assets/resultado_uniforme_3d.png" alt="Uniforme Pronto" class="w-auto h-56 object-contain rounded-xl opacity-90 shadow-2xl"/>
+                                    <img src="assets/resultado_uniforme_3d.png" alt="Uniforme Pronto" class="w-auto h-48 sm:h-56 object-contain rounded-xl opacity-90 shadow-2xl"/>
                                 </div>
                                 
                                 <!-- Cartões Flutuantes -->
-                                <div class="absolute top-[10%] left-[8%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-3">
-                                    <span class="text-green-400">💰</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Lucro > 100% por Peça</span>
+                                <div class="absolute top-[8%] left-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-3 z-30">
+                                    <span class="text-green-400 text-xs">💰</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Lucro > 100% por Peça</span>
                                 </div>
-                                <div class="absolute bottom-[10%] right-[8%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1">
-                                    <span class="text-yellow-400">🏆</span>
-                                    <span class="text-[10px] font-bold uppercase tracking-wider text-white">Time Campeão da Várzea</span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- Layout Mobile (Carrossel manual Snap) -->
-                    <div class="lg:hidden w-full overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 mt-6">
-                        <div class="flex gap-4 w-max">
-                            
-                            <!-- Card 1 Mobile -->
-                            <div class="snap-start w-[280px] bg-slate-900 border border-yellow-500/10 rounded-2xl p-5 flex flex-col justify-between min-h-[300px]" style="border-radius: 20px;">
-                                <div>
-                                    <span class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Passo 01</span>
-                                    <h3 class="text-sm font-bold text-white mt-1 uppercase">Arte em Branco</h3>
-                                    <p class="text-[11px] text-slate-300 mt-2">A base neutra do tecido Dry Fit de alto desempenho pronta para o design.</p>
-                                </div>
-                                <div class="w-full h-24 bg-slate-950/50 rounded-xl flex items-center justify-center mt-4">
-                                    <svg class="w-16 h-16 text-slate-700/60" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M18 2h-3l-1 2h-4l-1-2H6L2 5v3l3 1v12h14V9l3-1V5l-4-3zm1 6l-3-.9V20H7V7.1L4 8V6l3-2.2 2 4.2h6l2-4.2 3 2.2v2z"/>
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <!-- Card 2 Mobile -->
-                            <div class="snap-start w-[280px] bg-slate-900 border border-yellow-500/10 rounded-2xl p-5 flex flex-col justify-between min-h-[300px]" style="border-radius: 20px;">
-                                <div>
-                                    <span class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Passo 02</span>
-                                    <h3 class="text-sm font-bold text-white mt-1 uppercase">O Desenho</h3>
-                                    <p class="text-[11px] text-slate-300 mt-2">Criação vetorial das listras, estampas e detalhes no CorelDRAW ou Photoshop.</p>
-                                </div>
-                                <div class="w-full h-24 bg-slate-950/50 rounded-xl flex items-center justify-center mt-4 relative">
-                                    <svg class="w-16 h-16 text-slate-700/30" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M18 2h-3l-1 2h-4l-1-2H6L2 5v3l3 1v12h14V9l3-1V5l-4-3zm1 6l-3-.9V20H7V7.1L4 8V6l3-2.2 2 4.2h6l2-4.2 3 2.2v2z"/>
-                                    </svg>
-                                    <svg class="absolute w-16 h-16 text-yellow-500 stroke-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M12 4v16M4 12h16" stroke-dasharray="2 2" />
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <!-- Card 3 Mobile -->
-                            <div class="snap-start w-[280px] bg-slate-900 border border-yellow-500/10 rounded-2xl p-5 flex flex-col justify-between min-h-[300px]" style="border-radius: 20px;">
-                                <div>
-                                    <span class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Passo 03</span>
-                                    <h3 class="text-sm font-bold text-white mt-1 uppercase">Arte no Molde</h3>
-                                    <p class="text-[11px] text-slate-300 mt-2">Modelagem precisa no Clo3D, separando frente, costas e mangas sem erros.</p>
-                                </div>
-                                <div class="w-full h-24 bg-slate-950/50 rounded-xl flex items-center justify-center mt-4">
-                                    <svg class="w-16 h-16 text-yellow-500/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M4 4h16v16H4z"/>
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <!-- Card 4 Mobile -->
-                            <div class="snap-start w-[280px] bg-slate-900 border border-yellow-500/10 rounded-2xl p-5 flex flex-col justify-between min-h-[300px]" style="border-radius: 20px;">
-                                <div>
-                                    <span class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Passo 04</span>
-                                    <h3 class="text-sm font-bold text-white mt-1 uppercase">Fabricação</h3>
-                                    <p class="text-[11px] text-slate-300 mt-2">Envio da ficha técnica para nossa rede de confecções credenciadas parceiras.</p>
-                                </div>
-                                <div class="w-full h-24 bg-slate-950/50 rounded-xl flex items-center justify-center mt-4">
-                                    <span class="text-2xl text-yellow-400 font-bold">🏭</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 5 Mobile -->
-                            <div class="snap-start w-[280px] bg-slate-900 border border-yellow-500/10 rounded-2xl p-5 flex flex-col justify-between min-h-[300px]" style="border-radius: 20px;">
-                                <div>
-                                    <span class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Passo 05</span>
-                                    <h3 class="text-sm font-bold text-white mt-1 uppercase">A Sublimação</h3>
-                                    <p class="text-[11px] text-slate-300 mt-2">Impressão e calandragem da estampa no tecido com brilho e definição máxima.</p>
-                                </div>
-                                <div class="w-full h-24 bg-slate-950/50 rounded-xl flex items-center justify-center mt-4">
-                                    <span class="text-2xl text-red-500 font-bold">🔥</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 6 Mobile -->
-                            <div class="snap-start w-[280px] bg-slate-900 border border-yellow-500/10 rounded-2xl p-5 flex flex-col justify-between min-h-[300px]" style="border-radius: 20px;">
-                                <div>
-                                    <span class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Passo 06</span>
-                                    <h3 class="text-sm font-bold text-white mt-1 uppercase">A Costura</h3>
-                                    <p class="text-[11px] text-slate-300 mt-2">Fechamento das golas e mangas com linhas reforçadas de nível profissional.</p>
-                                </div>
-                                <div class="w-full h-24 bg-slate-950/50 rounded-xl flex items-center justify-center mt-4">
-                                    <span class="text-2xl text-emerald-400 font-bold">🧵</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 7 Mobile -->
-                            <div class="snap-start w-[280px] bg-slate-900 border border-yellow-500/10 rounded-2xl p-5 flex flex-col justify-between min-h-[300px]" style="border-radius: 20px;">
-                                <div>
-                                    <span class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Passo 07</span>
-                                    <h3 class="text-sm font-bold text-white mt-1 uppercase">Uniforme em Campo</h3>
-                                    <p class="text-[11px] text-slate-300 mt-2">O fardamento completo entregue ao time amador local e o dinheiro no bolso.</p>
-                                </div>
-                                <div class="w-full h-24 bg-slate-950/50 rounded-xl flex items-center justify-center mt-4 overflow-hidden">
-                                    <img src="assets/resultado_uniforme_3d.png" alt="Pronto" class="w-auto h-20 object-contain"/>
+                                <div class="absolute bottom-[8%] right-[6%] bg-slate-950/90 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl flex items-center gap-2 shadow-2xl anim-float-1 z-30">
+                                    <span class="text-yellow-400 text-xs">🏆</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-wider text-white">Time Campeão da Várzea</span>
                                 </div>
                             </div>
 
                         </div>
+
                     </div>
 
                 </div>
@@ -1851,8 +1808,8 @@
                     }
                 }
 
-                // 2. Scroll Transform do Processo Completo em 7 Passos (Apenas Desktop)
-                if (!isMobile && processSection) {
+                // 2. Scroll Transform do Processo Completo em 7 Passos (Celular & Desktop)
+                if (processSection) {
                     const procRect = processSection.getBoundingClientRect();
                     const viewHeight = window.innerHeight;
                     const totalHeight = processSection.clientHeight;
@@ -1862,7 +1819,19 @@
                         const totalScrollable = totalHeight - viewHeight;
                         const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
                         
-                        // Dividir o scroll em 7 etapas proporcionais (1 a 7)
+                        // No Mobile: Deslizar os cards para a esquerda à medida que rola a página
+                        if (isMobile) {
+                            const processTrack = document.getElementById('process-track');
+                            const processTrackContainer = document.getElementById('process-track-container');
+                            if (processTrack && processTrackContainer) {
+                                const trackWidth = processTrack.scrollWidth;
+                                const containerWidth = processTrackContainer.clientWidth;
+                                const maxTranslate = Math.max(trackWidth - containerWidth + 24, 0);
+                                processTrack.style.transform = `translateX(-${pct * maxTranslate}px)`;
+                            }
+                        }
+
+                        // Dividir o scroll em 7 etapas proporcionais (1 a 7) para trocar a imagem da caixa abaixo
                         const step = Math.min(Math.floor(pct * 7), 6) + 1;
                         activateStep(step);
                     }
