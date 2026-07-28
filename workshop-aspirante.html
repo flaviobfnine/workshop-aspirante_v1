@@ -1596,24 +1596,24 @@
         <!-- SEÇÃO 6: DEPOIMENTOS & PROVAS SOCIAIS DE ALUNOS (Header Sticky Pinned + Loop Infinito Texto + Scroll 11 Prints) -->
         <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5 pb-20" style="height: 350vh;">
             
-            <!-- Header Fixo no Topo (Sempre Visível, Travado e Pinned durante o Scroll igual à Seção Portfólio) -->
-            <div class="sticky top-0 z-[100] bg-[#051f2d]/95 backdrop-blur-md py-6 text-center shadow-2xl w-full">
+            <!-- Header Fixo no Topo (Sempre Visível e Pinned durante o Scroll em Desktop e Mobile) -->
+            <div class="sticky top-0 z-[100] bg-[#051f2d]/95 backdrop-blur-md py-4 sm:py-6 text-center shadow-2xl w-full">
                 <div class="mx-auto max-w-3xl px-4">
-                    <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400">
+                    <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 sm:px-3.5 sm:py-1.5 text-[10px] sm:text-xs font-black uppercase tracking-widest text-yellow-400">
                         💬 RESULTADOS COMPROVADOS DE ALUNOS
                     </span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-2.5 leading-tight">
+                    <h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight mt-2 leading-tight">
                         Quem Aprendeu o Método Bfnine e Vive de Uniformes de Futebol
                     </h2>
-                    <div class="mt-2.5 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
-                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                    <div class="mt-2 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
+                    <p class="text-[11px] sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
                         Role a página para ver os depoimentos reais e comprovantes de faturamento dos nossos alunos:
                     </p>
                 </div>
             </div>
 
             <!-- Wrapper Sticky dos Carrosséis (Empilhado abaixo do Header Fixo) -->
-            <div id="sticky-dep-wrapper" class="sticky top-[160px] z-[10] overflow-hidden flex flex-col justify-center w-full py-4" style="height: calc(100vh - 160px);">
+            <div id="sticky-dep-wrapper" class="sticky top-[130px] sm:top-[160px] z-[10] overflow-hidden flex flex-col justify-center w-full py-2 sm:py-4" style="height: calc(100vh - 130px);">
                 <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 relative flex flex-col justify-center h-full">
 
                 <!-- FILEIRA 1: Depoimentos em Texto (Loop Infinito Contínuo Marquee) -->
@@ -2622,7 +2622,7 @@
                         }
                     }
 
-                    // 3. Scroll Transform da Seção Depoimentos (Fileira Imagens -> Exibe todos os 11 prints antes de destravar)
+                    // 3. Scroll Transform da Seção Depoimentos (Compatível 100% com Mobile e Desktop)
                     const depSection = document.getElementById('depoimentos-section');
                     if (depSection) {
                         const depImgTrack = document.getElementById('dep-img-track');
@@ -2631,17 +2631,18 @@
                         const rect = depSection.getBoundingClientRect();
                         const viewHeight = window.innerHeight;
                         const totalHeight = depSection.clientHeight;
+                        const totalScrollable = Math.max(totalHeight - viewHeight, 1);
 
-                        if (rect.top <= 0 && rect.bottom >= viewHeight) {
+                        // Progresso contínuo de 0 a 1 em qualquer posição da seção (Mobile Touch & Desktop)
+                        if (rect.top <= viewHeight && rect.bottom >= 0) {
                             const scrolled = -rect.top;
-                            const totalScrollable = totalHeight - viewHeight;
                             const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
 
                             if (depImgTrack && depImgContainer) {
                                 const trackWidth = depImgTrack.scrollWidth;
                                 const containerWidth = depImgContainer.clientWidth;
-                                const maxTranslateImg = Math.max(trackWidth - containerWidth + 48, 0);
-                                // Fileira de Prints: Desliza para a DIREITA no Scroll
+                                const maxTranslateImg = Math.max(trackWidth - containerWidth + 32, 0);
+                                // Fileira de Prints: Desliza para a DIREITA no Scroll (Mobile Touch & Desktop)
                                 depImgTrack.style.transform = `translateX(-${(1 - pct) * maxTranslateImg}px)`;
                             }
                         }
