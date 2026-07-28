@@ -1469,7 +1469,7 @@
         <section id="portfolio-section" class="w-full relative border-t border-white/5 bg-[#020d14] pb-20">
             
             <!-- Header Fixo no Topo (Sempre Visível durante o Scroll) -->
-            <div class="sticky top-0 z-[100] bg-[#020d14]/95 backdrop-blur-md py-6 border-b border-white/10 text-center shadow-2xl">
+            <div class="sticky top-0 z-[100] bg-[#020d14]/95 backdrop-blur-md py-6 text-center shadow-2xl">
                 <div class="mx-auto max-w-2xl px-4">
                     <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400">
                         🎨 PORTFÓLIO DE SUCESSO
@@ -1597,7 +1597,7 @@
         <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5 pb-20" style="height: 350vh;">
             
             <!-- Header Fixo no Topo (Sempre Visível, Travado e Pinned durante o Scroll igual à Seção Portfólio) -->
-            <div class="sticky top-0 z-[100] bg-[#051f2d]/95 backdrop-blur-md py-6 border-b border-white/10 text-center shadow-2xl w-full">
+            <div class="sticky top-0 z-[100] bg-[#051f2d]/95 backdrop-blur-md py-6 text-center shadow-2xl w-full">
                 <div class="mx-auto max-w-3xl px-4">
                     <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400">
                         💬 RESULTADOS COMPROVADOS DE ALUNOS
@@ -2641,8 +2641,8 @@
                                 const trackWidth = depImgTrack.scrollWidth;
                                 const containerWidth = depImgContainer.clientWidth;
                                 const maxTranslateImg = Math.max(trackWidth - containerWidth + 48, 0);
-                                // Desliza do Print 1 ao Print 11 progressivamente (0% a 100% de pct)
-                                depImgTrack.style.transform = `translateX(-${pct * maxTranslateImg}px)`;
+                                // Fileira de Prints: Desliza para a DIREITA no Scroll
+                                depImgTrack.style.transform = `translateX(-${(1 - pct) * maxTranslateImg}px)`;
                             }
                         }
                     }
