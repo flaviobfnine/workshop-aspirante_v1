@@ -2064,6 +2064,7 @@
 
         const allBorderClasses = ['border-yellow-500', 'border-cyan-400', 'border-purple-400', 'border-sky-400', 'border-emerald-400', 'border-amber-400', 'border-green-400'];
         const allShadowClasses = ['shadow-yellow-500/20', 'shadow-cyan-400/20', 'shadow-purple-400/20', 'shadow-sky-400/20', 'shadow-emerald-400/20', 'shadow-amber-400/20', 'shadow-green-400/20', 'shadow-yellow-500/10'];
+        const allTextClasses = ['text-yellow-400', 'text-cyan-400', 'text-purple-400', 'text-sky-400', 'text-emerald-400', 'text-amber-400', 'text-green-400'];
 
         // Função global para ativar etapa no Visualizador do Processo
         function activateStep(index) {
@@ -2079,10 +2080,20 @@
                 if (btn) {
                     btn.classList.remove('opacity-100', ...allBorderClasses);
                     btn.classList.add('opacity-40', 'border-transparent');
+                    const btnTitle = btn.querySelector('h4');
+                    if (btnTitle) {
+                        btnTitle.classList.remove(...allTextClasses);
+                        btnTitle.classList.add('text-white');
+                    }
                 }
                 if (card) {
                     card.classList.remove(...allBorderClasses, ...allShadowClasses, 'bg-[#052637]/80', 'opacity-100');
                     card.classList.add('border-white/10', 'bg-[#052637]/50', 'opacity-50');
+                    const cardTitle = card.querySelector('h3');
+                    if (cardTitle) {
+                        cardTitle.classList.remove(...allTextClasses);
+                        cardTitle.classList.add('text-white');
+                    }
                 }
             }
 
@@ -2094,16 +2105,26 @@
             // Ativar Camada Imagem
             if (activeLayer) activeLayer.classList.add('active-layer');
             
-            // Ativar Botão Desktop
+            // Ativar Botão Desktop (Borda + Cor de Texto Alinhada à Imagem)
             if (activeBtn) {
                 activeBtn.classList.remove('opacity-40', 'border-transparent');
                 activeBtn.classList.add('opacity-100', activeColor.borderDesktop);
+                const activeBtnTitle = activeBtn.querySelector('h4');
+                if (activeBtnTitle) {
+                    activeBtnTitle.classList.remove('text-white');
+                    activeBtnTitle.classList.add(activeColor.text);
+                }
             }
             
-            // Ativar Card Mobile
+            // Ativar Card Mobile (Borda + Cor de Texto Alinhada)
             if (activeCard) {
                 activeCard.classList.remove('border-white/10', 'bg-[#052637]/50', 'opacity-50');
                 activeCard.classList.add(activeColor.border, activeColor.shadow, 'bg-[#052637]/90', 'opacity-100');
+                const activeCardTitle = activeCard.querySelector('h3');
+                if (activeCardTitle) {
+                    activeCardTitle.classList.remove('text-white');
+                    activeCardTitle.classList.add(activeColor.text);
+                }
             }
 
             // Atualizar Cor da Borda da Caixa do Visualizador de Imagens (A Dupla!)
