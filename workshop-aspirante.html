@@ -272,10 +272,10 @@
 
         /* Otimizações Responsivas Mobile para Seções Especiais */
         @media (max-width: 1023px) {
-            #cronograma-3d-section, #portfolio-section, #depoimentos-section {
+            #cronograma-3d-section, #portfolio-section {
                 height: auto !important;
             }
-            #sticky-cube-wrapper, #sticky-port-wrapper, #sticky-dep-wrapper {
+            #sticky-cube-wrapper, #sticky-port-wrapper {
                 position: relative !important;
                 height: auto !important;
                 top: auto !important;
@@ -283,15 +283,6 @@
             }
             .cube-scene {
                 display: none !important;
-            }
-            #dep-track-container {
-                overflow-x: auto !important;
-                -webkit-overflow-scrolling: touch;
-            }
-            #dep-track {
-                transform: none !important;
-                width: max-content;
-                padding-bottom: 1rem;
             }
             #portfolio-section .relative {
                 height: auto !important;
@@ -1593,28 +1584,26 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 6: DEPOIMENTOS & PROVAS SOCIAIS DE ALUNOS (Header Sticky Pinned + Loop Infinito Texto + Scroll 11 Prints) -->
-        <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5 pb-20" style="height: 350vh;">
-            
-            <!-- Header Fixo no Topo (Sempre Visível e Pinned durante o Scroll em Desktop e Mobile) -->
-            <div class="sticky top-0 z-[100] bg-[#051f2d]/95 backdrop-blur-md py-4 sm:py-6 text-center shadow-2xl w-full">
-                <div class="mx-auto max-w-3xl px-4">
+        <!-- SEÇÃO 6: DEPOIMENTOS & PROVAS SOCIAIS DE ALUNOS (Sticky Wrapper Top-0 Unificado 100% Mobile & Desktop) -->
+        <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5" style="height: 300vh;">
+            <div id="sticky-dep-wrapper" class="sticky top-0 h-screen overflow-hidden flex flex-col justify-between w-full bg-[#051f2d] py-3 sm:py-6 z-[20]">
+                
+                <!-- Header Fixo no Topo do Wrapper Sticky -->
+                <div class="w-full text-center max-w-3xl mx-auto px-4 flex-shrink-0 pt-1 sm:pt-2">
                     <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 sm:px-3.5 sm:py-1.5 text-[10px] sm:text-xs font-black uppercase tracking-widest text-yellow-400">
                         💬 RESULTADOS COMPROVADOS DE ALUNOS
                     </span>
-                    <h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight mt-2 leading-tight">
+                    <h2 class="text-lg sm:text-3xl font-extrabold text-white tracking-tight mt-1.5 sm:mt-2 leading-tight">
                         Quem Aprendeu o Método Bfnine e Vive de Uniformes de Futebol
                     </h2>
-                    <div class="mt-2 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
-                    <p class="text-[11px] sm:text-sm text-slate-300 mt-1.5 leading-relaxed">
+                    <div class="mt-1.5 sm:mt-2 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
+                    <p class="text-[11px] sm:text-sm text-slate-300 mt-1 sm:mt-1.5 leading-relaxed">
                         Role a página para ver os depoimentos reais e comprovantes de faturamento dos nossos alunos:
                     </p>
                 </div>
-            </div>
 
-            <!-- Wrapper Sticky dos Carrosséis (Empilhado abaixo do Header Fixo) -->
-            <div id="sticky-dep-wrapper" class="sticky top-[130px] sm:top-[160px] z-[10] overflow-hidden flex flex-col justify-center w-full py-2 sm:py-4" style="height: calc(100vh - 130px);">
-                <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 relative flex flex-col justify-center h-full">
+                <!-- Conteúdo dos Carrosséis (Texto em Loop + Prints no Scroll) -->
+                <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 flex flex-col justify-center flex-grow py-2 overflow-hidden">
 
                 <!-- FILEIRA 1: Depoimentos em Texto (Loop Infinito Contínuo Marquee) -->
                 <div id="dep-text-container" class="overflow-hidden w-full relative scrollbar-none mb-5 flex-shrink-0">
@@ -1876,7 +1865,7 @@
 
                 <!-- FILEIRA 2: Prints de Resultados dos Alunos da Pasta depoimentos (Travado no Scroll ate mostrar todos os 11 prints) -->
                 <div id="dep-img-container" class="overflow-hidden w-full relative scrollbar-none flex-shrink-0">
-                    <div id="dep-img-track" class="flex gap-5 transition-transform duration-100 ease-out w-max">
+                    <div id="dep-img-track" class="flex gap-5 w-max">
                         
                         <!-- Image 1 -->
                         <div class="flex-shrink-0 w-[230px] sm:w-[270px] h-[280px] sm:h-[320px] rounded-2xl border-2 border-yellow-500/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
@@ -2582,9 +2571,8 @@
                     }
                 }
 
-                // 2. Efeitos exclusivos de Desktop (Cubo 3D e Portfólio)
+                // 2. Efeitos exclusivos de Desktop (Cubo 3D)
                 if (!isMobile) {
-                    // Cubo 3D no Scroll
                     if (cronoSection && cubo) {
                         const sectionRect = cronoSection.getBoundingClientRect();
                         const viewHeight = window.innerHeight;
@@ -2621,37 +2609,46 @@
                             }
                         }
                     }
+                }
 
-                    // 3. Scroll Transform da Seção Depoimentos (Compatível 100% com Mobile e Desktop)
-                    const depSection = document.getElementById('depoimentos-section');
-                    if (depSection) {
-                        const depImgTrack = document.getElementById('dep-img-track');
-                        const depImgContainer = document.getElementById('dep-img-container');
+                // 3. Scroll Transform da Seção Depoimentos (Executa em Mobile Touch e Desktop)
+                const depSection = document.getElementById('depoimentos-section');
+                if (depSection) {
+                    const depImgTrack = document.getElementById('dep-img-track');
+                    const depImgContainer = document.getElementById('dep-img-container');
 
-                        const rect = depSection.getBoundingClientRect();
-                        const viewHeight = window.innerHeight;
-                        const totalHeight = depSection.clientHeight;
-                        const totalScrollable = Math.max(totalHeight - viewHeight, 1);
+                    const rect = depSection.getBoundingClientRect();
+                    const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+                    const totalHeight = depSection.clientHeight;
+                    const maxScrollable = Math.max(totalHeight - viewHeight, 1);
 
-                        // Progresso contínuo de 0 a 1 em qualquer posição da seção (Mobile Touch & Desktop)
-                        if (rect.top <= viewHeight && rect.bottom >= 0) {
-                            const scrolled = -rect.top;
-                            const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
+                    const scrolled = Math.max(0, -rect.top);
+                    const pct = Math.min(Math.max(scrolled / maxScrollable, 0), 1);
 
-                            if (depImgTrack && depImgContainer) {
-                                const trackWidth = depImgTrack.scrollWidth;
-                                const containerWidth = depImgContainer.clientWidth;
-                                const maxTranslateImg = Math.max(trackWidth - containerWidth + 32, 0);
-                                // Fileira de Prints: Desliza para a DIREITA no Scroll (Mobile Touch & Desktop)
-                                depImgTrack.style.transform = `translateX(-${(1 - pct) * maxTranslateImg}px)`;
-                            }
-                        }
+                    if (depImgTrack && depImgContainer) {
+                        const trackWidth = depImgTrack.scrollWidth;
+                        const containerWidth = depImgContainer.clientWidth;
+                        const maxTranslateImg = Math.max(trackWidth - containerWidth + 24, 0);
+                        // Fileira de Prints: Desliza para a ESQUERDA durante o Scroll (Mobile e Desktop)
+                        depImgTrack.style.transform = `translate3d(-${pct * maxTranslateImg}px, 0, 0)`;
                     }
                 }
             }
 
-            window.addEventListener('scroll', handleVisualScrolls);
-            window.addEventListener('resize', handleVisualScrolls);
+            let isTicking = false;
+            function requestVisualScrollUpdate() {
+                if (!isTicking) {
+                    requestAnimationFrame(() => {
+                        handleVisualScrolls();
+                        isTicking = false;
+                    });
+                    isTicking = true;
+                }
+            }
+
+            window.addEventListener('scroll', requestVisualScrollUpdate, { passive: true });
+            window.addEventListener('touchmove', requestVisualScrollUpdate, { passive: true });
+            window.addEventListener('resize', requestVisualScrollUpdate);
             handleVisualScrolls();
         })();
 
