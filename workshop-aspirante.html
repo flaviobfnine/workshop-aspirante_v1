@@ -1577,82 +1577,219 @@
         </section>
 
         <!-- SEÇÃO 6: DEPOIMENTOS DE ALUNOS (Preenchimento 100%, Scroll Snap Manual) -->
-        <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5 py-24">
-            <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8">
+        <!-- SEÇÃO 6: DEPOIMENTOS & PROVAS SOCIAIS DE ALUNOS (Scroll Dual Invertido) -->
+        <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5 py-20 overflow-hidden" style="height: 220vh;">
+            <div id="sticky-dep-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center w-full" style="height: 100vh;">
+                <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 relative flex flex-col justify-center h-full">
                 
                 <!-- Header -->
-                <div class="mb-16 text-center max-w-2xl mx-auto">
-                    <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-yellow-400">
-                        💬 DEPOIMENTOS DE QUEM CHEGOU LÁ
+                <div class="mb-8 text-center max-w-3xl mx-auto">
+                    <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400">
+                        💬 RESULTADOS COMPROVADOS DE ALUNOS
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-4">
-                        Quem já aprendeu o método e vive de Uniformes de Futebol
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-3">
+                        Quem Aprendeu o Método Bfnine e Vive de Uniformes de Futebol
                     </h2>
-                    <div class="mt-4 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
-                    <p class="text-xs text-slate-400 mt-4">Arraste para o lado para ver o depoimento dos nossos alunos.</p>
+                    <div class="mt-3 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-2">Role a página para ver depoimentos reais e comprovantes de faturamento dos nossos alunos:</p>
                 </div>
 
-                <!-- Track Deslizante (Carrossel manual Snap) -->
-                <div id="dep-track-container" class="overflow-x-auto snap-x snap-mandatory scrollbar-none w-full pb-8">
-                    <div id="dep-track" class="flex gap-6">
+                <!-- FILEIRA 1: Depoimentos em Texto (Desliza para a ESQUERDA no Scroll) -->
+                <div id="dep-text-container" class="overflow-hidden w-full relative scrollbar-none mb-6">
+                    <div id="dep-text-track" class="flex gap-5 transition-transform duration-100 ease-out w-max">
                         
                         <!-- Depoimento 1 -->
-                        <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[340px]" style="border-radius: 28px;">
+                        <div class="flex-shrink-0 w-[300px] sm:w-[340px] rounded-3xl border border-yellow-500/20 bg-[#052637]/90 backdrop-blur p-5 flex flex-col justify-between shadow-xl" style="border-radius: 24px;">
                             <div>
-                                <!-- Topo do Card: Foto, Nome e Time -->
-                                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
-                                    <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                <div class="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
                                         <img src="assets/res_aluno_1.png" alt="Lucas Fonseca" class="w-full h-full object-cover"/>
                                     </div>
                                     <div>
                                         <h4 class="text-xs font-bold text-white uppercase tracking-wider">Lucas Fonseca</h4>
-                                        <p class="text-[9px] text-yellow-500">Fonseca Uniformes - SC</p>
+                                        <p class="text-[10px] text-yellow-400 font-semibold">Fonseca Uniformes - SC</p>
                                     </div>
                                 </div>
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">
-                                    "Eu me sentia muito desvalorizado no meu emprego CLT. Decidi arriscar e comecei a montar designs de uniformes na minha sala à noite. Mandei produzir na rede parceira homologada e fechei meu primeiro time! Ganhei em uma única venda o que levava o mês inteiro para receber no meu antigo emprego."
+                                <p class="text-xs text-slate-200 leading-relaxed font-medium">
+                                    "Eu me sentia muito desvalorizado no meu emprego CLT. Decidi arriscar e comecei a montar designs de uniformes na minha sala à noite. Mandei produzir na rede parceira homologada e fechei meu primeiro time! Ganhei em uma única venda o que levava o mês inteiro no antigo emprego."
                                 </p>
                             </div>
                         </div>
 
                         <!-- Depoimento 2 -->
-                        <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[340px]" style="border-radius: 28px; animation-delay: 0.1s;">
+                        <div class="flex-shrink-0 w-[300px] sm:w-[340px] rounded-3xl border border-cyan-400/20 bg-[#052637]/90 backdrop-blur p-5 flex flex-col justify-between shadow-xl" style="border-radius: 24px;">
                             <div>
-                                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
-                                    <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                <div class="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-black text-sm flex-shrink-0 overflow-hidden">
                                         <img src="assets/res_aluno_2.png" alt="Gabriela Medeiros" class="w-full h-full object-cover"/>
                                     </div>
                                     <div>
                                         <h4 class="text-xs font-bold text-white uppercase tracking-wider">Gabriela Medeiros</h4>
-                                        <p class="text-[9px] text-yellow-500">Designer Esportiva - SP</p>
+                                        <p class="text-[10px] text-cyan-400 font-semibold">Designer Esportiva - SP</p>
                                     </div>
                                 </div>
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">
-                                    "O maior medo que eu tinha era errar no fechamento de arquivos e a estampa sair borrada. O workshop me ensinou a gabaritar uniformes de futebol no computador de forma perfeita. Hoje os times me elogiam pelas cores vivas e a modelagem exata do Dry Fit."
+                                <p class="text-xs text-slate-200 leading-relaxed font-medium">
+                                    "O maior medo que eu tinha era errar no fechamento de arquivos e a estampa sair borrada. O workshop me ensinou a gabaritar uniformes de futebol no computador de forma perfeita. Hoje os times me elogiam pelas cores vivas e a modelagem exata."
                                 </p>
                             </div>
                         </div>
 
                         <!-- Depoimento 3 -->
-                        <div class="snap-start flex-shrink-0 w-[290px] sm:w-[320px] rounded-3xl border border-yellow-500/10 bg-[#052637]/60 backdrop-blur p-6 flex flex-col justify-between hover-card-effect min-h-[340px]" style="border-radius: 28px; animation-delay: 0.2s;">
+                        <div class="flex-shrink-0 w-[300px] sm:w-[340px] rounded-3xl border border-purple-400/20 bg-[#052637]/90 backdrop-blur p-5 flex flex-col justify-between shadow-xl" style="border-radius: 24px;">
                             <div>
-                                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
-                                    <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0 overflow-hidden">
+                                <div class="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-black text-sm flex-shrink-0 overflow-hidden">
                                         <img src="assets/res_aluno_3.png" alt="Felipe Souza" class="w-full h-full object-cover"/>
                                     </div>
                                     <div>
                                         <h4 class="text-xs font-bold text-white uppercase tracking-wider">Felipe Souza</h4>
-                                        <p class="text-[9px] text-yellow-500">Souza Sportswear - RJ</p>
+                                        <p class="text-[10px] text-purple-400 font-semibold">Souza Sportswear - RJ</p>
                                     </div>
                                 </div>
-                                <p class="text-xs text-slate-300 leading-relaxed font-medium">
-                                    "Antes do workshop, eu achava que precisava investir em prensa e impressora industrial cara. O Método Bfnine de Fabricação Esportiva me salvou: fechei 4 times de futebol amador local e montei minha marca de dentro de casa usando só o meu notebook."
+                                <p class="text-xs text-slate-200 leading-relaxed font-medium">
+                                    "Antes do workshop, achava que precisava investir em prensa e impressora industrial cara. O Método Bfnine de Fabricação Esportiva me salvou: fechei 4 times de futebol amador local e montei minha marca usando só o meu notebook."
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Depoimento 4 -->
+                        <div class="flex-shrink-0 w-[300px] sm:w-[340px] rounded-3xl border border-sky-400/20 bg-[#052637]/90 backdrop-blur p-5 flex flex-col justify-between shadow-xl" style="border-radius: 24px;">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 font-black text-sm flex-shrink-0 uppercase">
+                                        RM
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Rodrigo Mendes</h4>
+                                        <p class="text-[10px] text-sky-400 font-semibold">Mendes Sports - MG</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-200 leading-relaxed font-medium">
+                                    "Eu não sabia mexer direito no computador e achava que criar moldes 3D seria impossível. No workshop o passo a passo foi prático e na mesma semana vetorizei meu primeiro fardamento. Fechei um contrato de R$ 3.800 com o time do meu bairro!"
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Depoimento 5 -->
+                        <div class="flex-shrink-0 w-[300px] sm:w-[340px] rounded-3xl border border-emerald-400/20 bg-[#052637]/90 backdrop-blur p-5 flex flex-col justify-between shadow-xl" style="border-radius: 24px;">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-sm flex-shrink-0 uppercase">
+                                        MO
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Mateus Oliveira</h4>
+                                        <p class="text-[10px] text-emerald-400 font-semibold">Oliveira Fardamentos - PR</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-200 leading-relaxed font-medium">
+                                    "Meu maior pavor era atrasar a entrega e queimar minha palavra com os diretores de futebol da região. A lista de oficinas homologadas da Bfnine foi a virada de chave: entreguei 25 conjuntos em tempo recorde e já pediram o segundo uniforme!"
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Depoimento 6 -->
+                        <div class="flex-shrink-0 w-[300px] sm:w-[340px] rounded-3xl border border-amber-400/20 bg-[#052637]/90 backdrop-blur p-5 flex flex-col justify-between shadow-xl" style="border-radius: 24px;">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-black text-sm flex-shrink-0 uppercase">
+                                        RR
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Renan Ramos</h4>
+                                        <p class="text-[10px] text-amber-400 font-semibold">RR Uniformes Várzea - SP</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-200 leading-relaxed font-medium">
+                                    "Ganhava 2 mil no meu trabalho CLT e vivia sufocado. Apliquei o método no meu tempo livre à noite. Em 30 dias após o workshop, fechei 3 times de várzea e faturei R$ 7.200 sem investir 1 centavo em máquinas industriais."
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Depoimento 7 -->
+                        <div class="flex-shrink-0 w-[300px] sm:w-[340px] rounded-3xl border border-green-400/20 bg-[#052637]/90 backdrop-blur p-5 flex flex-col justify-between shadow-xl" style="border-radius: 24px;">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3 pb-3 border-b border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0 uppercase">
+                                        DC
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Diego Castro</h4>
+                                        <p class="text-[10px] text-green-400 font-semibold">Castro Esportes - BA</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-200 leading-relaxed font-medium">
+                                    "Tinha medo de que o tecido viesse ruim ou a gola ficasse torta. Aprender a fazer a ficha técnica correta e mandar para as oficinas parceiras homologadas me deu total segurança. O uniforme ficou padrão de time profissional da Série A!"
                                 </p>
                             </div>
                         </div>
 
                     </div>
                 </div>
+
+                <!-- FILEIRA 2: Prints de Resultados dos Alunos da Pasta depoimentos (Desliza para a DIREITA no Scroll) -->
+                <div id="dep-img-container" class="overflow-hidden w-full relative scrollbar-none">
+                    <div id="dep-img-track" class="flex gap-5 transition-transform duration-100 ease-out w-max">
+                        
+                        <!-- Image 1 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-yellow-500/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 092906.png" alt="Comprovante de Resultado Aluno Bfnine 1" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 2 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-cyan-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 093030.png" alt="Comprovante de Resultado Aluno Bfnine 2" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 3 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-purple-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 093135.png" alt="Comprovante de Resultado Aluno Bfnine 3" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 4 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-sky-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 093238.png" alt="Comprovante de Resultado Aluno Bfnine 4" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 5 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-emerald-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 093314.png" alt="Comprovante de Resultado Aluno Bfnine 5" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 6 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-amber-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 093448.png" alt="Comprovante de Resultado Aluno Bfnine 6" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 7 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-rose-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 093536.png" alt="Comprovante de Resultado Aluno Bfnine 7" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 8 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-teal-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 093603.png" alt="Comprovante de Resultado Aluno Bfnine 8" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 9 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-indigo-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 093656.png" alt="Comprovante de Resultado Aluno Bfnine 9" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 10 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-lime-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2025-10-24 093847.png" alt="Comprovante de Resultado Aluno Bfnine 10" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                        <!-- Image 11 -->
+                        <div class="flex-shrink-0 w-[240px] sm:w-[280px] h-[300px] sm:h-[340px] rounded-2xl border-2 border-yellow-400/30 bg-slate-950 p-2 shadow-2xl overflow-hidden group">
+                            <img src="depoimentos/Captura de tela 2026-07-27 084848.png" alt="Comprovante de Resultado Aluno Bfnine 11" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"/>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
             </div>
         </section>
 
@@ -2334,6 +2471,41 @@
                                 if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
                                 if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
                                 if (txt4) { txt4.style.opacity = "1"; txt4.style.borderLeftColor = "#eab308"; }
+                            }
+                        }
+                    }
+
+                    // 3. Scroll Transform da Seção Depoimentos (Fileira Texto -> Esquerda | Fileira Imagens -> Direita)
+                    const depSection = document.getElementById('depoimentos-section');
+                    if (depSection) {
+                        const depTextTrack = document.getElementById('dep-text-track');
+                        const depTextContainer = document.getElementById('dep-text-container');
+                        const depImgTrack = document.getElementById('dep-img-track');
+                        const depImgContainer = document.getElementById('dep-img-container');
+
+                        const rect = depSection.getBoundingClientRect();
+                        const viewHeight = window.innerHeight;
+                        const totalHeight = depSection.clientHeight;
+
+                        if (rect.top <= 0 && rect.bottom >= viewHeight) {
+                            const scrolled = -rect.top;
+                            const totalScrollable = totalHeight - viewHeight;
+                            const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
+
+                            if (depTextTrack && depTextContainer) {
+                                const trackWidth = depTextTrack.scrollWidth;
+                                const containerWidth = depTextContainer.clientWidth;
+                                const maxTranslateText = Math.max(trackWidth - containerWidth + 48, 0);
+                                // Fileira 1: Desliza para a ESQUERDA
+                                depTextTrack.style.transform = `translateX(-${pct * maxTranslateText}px)`;
+                            }
+
+                            if (depImgTrack && depImgContainer) {
+                                const trackWidth = depImgTrack.scrollWidth;
+                                const containerWidth = depImgContainer.clientWidth;
+                                const maxTranslateImg = Math.max(trackWidth - containerWidth + 48, 0);
+                                // Fileira 2: Desliza para a DIREITA
+                                depImgTrack.style.transform = `translateX(-${(1 - pct) * maxTranslateImg}px)`;
                             }
                         }
                     }
