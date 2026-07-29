@@ -1104,114 +1104,259 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 4: CRONOGRAMA 3D (Rotativo com Scroll Transform no Desktop) -->
-        <section id="cronograma-3d-section" class="w-full relative border-t border-b border-white/5 bg-[#051f2d]" style="height: 220vh;">
-            <div id="sticky-cube-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center" style="height: 100vh;">
-                <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative h-full py-16" style="height: 100%;">
+        <!-- SEÇÃO 4: CRONOGRAMA 3D E TIMELINE DE DESTRUIÇÃO DE DORES (10h às 17h, Almoço 12h às 14h) -->
+        <section id="cronograma-3d-section" class="w-full relative border-t border-b border-white/5 bg-[#051f2d] py-16 lg:py-24">
+            <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8">
+                
+                <!-- Cabeçalho da Seção -->
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-yellow-400">
+                        📅 CRONOGRAMA OFICIAL AO VIVO (10H ÀS 17H)
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mt-4">
+                        Tudo o que você vai aprender em <span class="text-yellow-400">1 dia de Imersão Prática</span>
+                    </h2>
+                    <div class="h-0.5 w-16 bg-yellow-500/40 mx-auto mt-4"></div>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                        Um dia inteiro dedicado a triturar suas dúvidas e te ensinar o passo a passo para criar sua marca esportiva da sala de casa sem investir em máquinas.
+                    </p>
+                </div>
+
+                <!-- Grid Principal (2 Colunas: Timeline Esquerda + Cubo 3D & Checkout Direita) -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                     
-                    <!-- Lado Esquerdo -->
-                    <div class="lg:col-span-6 flex flex-col justify-center z-20 space-y-6">
-                        <div>
-                            <span class="inline-flex items-center rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-yellow-400">
-                                📅 ENCONTRO AO VIVO
-                            </span>
-                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-none mt-4">
-                                Cronograma Prático
-                            </h2>
-                            <div class="h-0.5 w-16 bg-yellow-500/40 mt-4"></div>
-                            <p class="text-xs text-slate-400 mt-2">Gire a barra de rolagem para ver os detalhes de cada módulo no cubo 3D.</p>
+                    <!-- Coluna Esquerda: Timeline dos Horários (10h às 17h) -->
+                    <div class="lg:col-span-7 space-y-4">
+                        
+                        <!-- Bloque 1: 10h às 11h -->
+                        <div id="modulo-txt-1" onclick="rotateCube(0, 1)" class="cursor-pointer rounded-2xl border border-yellow-500/30 bg-[#052637]/90 p-4 sm:p-5 transition-all duration-300 hover:border-yellow-500 shadow-xl group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="inline-flex items-center gap-1.5 text-xs font-black text-yellow-400">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    10h às 11h
+                                </span>
+                                <span class="text-[10px] font-extrabold uppercase tracking-wider bg-yellow-500/10 text-yellow-400 px-2.5 py-0.5 rounded-full border border-yellow-500/20">Início • Módulo 01</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg font-bold text-white leading-snug group-hover:text-yellow-400 transition-colors">
+                                A Revolução da Marca Esportiva Sem Máquinas
+                            </h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                <strong class="text-yellow-400">Dores Trituradas:</strong> Fim do medo do CLT e do mito dos R$ 115 mil em máquinas. Como criar seu próprio negócio no futebol sem arriscar seu emprego atual nem gastar fortunas com equipamentos industriais.
+                            </p>
                         </div>
 
-                        <div class="space-y-4">
-                            <div id="modulo-txt-1" class="border-l-2 border-yellow-500 pl-4 py-1 transition-all duration-300 opacity-100">
-                                <h4 class="text-base font-bold text-white uppercase">Módulo 1: Arte, Vetor & Mockup 3D</h4>
-                                <p class="text-xs text-slate-400 mt-1">Criação prática de uniformes no CorelDRAW e Photoshop. Modelagem tridimensional ultra-realista no Clo3D para encantar presidentes de times.</p>
+                        <!-- Bloque 2: 11h às 12h -->
+                        <div id="modulo-txt-2" onclick="rotateCube(-90, 2)" class="cursor-pointer rounded-2xl border border-white/10 bg-[#052637]/60 p-4 sm:p-5 transition-all duration-300 hover:border-yellow-500 shadow-xl group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="inline-flex items-center gap-1.5 text-xs font-black text-slate-300 group-hover:text-yellow-400">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    11h às 12h
+                                </span>
+                                <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-300 px-2.5 py-0.5 rounded-full border border-white/10">Módulo 02</span>
                             </div>
-                            <div id="modulo-txt-2" class="border-l-2 border-transparent pl-4 py-1 transition-all duration-300 opacity-40">
-                                <h4 class="text-base font-bold text-white uppercase">Módulo 2: Fechamento & Sublimação</h4>
-                                <p class="text-xs text-slate-400 mt-1">Acertos de perfis de cores, CMYK vs RGB, corte correto de Dry Fit, sublimação na prensa e calandra sem dobras, e separação de tamanhos.</p>
-                            </div>
-                            <div id="modulo-txt-3" class="border-l-2 border-transparent pl-4 py-1 transition-all duration-300 opacity-40">
-                                <h4 class="text-base font-bold text-white uppercase">Módulo 3: Anúncios & Tráfego Ads</h4>
-                                <p class="text-xs text-slate-400 mt-1">Funil de vendas esportivas e montagem do zero de campanhas no Meta Ads e Google Ads voltadas a fisgar diretores de times amadores.</p>
-                            </div>
-                            <div id="modulo-txt-4" class="border-l-2 border-transparent pl-4 py-1 transition-all duration-300 opacity-40">
-                                <h4 class="text-base font-bold text-white uppercase">Módulo 4: Fotos por IA & E-commerce</h4>
-                                <p class="text-xs text-slate-400 mt-1">Criação de vídeos animados, e-commerce esportivo de alta performance e uso de IA para gerar fotos de modelos vestindo os fardamentos.</p>
-                            </div>
+                            <h4 class="text-base sm:text-lg font-bold text-white leading-snug group-hover:text-yellow-400 transition-colors">
+                                Vetorização & Mockup 3D Sem Saber Desenhar
+                            </h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                <strong class="text-yellow-400">Dores Trituradas:</strong> Fim do medo de entregar camisetas tortas ou borradas. Aprenda a vetorizar escudos em alta resolução e criar apresentações 3D ultra-realistas no Clo3D direto no seu notebook.
+                            </p>
                         </div>
+
+                        <!-- Bloque 3: 12h às 14h (Almoço) -->
+                        <div class="rounded-2xl border-2 border-dashed border-amber-500/40 bg-amber-950/20 p-4 sm:p-5 text-center shadow-lg">
+                            <div class="flex items-center justify-center gap-2 text-xs font-black text-amber-400 uppercase tracking-widest">
+                                🍽️ 12h às 14h • Intervalo de Almoço & Networking
+                            </div>
+                            <p class="text-xs text-amber-200/80 mt-1">
+                                Horário livre para almoço, descanso e troca de ideias com outros inscritos no chat ao vivo do evento.
+                            </p>
+                        </div>
+
+                        <!-- Bloque 4: 14h às 15h -->
+                        <div id="modulo-txt-3" onclick="rotateCube(-180, 3)" class="cursor-pointer rounded-2xl border border-white/10 bg-[#052637]/60 p-4 sm:p-5 transition-all duration-300 hover:border-yellow-500 shadow-xl group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="inline-flex items-center gap-1.5 text-xs font-black text-slate-300 group-hover:text-yellow-400">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    14h às 15h
+                                </span>
+                                <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-300 px-2.5 py-0.5 rounded-full border border-white/10">Retorno • Módulo 03</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg font-bold text-white leading-snug group-hover:text-yellow-400 transition-colors">
+                                A Rede Secreta de Fornecedores Homologados Bfnine
+                            </h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                <strong class="text-yellow-400">Dores Trituradas:</strong> Fim do pavor de fornecedores ruins e atrasos de entrega. Acesse a lista secreta de gráficas e ateliês de costura de elite testados pela Bfnine que produzem por demanda para você.
+                            </p>
+                        </div>
+
+                        <!-- Bloque 5: 15h às 16h -->
+                        <div id="modulo-txt-4" onclick="rotateCube(-270, 4)" class="cursor-pointer rounded-2xl border border-white/10 bg-[#052637]/60 p-4 sm:p-5 transition-all duration-300 hover:border-yellow-500 shadow-xl group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="inline-flex items-center gap-1.5 text-xs font-black text-slate-300 group-hover:text-yellow-400">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    15h às 16h
+                                </span>
+                                <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-300 px-2.5 py-0.5 rounded-full border border-white/10">Módulo 04</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg font-bold text-white leading-snug group-hover:text-yellow-400 transition-colors">
+                                O Ímã de Diretores de Várzea (WhatsApp Lotado)
+                            </h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                <strong class="text-yellow-400">Dores Trituradas:</strong> Fim do medo de montar a marca e o WhatsApp ficar vazio. Aprenda a rodar anúncios locais direcionados exatamente aos diretores de clubes amadores dispostos a fechar R$ 2.500 em fardamentos.
+                            </p>
+                        </div>
+
+                        <!-- Bloque 6: 16h às 17h -->
+                        <div id="modulo-txt-5" onclick="rotateCube(0, 5)" class="cursor-pointer rounded-2xl border border-yellow-500/20 bg-[#052637]/60 p-4 sm:p-5 transition-all duration-300 hover:border-yellow-500 shadow-xl group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="inline-flex items-center gap-1.5 text-xs font-black text-yellow-400">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    16h às 17h
+                                </span>
+                                <span class="text-[10px] font-extrabold uppercase tracking-wider bg-yellow-500/10 text-yellow-400 px-2.5 py-0.5 rounded-full border border-yellow-500/20">Encerramento • Módulo 05</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg font-bold text-white leading-snug group-hover:text-yellow-400 transition-colors">
+                                Plano de Escala R$ 15k/mês + Tira-Dúvidas Ao Vivo
+                            </h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                <strong class="text-yellow-400">Dores Trituradas:</strong> Estruturando suas metas de 3 a 5 pedidos por mês para trocar o salário do CLT por liberdade financeira, com sessão aberta para responder individualmente todas as suas dúvidas no Google Meet.
+                            </p>
+                        </div>
+
                     </div>
 
-                    <!-- Lado Direito (Cubo 3D) -->
-                    <div class="lg:col-span-6 flex items-center justify-center h-full relative">
-                        <div class="cube-scene">
-                            <div id="cubo-3d" class="cube" style="transition: transform 0.2s ease-out;">
+                    <!-- Coluna Direita: Cubo 3D Interativo + Card Resumo da Oferta (Estilo Referência) -->
+                    <div class="lg:col-span-5 flex flex-col items-center space-y-8 sticky top-24">
+                        
+                        <!-- Cubo 3D Interativo -->
+                        <div class="cube-scene scale-90 sm:scale-100 my-4">
+                            <div id="cubo-3d" class="cube" style="transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
                                 
                                 <!-- Módulo 1 -->
                                 <div class="cube-face face-front">
                                     <div>
-                                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">MÓDULO 01</span>
-                                        <h3 class="text-xl font-bold text-white mt-2 leading-tight">Design & Clo3D</h3>
-                                        <p class="text-xs text-slate-300 mt-3 leading-relaxed">
-                                            Aprenda a vetorizar logos, golas polo e recriar designs esportivos de elite em 3D usando o Clo3D.
+                                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">10h às 11h</span>
+                                        <h3 class="text-lg font-bold text-white mt-1 leading-tight">Sem Máquinas</h3>
+                                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                            Como sair da estagnação do CLT e faturar com futebol sem gastar com impressoras ou prensas industriais.
                                         </p>
                                     </div>
-                                    <div class="flex items-center justify-between border-t border-white/5 pt-4 text-[10px] text-slate-500 font-semibold uppercase">
+                                    <div class="flex items-center justify-between border-t border-white/5 pt-3 text-[10px] text-slate-400 font-semibold uppercase">
                                         <span>Duração</span>
-                                        <span>4 Horas</span>
+                                        <span>1 Hora</span>
                                     </div>
                                 </div>
 
                                 <!-- Módulo 2 -->
                                 <div class="cube-face face-right">
                                     <div>
-                                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">MÓDULO 02</span>
-                                        <h3 class="text-xl font-bold text-white mt-2 leading-tight">Chão de Fábrica</h3>
-                                        <p class="text-xs text-slate-300 mt-3 leading-relaxed">
-                                            Evite desperdício: calibração de perfis de cores, CMYK/RGB, corte de tecido e prensa térmica sem erros.
+                                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">11h às 12h</span>
+                                        <h3 class="text-lg font-bold text-white mt-1 leading-tight">Design 3D Clo3D</h3>
+                                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                            Vetorização de escudos e apresentações 3D no computador para encantar os diretores dos clubes.
                                         </p>
                                     </div>
-                                    <div class="flex items-center justify-between border-t border-white/5 pt-4 text-[10px] text-slate-500 font-semibold uppercase">
+                                    <div class="flex items-center justify-between border-t border-white/5 pt-3 text-[10px] text-slate-400 font-semibold uppercase">
                                         <span>Duração</span>
-                                        <span>4 Horas</span>
+                                        <span>1 Hora</span>
                                     </div>
                                 </div>
 
                                 <!-- Módulo 3 -->
                                 <div class="cube-face face-back">
                                     <div>
-                                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">MÓDULO 03</span>
-                                        <h3 class="text-xl font-bold text-white mt-2 leading-tight">Tráfego Ads</h3>
-                                        <p class="text-xs text-slate-300 mt-3 leading-relaxed">
-                                            Suba anúncios no Meta Ads e Google Ads do zero, direcionados a presidentes de times amadores.
+                                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">14h às 15h</span>
+                                        <h3 class="text-lg font-bold text-white mt-1 leading-tight">Fornecedores Secreto</h3>
+                                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                            Acesso direto às gráficas e oficinas homologadas de costura da Bfnine que produzem para você.
                                         </p>
                                     </div>
-                                    <div class="flex items-center justify-between border-t border-white/5 pt-4 text-[10px] text-slate-500 font-semibold uppercase">
+                                    <div class="flex items-center justify-between border-t border-white/5 pt-3 text-[10px] text-slate-400 font-semibold uppercase">
                                         <span>Duração</span>
-                                        <span>4 Horas</span>
+                                        <span>1 Hora</span>
                                     </div>
                                 </div>
 
                                 <!-- Módulo 4 -->
                                 <div class="cube-face face-left">
                                     <div>
-                                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">MÓDULO 04</span>
-                                        <h3 class="text-xl font-bold text-white mt-2 leading-tight">E-commerce & IA</h3>
-                                        <p class="text-xs text-slate-300 mt-3 leading-relaxed">
-                                            Monte sua loja virtual e use inteligência artificial para criar apresentações de modelos com uniformes.
+                                        <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">15h às 16h</span>
+                                        <h3 class="text-lg font-bold text-white mt-1 leading-tight">Tráfego & WhatsApp</h3>
+                                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                            Anúncios locais para atrair diretores de times de várzea prontos para comprar fardamentos.
                                         </p>
                                     </div>
-                                    <div class="flex items-center justify-between border-t border-white/5 pt-4 text-[10px] text-slate-500 font-semibold uppercase">
+                                    <div class="flex items-center justify-between border-t border-white/5 pt-3 text-[10px] text-slate-400 font-semibold uppercase">
                                         <span>Duração</span>
-                                        <span>4 Horas</span>
+                                        <span>1 Hora</span>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
+
+                        <!-- Card Resumo de Oferta (Inspirado no Modelo da Imagem do Usuário) -->
+                        <div class="w-full rounded-3xl border border-yellow-500/20 bg-[#052637]/90 p-6 shadow-2xl backdrop-blur-xl space-y-5">
+                            
+                            <!-- Header de Data & Formato -->
+                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                                <span class="text-xs font-black text-white">📅 15 e 16 de Agosto | 10h às 17h</span>
+                                <span class="text-[10px] font-bold text-yellow-400 bg-yellow-500/10 px-2.5 py-1 rounded-full border border-yellow-500/20 uppercase">Ao Vivo</span>
+                            </div>
+
+                            <!-- Lista de Garantias / Itens -->
+                            <div class="space-y-2.5 text-xs text-slate-200">
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-5 h-5 rounded-md bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-bold text-xs flex-shrink-0">✓</span>
+                                    <span>Acesso ao vivo via Google Meet</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-5 h-5 rounded-md bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-bold text-xs flex-shrink-0">✓</span>
+                                    <span>Conteúdo 100% focado no Público Aspirante</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-5 h-5 rounded-md bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-bold text-xs flex-shrink-0">✓</span>
+                                    <span>Lista Secreta de Fornecedores Homologados</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <span class="w-5 h-5 rounded-md bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-400 font-bold text-xs flex-shrink-0">✓</span>
+                                    <span>Tira-Dúvidas individual ao vivo com o especialista</span>
+                                </div>
+                            </div>
+
+                            <!-- Caixa de Preço Destaque -->
+                            <div class="text-center border-t border-white/10 pt-4">
+                                <p class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Apenas</p>
+                                <div class="flex items-baseline justify-center gap-1.5 mt-1">
+                                    <span class="text-5xl font-black text-white tracking-tight">R$ 19</span>
+                                    <span class="text-xl font-bold text-yellow-400">,00</span>
+                                    <span class="text-xs text-slate-400 font-medium">à vista</span>
+                                </div>
+                            </div>
+
+                            <!-- Botão CTA -->
+                            <div>
+                                <a href="#comprar" class="w-full text-center inline-block rounded-full bg-green-600 hover:bg-green-500 text-white font-black px-6 py-4 shadow-[0_4px_20px_rgba(34,197,94,0.3)] transition-all uppercase tracking-widest text-xs btn-shimmer" style="border-radius: 9999px;">
+                                    Quero Meu Ingresso Agora ⚡
+                                </a>
+                                
+                                <!-- Barra de Escassez Lote 1 -->
+                                <div class="mt-3">
+                                    <div class="w-full bg-slate-950 rounded-full h-2 border border-yellow-500/20 overflow-hidden p-0.5">
+                                        <div class="bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-500 h-full rounded-full animate-pulse" style="width: 87%;"></div>
+                                    </div>
+                                    <p class="text-[10px] text-center text-slate-400 mt-1.5 font-bold uppercase tracking-wider">
+                                        87% dos ingressos vendidos a R$ 19,00
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
+
             </div>
         </section>
 
@@ -2369,16 +2514,16 @@
             if (cubo) {
                 cubo.style.transform = `rotateY(${deg}deg) rotateX(10deg)`;
             }
-            // Atualizar abas
-            for (let i = 1; i <= 4; i++) {
-                const btn = document.getElementById(`btn-modulo-${i}`);
-                if (btn) {
+            // Atualizar destaque dos 5 módulos
+            for (let i = 1; i <= 5; i++) {
+                const item = document.getElementById(`modulo-txt-${i}`);
+                if (item) {
                     if (i === index) {
-                        btn.style.opacity = "1";
-                        btn.style.borderLeftColor = "#eab308";
+                        item.classList.add('border-yellow-500/80', 'bg-[#052637]/90');
+                        item.classList.remove('border-white/10', 'bg-[#052637]/60');
                     } else {
-                        btn.style.opacity = "0.4";
-                        btn.style.borderLeftColor = "transparent";
+                        item.classList.remove('border-yellow-500/80', 'bg-[#052637]/90');
+                        item.classList.add('border-white/10', 'bg-[#052637]/60');
                     }
                 }
             }
