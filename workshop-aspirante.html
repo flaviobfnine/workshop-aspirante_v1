@@ -1263,15 +1263,15 @@
 
                     </div>
 
-                    <!-- Coluna Direita: Fluxo Contínuo da Agenda (Sábado Seguido do Domingo) com Máscara Absoluta de Desaparecimento Superior -->
-                    <div class="lg:col-span-7 space-y-10 relative overflow-hidden pt-1" style="-webkit-mask-image: linear-gradient(to bottom, transparent 0px, transparent 110px, rgba(0,0,0,1) 160px, rgba(0,0,0,1) 100%); mask-image: linear-gradient(to bottom, transparent 0px, transparent 110px, rgba(0,0,0,1) 160px, rgba(0,0,0,1) 100%);">
+                    <!-- Coluna Direita: Fluxo Contínuo da Agenda (Sábado Seguido do Domingo) -->
+                    <div class="lg:col-span-7 space-y-10">
                         
                         <!-- AGENDA DIA 01: SÁBADO -->
                         <div id="crono-block-sabado" class="space-y-4">
                             
-                            <!-- Header Banner Sábado (Sticky top-24, Grosso, Borda Dourada Exclusiva e Proteção Opaca) -->
-                            <div id="sabado-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#031724] border-2 border-amber-400 rounded-3xl py-7 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(251,191,36,0.3)] transition-all">
-                                <div class="flex items-center gap-4">
+                            <!-- Header Banner Sábado (Sticky top-24, Grosso, Borda Dourada Exclusiva e Cobertura Superior Opaca) -->
+                            <div id="sabado-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#020d14] border-2 border-amber-400 rounded-3xl py-7 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(251,191,36,0.3)] transition-all relative before:content-[''] before:absolute before:-top-48 before:-left-1 before:-right-1 before:h-48 before:bg-[#020d14] before:pointer-events-none">
+                                <div class="flex items-center gap-4 relative z-10">
                                     <span class="w-4 h-4 rounded-full bg-amber-400 animate-ping"></span>
                                     <div>
                                         <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 block mb-0.5">1º DIA DE WORKSHOP</span>
@@ -1280,7 +1280,7 @@
                                         </h3>
                                     </div>
                                 </div>
-                                <span class="text-xs sm:text-sm font-black text-amber-300 bg-amber-500/15 px-4 py-2 rounded-xl border border-amber-400/40">10h às 17h (Ao Vivo)</span>
+                                <span class="text-xs sm:text-sm font-black text-amber-300 bg-amber-500/15 px-4 py-2 rounded-xl border border-amber-400/40 relative z-10">10h às 17h (Ao Vivo)</span>
                             </div>
 
                             <!-- Item 1 -->
@@ -1440,9 +1440,9 @@
                         <!-- AGENDA DIA 02: DOMINGO -->
                         <div id="crono-block-domingo" class="space-y-4 pt-8 border-t border-white/10">
                             
-                            <!-- Header Banner Domingo (Sticky top-24, Grosso, Borda Esmeralda Exclusiva e Proteção Opaca) -->
-                            <div id="domingo-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#031724] border-2 border-emerald-400 rounded-3xl py-7 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(52,211,153,0.3)] transition-all">
-                                <div class="flex items-center gap-4">
+                            <!-- Header Banner Domingo (Sticky top-24, Grosso, Borda Esmeralda Exclusiva e Cobertura Superior Opaca) -->
+                            <div id="domingo-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#020d14] border-2 border-emerald-400 rounded-3xl py-7 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(52,211,153,0.3)] transition-all relative before:content-[''] before:absolute before:-top-48 before:-left-1 before:-right-1 before:h-48 before:bg-[#020d14] before:pointer-events-none">
+                                <div class="flex items-center gap-4 relative z-10">
                                     <span class="w-4 h-4 rounded-full bg-emerald-400 animate-ping"></span>
                                     <div>
                                         <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400 block mb-0.5">2º DIA DE WORKSHOP</span>
@@ -1451,7 +1451,7 @@
                                         </h3>
                                     </div>
                                 </div>
-                                <span class="text-xs sm:text-sm font-black text-emerald-300 bg-emerald-500/15 px-4 py-2 rounded-xl border border-emerald-400/40">10h às 17h (Ao Vivo)</span>
+                                <span class="text-xs sm:text-sm font-black text-emerald-300 bg-emerald-500/15 px-4 py-2 rounded-xl border border-emerald-400/40 relative z-10">10h às 17h (Ao Vivo)</span>
                             </div>
 
                             <!-- Item 1 -->
