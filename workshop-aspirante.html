@@ -1097,18 +1097,18 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 4: CRONOGRAMA OFICIAL COM ROLAGEM DE DESTAQUE SEQUENCIAL (SÁBADO & DOMINGO) -->
-        <section id="cronograma-3d-section" class="w-full relative border-t border-b border-white/5 bg-[#020d14] py-16 lg:py-24" style="min-height: 160vh;">
+        <!-- SEÇÃO 4: CRONOGRAMA OFICIAL COM ROLAGEM DE DESTAQUE SEQUENCIAL (SÁBADO ➔ DOMINGO) -->
+        <section id="cronograma-3d-section" class="w-full relative border-t border-b border-white/5 bg-[#020d14] py-16 lg:py-24">
             
             <!-- Glows de Fundo Atmosféricos -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-sky-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none"></div>
 
             <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 relative z-20">
                 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
                     
-                    <!-- Coluna Esquerda Sticky (Design Inspirado no Modelo Enviado) -->
-                    <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+                    <!-- Coluna Esquerda Sticky (Painel Fixo Durante o Scroll) -->
+                    <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
                         
                         <div>
                             <span class="text-xs font-black text-sky-400 uppercase tracking-widest block mb-2 border-b border-sky-500/30 pb-2 inline-block">
@@ -1122,23 +1122,23 @@
                             </p>
                         </div>
 
-                        <!-- Chaveador Manual de Dias (Sábado / Domingo) -->
+                        <!-- Chaveador de Navegação dos Dias (Sábado / Domingo) -->
                         <div class="flex items-center gap-2 p-1.5 bg-[#051a26] rounded-2xl border border-sky-500/30 shadow-xl max-w-md">
-                            <button id="btn-crono-sabado" onclick="setDayManual(1)" class="flex-1 py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-300 bg-sky-500 text-slate-950 shadow-[0_0_15px_rgba(56,189,248,0.4)]">
+                            <button id="btn-crono-sabado" onclick="scrollToCronoDay(1)" class="flex-1 py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-300 bg-sky-500 text-slate-950 shadow-[0_0_15px_rgba(56,189,248,0.4)]">
                                 📅 Sábado (1º Dia)
                             </button>
-                            <button id="btn-crono-domingo" onclick="setDayManual(2)" class="flex-1 py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white bg-transparent">
+                            <button id="btn-crono-domingo" onclick="scrollToCronoDay(2)" class="flex-1 py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white bg-transparent">
                                 📅 Domingo (2º Dia)
                             </button>
                         </div>
 
-                        <!-- Status de Progresso do Scroll -->
-                        <div class="p-4 rounded-2xl bg-[#041622] border border-sky-500/20 text-xs space-y-2.5">
+                        <!-- Status do Tópico Ativo e Barra de Progresso em Tempo Real -->
+                        <div class="p-4.5 rounded-2xl bg-[#041622] border border-sky-500/30 text-xs space-y-3 shadow-xl">
                             <div class="flex items-center justify-between">
                                 <span class="font-black text-sky-400 uppercase tracking-wider text-[11px]" id="crono-day-indicator">SÁBADO (1º DIA)</span>
-                                <span class="text-[10px] text-slate-400 font-bold" id="crono-step-counter">Tópico 1 de 9</span>
+                                <span class="text-[11px] text-white font-black bg-sky-500/20 px-2.5 py-0.5 rounded-md border border-sky-500/30" id="crono-step-counter">Tópico 1 de 9</span>
                             </div>
-                            <div class="w-full bg-slate-950 rounded-full h-2 overflow-hidden border border-sky-500/20 p-0.5">
+                            <div class="w-full bg-slate-950 rounded-full h-2.5 overflow-hidden border border-sky-500/20 p-0.5">
                                 <div id="crono-progress-bar" class="bg-gradient-to-r from-sky-600 via-sky-400 to-cyan-400 h-full rounded-full transition-all duration-300" style="width: 11%;"></div>
                             </div>
                         </div>
@@ -1149,7 +1149,7 @@
                         </p>
 
                         <!-- CTA Direto -->
-                        <div class="pt-2">
+                        <div class="pt-1">
                             <a href="#comprar" class="w-full text-center block rounded-full bg-green-600 hover:bg-green-500 text-white font-black py-4 px-6 text-xs uppercase tracking-widest shadow-[0_4px_20px_rgba(34,197,94,0.3)] transition-all btn-shimmer" style="border-radius: 9999px;">
                                 Quero Meu Ingresso R$ 19,00 ⚡
                             </a>
@@ -1157,14 +1157,25 @@
 
                     </div>
 
-                    <!-- Coluna Direita: Linhas de Horários Divididas por Traços Clean -->
-                    <div class="lg:col-span-7 space-y-2">
+                    <!-- Coluna Direita: Fluxo Contínuo da Agenda (Sábado Seguido do Domingo) -->
+                    <div class="lg:col-span-7 space-y-10">
                         
-                        <!-- AGENDA SÁBADO (9 TÓPICOS) -->
-                        <div id="crono-list-sabado" class="space-y-3">
+                        <!-- AGENDA DIA 01: SÁBADO -->
+                        <div id="crono-block-sabado" class="space-y-4">
                             
+                            <!-- Header Banner Sábado -->
+                            <div id="sabado-header" class="flex items-center justify-between bg-sky-950/40 border border-sky-500/30 rounded-2xl p-4 sm:p-5 mb-6">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-3 h-3 rounded-full bg-sky-400 animate-ping"></span>
+                                    <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider">
+                                        📅 DIA 01 • SÁBADO (15 DE AGOSTO)
+                                    </h3>
+                                </div>
+                                <span class="text-xs font-bold text-sky-300 bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/30">10h às 17h</span>
+                            </div>
+
                             <!-- Item 1 -->
-                            <div id="sabado-item-0" onclick="activateCronoItem(1, 0)" class="crono-row cursor-pointer rounded-2xl border border-sky-400 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-[0_0_25px_rgba(56,189,248,0.2)]">
+                            <div id="sabado-item-0" onclick="activateCronoItem(1, 0)" class="crono-row cursor-pointer rounded-2xl border border-sky-400 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-[0_0_25px_rgba(56,189,248,0.3)]">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-sky-400 shadow-[0_0_8px_#38bdf8]"></span>
@@ -1172,16 +1183,16 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/10 text-sky-300 px-3 py-1 rounded-full border border-sky-500/20 w-max">Visão Geral & Oportunidade</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    O Mercado Multi-Milionário de Futebol Amador no Brasil
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🚀 O Mercado Multi-Milionário de Futebol Amador no Brasil
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Como se posicionar no mercado altamente lucrativo da várzea e faturar alto vendendo fardamentos diretamente para os clubes da sua região.
                                 </p>
                             </div>
 
                             <!-- Item 2 -->
-                            <div id="sabado-item-1" onclick="activateCronoItem(1, 1)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="sabado-item-1" onclick="activateCronoItem(1, 1)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1189,16 +1200,16 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Design Sem Barreiras</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Criando Projetos de Uniforme do Zero com Softwares Gratuitos
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🎨 Criando Projetos de Uniforme do Zero com Softwares Gratuitos
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Desenvolvimento prático na tela utilizando licenças Freemium sem precisar saber desenhar ou ter experiência prévia.
                                 </p>
                             </div>
 
                             <!-- Item 3 -->
-                            <div id="sabado-item-2" onclick="activateCronoItem(1, 2)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="sabado-item-2" onclick="activateCronoItem(1, 2)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1206,16 +1217,16 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Multiplicador de Vendas</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Estratégia para Triplicar o Faturamento Inicial
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    💰 Estratégia para Triplicar o Faturamento Inicial
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Como agregar valor em cada contrato vendendo kits completos com Agasalhos Esportivos e Camisas de Torcida.
                                 </p>
                             </div>
 
                             <!-- Item 4 -->
-                            <div id="sabado-item-3" onclick="activateCronoItem(1, 3)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="sabado-item-3" onclick="activateCronoItem(1, 3)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1223,16 +1234,16 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Apresentação 3D</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Enviando o Projeto em 3D Animado para o Cliente
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🎬 Enviando o Projeto em 3D Animado para o Cliente
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Apresente seus uniformes com simulações tridimensionais animadas ultra-realistas que encantam os diretores dos clubes.
                                 </p>
                             </div>
 
                             <!-- Item 5 -->
-                            <div id="sabado-item-4" onclick="activateCronoItem(1, 4)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="sabado-item-4" onclick="activateCronoItem(1, 4)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1240,32 +1251,32 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Loja Online</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Criando e Publicando o E-commerce da Sua Marca
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🛒 Criando e Publicando o E-commerce da Sua Marca
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Coloque sua loja virtual no ar para receber pedidos de uniformes e camisetas personalizadas automaticamente.
                                 </p>
                             </div>
 
                             <!-- Item 6 (Almoço) -->
-                            <div id="sabado-item-5" onclick="activateCronoItem(1, 5)" class="crono-row cursor-pointer rounded-2xl border border-amber-500/30 bg-amber-950/20 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="sabado-item-5" onclick="activateCronoItem(1, 5)" class="crono-row cursor-pointer rounded-2xl border border-amber-500/30 bg-amber-950/20 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-500/20 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-amber-400 tracking-tight flex items-center gap-2">
                                         🍽️ 12H00 às 14H00
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-amber-500/10 text-amber-300 px-3 py-1 rounded-full border border-amber-500/20 w-max">Intervalo de Almoço</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-amber-200 leading-snug">
+                                <h4 class="text-lg sm:text-xl font-bold text-amber-200 leading-snug">
                                     Almoço & Networking Ao Vivo com Participantes
-                                </h3>
+                                </h4>
                                 <p class="text-xs sm:text-sm text-amber-200/80 mt-2 leading-relaxed">
                                     Pausa para almoço, descanso e troca de experiências e contatos com os participantes e especialista no chat ao vivo.
                                 </p>
                             </div>
 
                             <!-- Item 7 -->
-                            <div id="sabado-item-6" onclick="activateCronoItem(1, 6)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="sabado-item-6" onclick="activateCronoItem(1, 6)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1273,16 +1284,16 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Fechamento de Arquivo</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Modelando e Preparando o Uniforme para Impressão
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    📐 Modelando e Preparando o Uniforme para Impressão
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Passo a passo técnico de montagem dos moldes 2D e fechamento de arquivos para envio às estamparias parceiras.
                                 </p>
                             </div>
 
                             <!-- Item 8 -->
-                            <div id="sabado-item-7" onclick="activateCronoItem(1, 7)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="sabado-item-7" onclick="activateCronoItem(1, 7)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1290,16 +1301,16 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Produção & Terceirização</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Guia Completo de Produção, Fornecedores & Sem Máquinas
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🏭 Guia Completo de Produção, Fornecedores & Sem Máquinas
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Modelagens, cores RGB vs CMYK, impressoras, papéis, tintas, perfil de cor, prensas, máquinas de costura, tecidos, aviamentos, rede de fornecedores homologados e como evitar sombras, ressublimação e prejuízos.
                                 </p>
                             </div>
 
                             <!-- Item 9 -->
-                            <div id="sabado-item-8" onclick="activateCronoItem(1, 8)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="sabado-item-8" onclick="activateCronoItem(1, 8)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1307,9 +1318,9 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Mentoria Ao Vivo</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Tira-Dúvidas e Mentoria Direta do 1º Dia
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    💬 Tira-Dúvidas e Mentoria Direta do 1º Dia
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Sessão aberta no Google Meet para responder individualmente todas as suas dúvidas técnicas sobre os projetos do primeiro dia.
                                 </p>
@@ -1317,28 +1328,39 @@
 
                         </div>
 
-                        <!-- AGENDA DOMINGO (7 TÓPICOS - INICIALMENTE OCULTO) -->
-                        <div id="crono-list-domingo" class="space-y-3 hidden">
+                        <!-- AGENDA DIA 02: DOMINGO -->
+                        <div id="crono-block-domingo" class="space-y-4 pt-8 border-t border-white/10">
                             
+                            <!-- Header Banner Domingo -->
+                            <div id="domingo-header" class="flex items-center justify-between bg-sky-950/40 border border-sky-500/30 rounded-2xl p-4 sm:p-5 mb-6">
+                                <div class="flex items-center gap-3">
+                                    <span class="w-3 h-3 rounded-full bg-sky-400 animate-ping"></span>
+                                    <h3 class="text-base sm:text-lg font-black text-white uppercase tracking-wider">
+                                        📅 DIA 02 • DOMINGO (16 DE AGOSTO)
+                                    </h3>
+                                </div>
+                                <span class="text-xs font-bold text-sky-300 bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/30">10h às 17h</span>
+                            </div>
+
                             <!-- Item 1 -->
-                            <div id="domingo-item-0" onclick="activateCronoItem(2, 0)" class="crono-row cursor-pointer rounded-2xl border border-sky-400 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-[0_0_25px_rgba(56,189,248,0.2)]">
+                            <div id="domingo-item-0" onclick="activateCronoItem(2, 0)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
-                                    <span class="text-xl sm:text-2xl font-black text-sky-400 tracking-tight flex items-center gap-2">
-                                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400 shadow-[0_0_8px_#38bdf8]"></span>
+                                    <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
                                         10H00 às 10H10
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-sky-500/10 text-sky-300 px-3 py-1 rounded-full border border-sky-500/20 w-max">Recapitulando</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Revisão e Tira-Dúvidas do Primeiro Dia
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🔄 Revisão e Tira-Dúvidas do Primeiro Dia
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Alinhamento inicial dos pontos-chave trabalhados no sábado e aquecimento para o dia de tráfego e vendas.
                                 </p>
                             </div>
 
                             <!-- Item 2 -->
-                            <div id="domingo-item-1" onclick="activateCronoItem(2, 1)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="domingo-item-1" onclick="activateCronoItem(2, 1)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1346,16 +1368,16 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Anúncios Meta Ads</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Tráfego Pago no Facebook & Instagram para Vender Uniformes
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🎯 Tráfego Pago no Facebook & Instagram para Vender Uniformes
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Criação de campanhas de anúncios segmentados para atingir especificamente diretores, presidentes e jogadores da várzea, escolinhas de futebol, criadores de eventos, Gamers e empresas.
                                 </p>
                             </div>
 
                             <!-- Item 3 -->
-                            <div id="domingo-item-2" onclick="activateCronoItem(2, 2)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="domingo-item-2" onclick="activateCronoItem(2, 2)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1363,32 +1385,32 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Visão Bastidores</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Apresentação da Fábrica Esportiva por Dentro
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🏭 Apresentação da Fábrica Esportiva por Dentro
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Conheça a estrutura por dentro e entenda o fluxo de atendimento, produção e expedição de pedidos da Bfnine.
                                 </p>
                             </div>
 
                             <!-- Item 4 (Almoço) -->
-                            <div id="domingo-item-3" onclick="activateCronoItem(2, 3)" class="crono-row cursor-pointer rounded-2xl border border-amber-500/30 bg-amber-950/20 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="domingo-item-3" onclick="activateCronoItem(2, 3)" class="crono-row cursor-pointer rounded-2xl border border-amber-500/30 bg-amber-950/20 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-500/20 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-amber-400 tracking-tight flex items-center gap-2">
                                         🍽️ 12H00 às 14H00
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-amber-500/10 text-amber-300 px-3 py-1 rounded-full border border-amber-500/20 w-max">Intervalo de Almoço</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-amber-200 leading-snug">
+                                <h4 class="text-lg sm:text-xl font-bold text-amber-200 leading-snug">
                                     Almoço, Tira-Dúvidas & Networking Ao Vivo
-                                </h3>
+                                </h4>
                                 <p class="text-xs sm:text-sm text-amber-200/80 mt-2 leading-relaxed">
                                     Pausa para almoço, descanso e conexão direta com a comunidade de alunos no chat ao vivo.
                                 </p>
                             </div>
 
                             <!-- Item 5 -->
-                            <div id="domingo-item-4" onclick="activateCronoItem(2, 4)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="domingo-item-4" onclick="activateCronoItem(2, 4)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1396,16 +1418,16 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Google & Youtube Ads</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Anúncios no Google Ads & Youtube Ads
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🚀 Anúncios no Google Ads & Youtube Ads
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Como aparecer em 1º lugar na busca do Google para quem pesquisa por uniformes e exibir seus modelos na TV da sala do cliente por apenas R$ 0,08 centavos no Youtube.
                                 </p>
                             </div>
 
                             <!-- Item 6 -->
-                            <div id="domingo-item-5" onclick="activateCronoItem(2, 5)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/60 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="domingo-item-5" onclick="activateCronoItem(2, 5)" class="crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-slate-300 tracking-tight flex items-center gap-2">
                                         <span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
@@ -1413,25 +1435,25 @@
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-white/5 text-slate-400 px-3 py-1 rounded-full border border-white/10 w-max">Mentoria Individual</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Tira-Dúvidas & Mentoria Individual Ao Vivo
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    👥 Tira-Dúvidas & Mentoria Individual Ao Vivo
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Atendimento direto para analisar e ajustar individualmente o plano de negócios e anúncios de cada participante.
                                 </p>
                             </div>
 
                             <!-- Item 7 -->
-                            <div id="domingo-item-6" onclick="activateCronoItem(2, 6)" class="crono-row cursor-pointer rounded-2xl border border-emerald-500/30 bg-emerald-950/20 p-5 sm:p-6 transition-all duration-300 opacity-40">
+                            <div id="domingo-item-6" onclick="activateCronoItem(2, 6)" class="crono-row cursor-pointer rounded-2xl border border-emerald-500/30 bg-emerald-950/20 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80">
                                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-500/20 pb-3 mb-3">
                                     <span class="text-xl sm:text-2xl font-black text-emerald-400 tracking-tight flex items-center gap-2">
                                         🏆 16H50 às 17H00
                                     </span>
                                     <span class="text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/10 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/20 w-max">Encerramento</span>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">
-                                    Encerramento, Agradecimentos & Plano de Ação R$ 15k/mês
-                                </h3>
+                                <h4 class="text-lg sm:text-xl font-bold text-white leading-snug">
+                                    🏆 Encerramento, Agradecimentos & Plano de Ação R$ 15k/mês
+                                </h4>
                                 <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                                     Orientações finais para aplicar o plano de ação e buscar a meta de 3 a 5 fardamentos por mês já a partir da próxima semana.
                                 </p>
@@ -2584,19 +2606,22 @@
         let activeCronoDay = 1;
         let manualCronoOverride = false;
 
-        function setDayManual(day) {
+        function scrollToCronoDay(day) {
             manualCronoOverride = true;
-            activeCronoDay = day;
+            const targetId = day === 1 ? 'sabado-header' : 'domingo-header';
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
             updateCronoDayUI(day, 0);
-            setTimeout(() => { manualCronoOverride = false; }, 3000);
+            setTimeout(() => { manualCronoOverride = false; }, 1500);
         }
-        window.setDayManual = setDayManual;
+        window.scrollToCronoDay = scrollToCronoDay;
 
         function updateCronoDayUI(day, itemIdx) {
+            activeCronoDay = day;
             const btnSabado = document.getElementById('btn-crono-sabado');
             const btnDomingo = document.getElementById('btn-crono-domingo');
-            const listSabado = document.getElementById('crono-list-sabado');
-            const listDomingo = document.getElementById('crono-list-domingo');
             const indicator = document.getElementById('crono-day-indicator');
             const counter = document.getElementById('crono-step-counter');
             const progressBar = document.getElementById('crono-progress-bar');
@@ -2604,13 +2629,11 @@
             if (day === 1) {
                 if (btnSabado) btnSabado.className = "flex-1 py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-300 bg-sky-500 text-slate-950 shadow-[0_0_15px_rgba(56,189,248,0.4)]";
                 if (btnDomingo) btnDomingo.className = "flex-1 py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white bg-transparent";
-                if (listSabado) listSabado.classList.remove('hidden');
-                if (listDomingo) listDomingo.classList.add('hidden');
                 if (indicator) indicator.textContent = "SÁBADO (1º DIA)";
                 if (counter) counter.textContent = `Tópico ${itemIdx + 1} de 9`;
                 if (progressBar) progressBar.style.width = `${((itemIdx + 1) / 9) * 100}%`;
 
-                // Highlight Active Item in Sábado
+                // Highlight Sábado active item & dim all other Sábado and Domingo items
                 for (let i = 0; i < 9; i++) {
                     const row = document.getElementById(`sabado-item-${i}`);
                     if (!row) continue;
@@ -2622,7 +2645,7 @@
                             timeSpan.classList.add('text-sky-400');
                         }
                     } else {
-                        row.className = "crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-75";
+                        row.className = "crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80";
                         const timeSpan = row.querySelector('.text-xl, .text-2xl');
                         if (timeSpan && !timeSpan.classList.contains('text-amber-400') && !timeSpan.classList.contains('text-emerald-400')) {
                             timeSpan.classList.remove('text-sky-400');
@@ -2630,20 +2653,38 @@
                         }
                     }
                 }
+                for (let j = 0; j < 7; j++) {
+                    const row = document.getElementById(`domingo-item-${j}`);
+                    if (!row) continue;
+                    row.className = "crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80";
+                    const timeSpan = row.querySelector('.text-xl, .text-2xl');
+                    if (timeSpan && !timeSpan.classList.contains('text-amber-400') && !timeSpan.classList.contains('text-emerald-400')) {
+                        timeSpan.classList.remove('text-sky-400');
+                        timeSpan.classList.add('text-slate-300');
+                    }
+                }
             } else {
                 if (btnDomingo) btnDomingo.className = "flex-1 py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-300 bg-sky-500 text-slate-950 shadow-[0_0_15px_rgba(56,189,248,0.4)]";
                 if (btnSabado) btnSabado.className = "flex-1 py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all duration-300 text-slate-400 hover:text-white bg-transparent";
-                if (listDomingo) listDomingo.classList.remove('hidden');
-                if (listSabado) listSabado.classList.add('hidden');
                 if (indicator) indicator.textContent = "DOMINGO (2º DIA)";
                 if (counter) counter.textContent = `Tópico ${itemIdx + 1} de 7`;
                 if (progressBar) progressBar.style.width = `${((itemIdx + 1) / 7) * 100}%`;
 
-                // Highlight Active Item in Domingo
-                for (let i = 0; i < 7; i++) {
-                    const row = document.getElementById(`domingo-item-${i}`);
+                // Highlight Domingo active item & dim all Sábado and other Domingo items
+                for (let i = 0; i < 9; i++) {
+                    const row = document.getElementById(`sabado-item-${i}`);
                     if (!row) continue;
-                    if (i === itemIdx) {
+                    row.className = "crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80";
+                    const timeSpan = row.querySelector('.text-xl, .text-2xl');
+                    if (timeSpan && !timeSpan.classList.contains('text-amber-400') && !timeSpan.classList.contains('text-emerald-400')) {
+                        timeSpan.classList.remove('text-sky-400');
+                        timeSpan.classList.add('text-slate-300');
+                    }
+                }
+                for (let j = 0; j < 7; j++) {
+                    const row = document.getElementById(`domingo-item-${j}`);
+                    if (!row) continue;
+                    if (j === itemIdx) {
                         row.className = "crono-row cursor-pointer rounded-2xl border border-sky-400 bg-[#052637] p-5 sm:p-6 transition-all duration-300 opacity-100 shadow-[0_0_25px_rgba(56,189,248,0.3)] scale-[1.01]";
                         const timeSpan = row.querySelector('.text-xl, .text-2xl');
                         if (timeSpan && !timeSpan.classList.contains('text-amber-400') && !timeSpan.classList.contains('text-emerald-400')) {
@@ -2651,7 +2692,7 @@
                             timeSpan.classList.add('text-sky-400');
                         }
                     } else {
-                        row.className = "crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-75";
+                        row.className = "crono-row cursor-pointer rounded-2xl border border-white/10 bg-[#041622]/50 p-5 sm:p-6 transition-all duration-300 opacity-35 hover:opacity-80";
                         const timeSpan = row.querySelector('.text-xl, .text-2xl');
                         if (timeSpan && !timeSpan.classList.contains('text-amber-400') && !timeSpan.classList.contains('text-emerald-400')) {
                             timeSpan.classList.remove('text-sky-400');
@@ -2663,7 +2704,6 @@
         }
 
         function activateCronoItem(day, idx) {
-            setDayManual(day);
             updateCronoDayUI(day, idx);
         }
         window.activateCronoItem = activateCronoItem;
@@ -2688,25 +2728,47 @@
                     if (img3) { img3.style.transform = ''; img3.style.opacity = ''; }
                 }
 
-                // Efeito de rolagem de destaque do Cronograma (Sábado -> Domingo)
+                // Efeito de Rolagem do Cronograma (Detecção por Posição de Cada Item no Viewport)
                 const cronoSection = document.getElementById('cronograma-3d-section');
                 if (cronoSection && !manualCronoOverride) {
-                    const sectionRect = cronoSection.getBoundingClientRect();
                     const viewHeight = window.innerHeight;
-                    const totalHeight = cronoSection.clientHeight;
-                    
-                    if (sectionRect.top <= viewHeight * 0.5 && sectionRect.bottom >= viewHeight * 0.1) {
-                        const scrolled = Math.max(0, (viewHeight * 0.5) - sectionRect.top);
-                        const totalScrollable = Math.max(totalHeight - viewHeight * 0.6, 1);
-                        const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 0.999);
-                        
-                        if (pct < 0.5) {
-                            const day1Step = Math.min(Math.floor((pct / 0.5) * 9), 8);
-                            updateCronoDayUI(1, day1Step);
-                        } else {
-                            const day2Step = Math.min(Math.floor(((pct - 0.5) / 0.5) * 7), 6);
-                            updateCronoDayUI(2, day2Step);
+                    const triggerZone = viewHeight * 0.45;
+
+                    let closestDay = 1;
+                    let closestIdx = 0;
+                    let minDiff = Infinity;
+
+                    // Avaliar itens do Sábado
+                    for (let i = 0; i < 9; i++) {
+                        const el = document.getElementById(`sabado-item-${i}`);
+                        if (el) {
+                            const rect = el.getBoundingClientRect();
+                            const diff = Math.abs(rect.top - triggerZone);
+                            if (rect.top <= viewHeight * 0.85 && diff < minDiff) {
+                                minDiff = diff;
+                                closestDay = 1;
+                                closestIdx = i;
+                            }
                         }
+                    }
+
+                    // Avaliar itens do Domingo
+                    for (let j = 0; j < 7; j++) {
+                        const el = document.getElementById(`domingo-item-${j}`);
+                        if (el) {
+                            const rect = el.getBoundingClientRect();
+                            const diff = Math.abs(rect.top - triggerZone);
+                            if (rect.top <= viewHeight * 0.85 && diff < minDiff) {
+                                minDiff = diff;
+                                closestDay = 2;
+                                closestIdx = j;
+                            }
+                        }
+                    }
+
+                    const secRect = cronoSection.getBoundingClientRect();
+                    if (secRect.top <= viewHeight * 0.85 && secRect.bottom >= viewHeight * 0.15) {
+                        updateCronoDayUI(closestDay, closestIdx);
                     }
                 }
 
