@@ -2728,51 +2728,42 @@
                     if (img3) { img3.style.transform = ''; img3.style.opacity = ''; }
                 }
 
-                // Efeito de Rolagem do Cronograma (Detecção por Posição de Cada Item no Viewport)
+                // Efeito de Rolagem do Cronograma (Detecção por Posição em Relação ao Viewport)
                 const cronoSection = document.getElementById('cronograma-3d-section');
                 if (cronoSection && !manualCronoOverride) {
-                    const viewHeight = window.innerHeight;
-                    const triggerZone = viewHeight * 0.45;
+                    const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+                    const focusY = viewHeight * 0.4; // Ponto focal a 40% do topo da janela
 
-                    let closestDay = 1;
-                    let closestIdx = 0;
-                    let minDiff = Infinity;
+                    const allItems = [
+                        ...Array.from({length: 9}, (_, i) => ({ day: 1, idx: i, id: `sabado-item-${i}` })),
+                        ...Array.from({length: 7}, (_, j) => ({ day: 2, idx: j, id: `domingo-item-${j}` }))
+                    ];
 
-                    // Avaliar itens do Sábado
-                    for (let i = 0; i < 9; i++) {
-                        const el = document.getElementById(`sabado-item-${i}`);
-                        if (el) {
-                            const rect = el.getBoundingClientRect();
-                            const diff = Math.abs(rect.top - triggerZone);
-                            if (rect.top <= viewHeight * 0.85 && diff < minDiff) {
-                                minDiff = diff;
-                                closestDay = 1;
-                                closestIdx = i;
+                    let activeItem = null;
+                    let minDistance = Infinity;
+
+                    for (const item of allItems) {
+                        const el = document.getElementById(item.id);
+                        if (!el) continue;
+                        const rect = el.getBoundingClientRect();
+                        
+                        // Verificar se o item está visível na janela
+                        if (rect.bottom > 50 && rect.top < viewHeight - 50) {
+                            const itemCenter = rect.top + (rect.height / 2);
+                            const dist = Math.abs(itemCenter - focusY);
+                            if (dist < minDistance) {
+                                minDistance = dist;
+                                activeItem = item;
                             }
                         }
                     }
 
-                    // Avaliar itens do Domingo
-                    for (let j = 0; j < 7; j++) {
-                        const el = document.getElementById(`domingo-item-${j}`);
-                        if (el) {
-                            const rect = el.getBoundingClientRect();
-                            const diff = Math.abs(rect.top - triggerZone);
-                            if (rect.top <= viewHeight * 0.85 && diff < minDiff) {
-                                minDiff = diff;
-                                closestDay = 2;
-                                closestIdx = j;
-                            }
-                        }
-                    }
-
-                    const secRect = cronoSection.getBoundingClientRect();
-                    if (secRect.top <= viewHeight * 0.85 && secRect.bottom >= viewHeight * 0.15) {
-                        updateCronoDayUI(closestDay, closestIdx);
+                    if (activeItem) {
+                        updateCronoDayUI(activeItem.day, activeItem.idx);
                     }
                 }
 
-                // 1. Scroll Transform dos Cards de Dores (Seção 2) (Roda em todas as telas)
+                // 1. Scroll Transform dos Cards de Dores
                 if (doresSection && doresTrack && doresTrackContainer) {
                     const rect = doresSection.getBoundingClientRect();
                     const viewHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -2782,16 +2773,14 @@
                     if (rect.top <= viewHeight && rect.bottom >= 0) {
                         const scrolled = Math.max(0, -rect.top);
                         const pct = Math.min(Math.max(scrolled / maxScrollable, 0), 1);
-                        
                         const trackWidth = doresTrack.scrollWidth;
                         const containerWidth = doresTrackContainer.clientWidth;
-                        
                         const maxTranslate = Math.max(trackWidth - containerWidth + 60, 0);
                         doresTrack.style.transform = `translate3d(-${pct * maxTranslate}px, 0, 0)`;
                     }
                 }
 
-                // 2. Scroll Transform do Processo Completo em 7 Passos (Celular & Desktop)
+                // 2. Scroll Transform do Processo Completo em 7 Passos
                 if (processSection) {
                     const procRect = processSection.getBoundingClientRect();
                     const viewHeight = window.innerHeight;
@@ -2802,7 +2791,6 @@
                         const totalScrollable = totalHeight - viewHeight;
                         const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
                         
-                        // No Mobile: Deslizar os cards para a esquerda à medida que rola a página
                         if (isMobile) {
                             const processTrack = document.getElementById('process-track');
                             const processTrackContainer = document.getElementById('process-track-container');
@@ -2814,49 +2802,8 @@
                             }
                         }
 
-                        // Dividir o scroll em 7 etapas proporcionais (1 a 7) para trocar a imagem da caixa abaixo
                         const step = Math.min(Math.floor(pct * 7), 6) + 1;
                         activateStep(step);
-                    }
-                }
-
-                // 2. Efeitos exclusivos de Desktop (Cubo 3D)
-                if (!isMobile) {
-                    if (cronoSection && cubo) {
-                        const sectionRect = cronoSection.getBoundingClientRect();
-                        const viewHeight = window.innerHeight;
-                        const totalHeight = cronoSection.clientHeight;
-                        
-                        if (sectionRect.top <= 0 && sectionRect.bottom >= viewHeight) {
-                            const scrolled = -sectionRect.top;
-                            const totalScrollable = totalHeight - viewHeight;
-                            const pct = Math.min(Math.max(scrolled / totalScrollable, 0), 1);
-                            
-                            const rotationY = -pct * 270; 
-                            cubo.style.transform = `rotateY(${rotationY}deg) rotateX(10deg)`;
-
-                            if (pct < 0.25) {
-                                if (txt1) { txt1.style.opacity = "1"; txt1.style.borderLeftColor = "#eab308"; }
-                                if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
-                                if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
-                                if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
-                            } else if (pct >= 0.25 && pct < 0.5) {
-                                if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
-                                if (txt2) { txt2.style.opacity = "1"; txt2.style.borderLeftColor = "#eab308"; }
-                                if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
-                                if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
-                            } else if (pct >= 0.5 && pct < 0.75) {
-                                if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
-                                if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
-                                if (txt3) { txt3.style.opacity = "1"; txt3.style.borderLeftColor = "#eab308"; }
-                                if (txt4) { txt4.style.opacity = "0.4"; txt4.style.borderLeftColor = "transparent"; }
-                            } else {
-                                if (txt1) { txt1.style.opacity = "0.4"; txt1.style.borderLeftColor = "transparent"; }
-                                if (txt2) { txt2.style.opacity = "0.4"; txt2.style.borderLeftColor = "transparent"; }
-                                if (txt3) { txt3.style.opacity = "0.4"; txt3.style.borderLeftColor = "transparent"; }
-                                if (txt4) { txt4.style.opacity = "1"; txt4.style.borderLeftColor = "#eab308"; }
-                            }
-                        }
                     }
                 }
 
