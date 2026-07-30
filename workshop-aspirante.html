@@ -967,7 +967,7 @@
         </section>
 
         <!-- SEÇÃO 3.5: A ECONOMIA DE FABRICAR SEM MÁQUINAS (Cards Visuais com Imagens Realistas e Ancoragem) -->
-        <section class="w-full bg-[#051f2d] border-t border-b border-white/5 py-20 lg:py-24 relative overflow-hidden">
+        <section class="w-full bg-[#051f2d] border-t border-b border-white/5 py-20 lg:py-24 relative z-40 shadow-2xl overflow-hidden">
             
             <!-- Glow de fundo -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none"></div>
@@ -1204,7 +1204,7 @@
         </section>
 
         <!-- SEÇÃO 4: CRONOGRAMA OFICIAL COM ROLAGEM DE DESTAQUE SEQUENCIAL (SÁBADO ➔ DOMINGO) -->
-        <section id="cronograma-3d-section" class="w-full relative border-t border-b border-white/5 bg-[#020d14] py-16 lg:py-24">
+        <section id="cronograma-3d-section" class="w-full relative z-20 border-t border-b border-white/5 bg-[#020d14] py-16 lg:py-24">
             
             <!-- Glows de Fundo Atmosféricos -->
             <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none"></div>
@@ -1269,9 +1269,9 @@
                         <!-- AGENDA DIA 01: SÁBADO -->
                         <div id="crono-block-sabado" class="space-y-4">
                             
-                            <!-- Header Banner Sábado (Sticky top-24, Grosso, Borda Dourada Exclusiva e Cobertura Superior Opaca) -->
-                            <div id="sabado-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#020d14] border-2 border-amber-400 rounded-3xl py-7 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(251,191,36,0.3)] transition-all relative before:content-[''] before:absolute before:-top-48 before:-left-1 before:-right-1 before:h-48 before:bg-[#020d14] before:pointer-events-none">
-                                <div class="flex items-center gap-4 relative z-10">
+                            <!-- Header Banner Sábado (Sticky top-24, Grosso, Borda Dourada Exclusiva) -->
+                            <div id="sabado-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#020d14]/95 backdrop-blur-xl border-2 border-amber-400 rounded-3xl py-7 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(251,191,36,0.3)] transition-all">
+                                <div class="flex items-center gap-4">
                                     <span class="w-4 h-4 rounded-full bg-amber-400 animate-ping"></span>
                                     <div>
                                         <span class="text-[10px] font-black uppercase tracking-widest text-amber-400 block mb-0.5">1º DIA DE WORKSHOP</span>
@@ -1280,7 +1280,7 @@
                                         </h3>
                                     </div>
                                 </div>
-                                <span class="text-xs sm:text-sm font-black text-amber-300 bg-amber-500/15 px-4 py-2 rounded-xl border border-amber-400/40 relative z-10">10h às 17h (Ao Vivo)</span>
+                                <span class="text-xs sm:text-sm font-black text-amber-300 bg-amber-500/15 px-4 py-2 rounded-xl border border-amber-400/40">10h às 17h (Ao Vivo)</span>
                             </div>
 
                             <!-- Item 1 -->
@@ -1440,9 +1440,9 @@
                         <!-- AGENDA DIA 02: DOMINGO -->
                         <div id="crono-block-domingo" class="space-y-4 pt-8 border-t border-white/10">
                             
-                            <!-- Header Banner Domingo (Sticky top-24, Grosso, Borda Esmeralda Exclusiva e Cobertura Superior Opaca) -->
-                            <div id="domingo-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#020d14] border-2 border-emerald-400 rounded-3xl py-7 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(52,211,153,0.3)] transition-all relative before:content-[''] before:absolute before:-top-48 before:-left-1 before:-right-1 before:h-48 before:bg-[#020d14] before:pointer-events-none">
-                                <div class="flex items-center gap-4 relative z-10">
+                            <!-- Header Banner Domingo (Sticky top-24, Grosso, Borda Esmeralda Exclusiva) -->
+                            <div id="domingo-header" class="sticky top-24 z-30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#020d14]/95 backdrop-blur-xl border-2 border-emerald-400 rounded-3xl py-7 px-6 sm:px-8 mb-6 shadow-[0_15px_35px_rgba(52,211,153,0.3)] transition-all">
+                                <div class="flex items-center gap-4">
                                     <span class="w-4 h-4 rounded-full bg-emerald-400 animate-ping"></span>
                                     <div>
                                         <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400 block mb-0.5">2º DIA DE WORKSHOP</span>
@@ -1451,7 +1451,7 @@
                                         </h3>
                                     </div>
                                 </div>
-                                <span class="text-xs sm:text-sm font-black text-emerald-300 bg-emerald-500/15 px-4 py-2 rounded-xl border border-emerald-400/40 relative z-10">10h às 17h (Ao Vivo)</span>
+                                <span class="text-xs sm:text-sm font-black text-emerald-300 bg-emerald-500/15 px-4 py-2 rounded-xl border border-emerald-400/40">10h às 17h (Ao Vivo)</span>
                             </div>
 
                             <!-- Item 1 -->
