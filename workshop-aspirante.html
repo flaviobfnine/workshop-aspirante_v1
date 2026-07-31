@@ -375,12 +375,14 @@
 
     <main class="relative z-10">
         
-        <!-- SEÇÃO 1: HERO (Preenchimento 100%, 2 Colunas, Sem Vídeo, Fundo de Várzea Premium) -->
-        <section class="w-full relative min-h-screen flex items-center bg-[#020d14]" style="background-image: linear-gradient(to right, rgba(2, 13, 20, 0.98) 35%, rgba(2, 13, 20, 0.6) 100%), url('assets/varzea_hero_bg.png'); background-size: cover; background-position: center;">
-            <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-16 relative">
+        <!-- SEÇÃO 1: HERO (Preenchimento 100%, Ambientação Futebol EA FC com Bola 3D Parallax Flutuante) -->
+        <section class="w-full relative min-h-screen flex items-center bg-[#020d14] overflow-hidden" style="background-image: linear-gradient(to right, rgba(2, 13, 20, 0.98) 35%, rgba(2, 13, 20, 0.6) 100%), url('assets/varzea_hero_bg.png'); background-size: cover; background-position: center;">
             
-            
+            <!-- Imagem de Fundo Ambiental do Túnel do Estádio EA FC -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-overlay pointer-events-none" style="background-image: url('assets/futebol_tunel_estadio.jpg');"></div>
 
+            <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+            
             <!-- Grid de 2 Colunas -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-20">
                 
@@ -490,9 +492,14 @@
                             </div>
                         </div>
 
-                        <!-- Contêiner da Imagem -->
+                        <!-- Contêiner da Imagem do Especialista com Elemento 3D Flutuante -->
                         <div class="relative rounded-3xl border border-sky-500/20 bg-slate-900 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 28px;">
                             <img alt="Especialista Bfnine e Manto Premium" class="w-full h-auto object-cover rounded-2xl" src="assets/especialista_hero.png" style="border-radius: 20px;"/>
+                            
+                            <!-- Elemento Flutuante 3D: Bola EA FC Neon Parallax (z-30) -->
+                            <div class="absolute -top-3 -right-3 z-30 w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-sky-400/80 shadow-[0_0_30px_rgba(56,189,248,0.7)] overflow-hidden anim-float-1 pointer-events-none hidden sm:block">
+                                <img src="assets/futebol_bola_ea_fc.jpg" alt="Bola EA FC 3D" class="w-full h-full object-cover"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -569,9 +576,13 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 2: A REALIDADE E AS DORES DO CLT (Preenchimento 100%, Interação por Scroll do Usuário) -->
-        <section id="dores-section" class="w-full bg-[#051f2d] border-t border-white/5 relative" style="height: 220vh;">
-            <div id="sticky-dores-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center w-full" style="height: 100vh;">
+        <!-- SEÇÃO 2: A REALIDADE E AS DORES DO CLT (Preenchimento 100%, Interação por Scroll do Usuário + Ambientação Futebol Gramado/Chuteira) -->
+        <section id="dores-section" class="w-full bg-[#051f2d] border-t border-white/5 relative overflow-hidden" style="height: 220vh;">
+            
+            <!-- Imagem de Fundo Ambiental Chuteira e Gramado de Estádio -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay pointer-events-none" style="background-image: url('assets/futebol_chuteira_campo.jpg');"></div>
+
+            <div id="sticky-dores-wrapper" class="sticky top-0 overflow-hidden flex flex-col justify-center w-full relative z-10" style="height: 100vh;">
                 <div class="mx-auto max-w-[1200px] w-full px-4 sm:px-6 lg:px-8 py-12 relative flex flex-col justify-center h-full">
                 
                 <!-- Sobrancelha Destacada -->
@@ -1813,9 +1824,13 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 6: DEPOIMENTOS & PROVAS SOCIAIS DE ALUNOS (Sticky Wrapper Top-0 Unificado 100% Mobile & Desktop) -->
-        <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5" style="height: 300vh;">
-            <div id="sticky-dep-wrapper" class="sticky top-0 h-screen overflow-hidden flex flex-col justify-between w-full bg-[#051f2d] py-3 sm:py-6 z-[20]">
+        <!-- SEÇÃO 6: DEPOIMENTOS & PROVAS SOCIAIS DE ALUNOS (Sticky Wrapper Top-0 Unificado + Ambientação Vestiário Futebol HD) -->
+        <section id="depoimentos-section" class="w-full relative bg-[#051f2d] border-t border-white/5 overflow-hidden" style="height: 300vh;">
+            
+            <!-- Imagem de Fundo Ambiental do Vestiário Profissional EA FC -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay pointer-events-none" style="background-image: url('assets/futebol_vestiario_hd.jpg');"></div>
+
+            <div id="sticky-dep-wrapper" class="sticky top-0 h-screen overflow-hidden flex flex-col justify-between w-full bg-[#051f2d]/90 py-3 sm:py-6 z-[20]">
                 
                 <!-- Header Fixo no Topo do Wrapper Sticky -->
                 <div class="w-full text-center max-w-3xl mx-auto px-4 flex-shrink-0 pt-1 sm:pt-2">
@@ -2158,9 +2173,13 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 8: AUTORIDADE (Tela Cheia) -->
-        <section id="autoridade" class="w-full bg-[#051f2d] border-t border-white/5 relative">
-            <div class="min-h-screen flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20">
+        <!-- SEÇÃO 8: AUTORIDADE (Tela Cheia com Ambientação Futebol Estádio EA FC) -->
+        <section id="autoridade" class="w-full bg-[#051f2d] border-t border-white/5 relative overflow-hidden">
+            
+            <!-- Imagem de Fundo Ambiental do Estádio EA FC -->
+            <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay pointer-events-none" style="background-image: url('assets/futebol_tunel_estadio.jpg');"></div>
+
+            <div class="min-h-screen flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
                 <div class="lg:col-span-5 animate-on-scroll">
                     <div class="rounded-3xl border border-yellow-500/10 bg-slate-900/60 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 24px;">
