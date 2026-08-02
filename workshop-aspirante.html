@@ -31,11 +31,12 @@
     src="https://www.facebook.com/tr?id=833766893782097&ev=PageView&noscript=1"
     /></noscript>
     
-    <!-- Meta Pixel Scroll Checkpoints (Scroll_60 e Scroll_95) -->
+    <!-- Meta Pixel Checkpoints (ofer_ingresso, Scroll_60 e Scroll_95) -->
     <script>
     (function() {
         let scroll60Fired = false;
         let scroll95Fired = false;
+        let oferIngressoFired = false;
 
         function checkScrollDepth() {
             if (typeof fbq === 'undefined') return;
@@ -56,7 +57,27 @@
         }
 
         window.addEventListener('scroll', checkScrollDepth, { passive: true });
-        document.addEventListener('DOMContentLoaded', checkScrollDepth);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkScrollDepth();
+
+            // Disparo automático do evento ofer_ingresso / ViewContent no CTA de Preço
+            const ctaSection = document.getElementById('comprar') || document.querySelector('[data-pixel-tag="ofer_ingresso"]');
+            if (ctaSection && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting && !oferIngressoFired) {
+                            oferIngressoFired = true;
+                            if (typeof fbq !== 'undefined') {
+                                fbq('track', 'ViewContent', { content_name: 'ofer_ingresso', value: 19.00, currency: 'BRL' });
+                                fbq('trackCustom', 'ofer_ingresso', { page: 'workshop-aspirante' });
+                            }
+                        }
+                    });
+                }, { threshold: 0.2 });
+                observer.observe(ctaSection);
+            }
+        });
     })();
     </script>
     <!-- End Meta Pixel Code -->
@@ -2049,7 +2070,7 @@
 
         <!-- SEÇÃO 9: OFERTA + CTA FINAL (Único botão de compra com preço) -->
                 <!-- SEÇÃO 9: OFERTA + CTA FINAL (Layout Estilo Ingresso Premium Inspirado no Print, Preservando Ancoragem R$ 197 -> R$ 19) -->
-        <section id="comprar" class="w-full bg-[#020d14] border-t border-white/5 relative py-16 sm:py-24">
+        <section id="comprar" data-pixel-tag="ofer_ingresso" class="w-full bg-[#020d14] border-t border-white/5 relative py-16 sm:py-24">
             <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
                 
                 <!-- Headline Superior de Chamada do Preço -->
