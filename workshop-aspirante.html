@@ -4,6 +4,63 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
     <title>Workshop Fabricação Esportiva para Iniciantes e CLT — Bfnine</title>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // Inicialização do Pixel com ID Oficial
+    fbq('init', '833766893782097');
+    
+    // 1. Eventos Imediatos de Carregamento (PageView + ViewContent)
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', { 
+        content_name: 'Workshop Fabricação Esportiva Aspirante',
+        content_category: 'Workshop Ao Vivo',
+        value: 19.00,
+        currency: 'BRL'
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=833766893782097&ev=PageView&noscript=1"
+    /></noscript>
+    
+    <!-- Meta Pixel Scroll Checkpoints (Scroll_60 e Scroll_95) -->
+    <script>
+    (function() {
+        let scroll60Fired = false;
+        let scroll95Fired = false;
+
+        function checkScrollDepth() {
+            if (typeof fbq === 'undefined') return;
+            let winHeight = window.innerHeight || document.documentElement.clientHeight;
+            let docHeight = document.documentElement.scrollHeight;
+            let scrollTop = window.scrollY || document.documentElement.scrollTop;
+            if (docHeight - winHeight <= 0) return;
+            let scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+
+            if (scrollPercent >= 60 && !scroll60Fired) {
+                scroll60Fired = true;
+                fbq('trackCustom', 'Scroll_60', { page: 'workshop-aspirante', depth: '60%' });
+            }
+            if (scrollPercent >= 95 && !scroll95Fired) {
+                scroll95Fired = true;
+                fbq('trackCustom', 'Scroll_95', { page: 'workshop-aspirante', depth: '95%' });
+            }
+        }
+
+        window.addEventListener('scroll', checkScrollDepth, { passive: true });
+        document.addEventListener('DOMContentLoaded', checkScrollDepth);
+    })();
+    </script>
+    <!-- End Meta Pixel Code -->
+
     
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -383,7 +440,7 @@
             </div>
             
             <div class="flex items-center gap-3">
-                <a href="#comprar" class="inline-flex items-center gap-2 rounded-full bg-green-600 hover:bg-green-500 text-white px-4 py-2 text-xs sm:text-sm font-semibold transition-all btn-shimmer shadow-[0_2px_10px_rgba(34,197,94,0.2)]" style="border-radius: 9999px;">
+                <a href="#comprar" class="inline-flex items-center gap-2 rounded-full bg-green-600 hover:bg-green-500 text-white px-4 py-2 text-xs sm:text-sm font-semibold transition-all btn-shimmer shadow-[0_2px_10px_rgba(34,197,94,0.2)]" style="border-radius: 9999px;" onclick="if(window.fbq){ fbq('track', 'AddToCart', {content_name: 'Ingresso Workshop', value: 19.00, currency: 'BRL'}); fbq('trackCustom', 'SubscribedButtonClick', {button_name: 'Garantir Vaga'}); }">
                     Garantir Vaga
                 </a>
             </div>
@@ -419,7 +476,7 @@
 
                 <!-- CTA Inicial (Sem preço, Alinhado à Esquerda) -->
                 <div class="w-full max-w-md animate-fade-in flex flex-col items-center lg:items-start" style="animation-delay: 0.2s;">
-                    <a href="#comprar" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 rounded-full bg-green-600 hover:bg-green-500 text-white px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-widest transition-all btn-shimmer shadow-[0_4px_20px_rgba(34,197,94,0.3)] hover:shadow-[0_4px_25px_rgba(34,197,94,0.5)]" style="border-radius: 9999px;">
+                    <a href="#comprar" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 rounded-full bg-green-600 hover:bg-green-500 text-white px-8 py-4 text-xs sm:text-sm font-black uppercase tracking-widest transition-all btn-shimmer shadow-[0_4px_20px_rgba(34,197,94,0.3)] hover:shadow-[0_4px_25px_rgba(34,197,94,0.5)]" style="border-radius: 9999px;" onclick="if(window.fbq){ fbq('track', 'AddToCart', {content_name: 'Ingresso Workshop', value: 19.00, currency: 'BRL'}); fbq('trackCustom', 'SubscribedButtonClick', {button_name: 'Garantir Vaga'}); }">
                         Garantir Minha Vaga Ao Vivo
                     </a>
                     
@@ -987,7 +1044,7 @@
                         <p class="text-xs text-slate-300 text-center sm:text-left leading-relaxed">
                             ⚡ Menos do que o valor de um lanche para ter o método completo de fabricação sem máquinas.
                         </p>
-                        <a href="#comprar" class="w-full sm:w-auto rounded-full bg-green-600 hover:bg-green-500 text-white font-black py-4 px-8 text-xs uppercase tracking-widest shadow-[0_4px_20px_rgba(34,197,94,0.4)] transition-all btn-shimmer text-center" style="border-radius: 9999px;">
+                        <a href="#comprar" class="w-full sm:w-auto rounded-full bg-green-600 hover:bg-green-500 text-white font-black py-4 px-8 text-xs uppercase tracking-widest shadow-[0_4px_20px_rgba(34,197,94,0.4)] transition-all btn-shimmer text-center" style="border-radius: 9999px;" onclick="if(window.fbq){ fbq('track', 'AddToCart', {content_name: 'Ingresso Workshop', value: 19.00, currency: 'BRL'}); fbq('trackCustom', 'SubscribedButtonClick', {button_name: 'Garantir Vaga'}); }">
                             Garantir Meu Ingresso Agora ⚡
                         </a>
                     </div>
@@ -1115,7 +1172,7 @@
 
                         <!-- CTA Direto -->
                         <div class="pt-1">
-                            <a href="#comprar" class="w-full text-center block rounded-full bg-green-600 hover:bg-green-500 text-white font-black py-4 px-6 text-xs uppercase tracking-widest shadow-[0_4px_20px_rgba(34,197,94,0.3)] transition-all btn-shimmer" style="border-radius: 9999px;">
+                            <a href="#comprar" class="w-full text-center block rounded-full bg-green-600 hover:bg-green-500 text-white font-black py-4 px-6 text-xs uppercase tracking-widest shadow-[0_4px_20px_rgba(34,197,94,0.3)] transition-all btn-shimmer" style="border-radius: 9999px;" onclick="if(window.fbq){ fbq('track', 'AddToCart', {content_name: 'Ingresso Workshop', value: 19.00, currency: 'BRL'}); fbq('trackCustom', 'SubscribedButtonClick', {button_name: 'Garantir Vaga'}); }">
                                 Quero Meu Ingresso ⚡
                             </a>
                         </div>
@@ -1555,9 +1612,6 @@
                         Uniformes de Futebol de Elite Fabricados com o Método Bfnine
                     </h2>
                     <div class="mt-2.5 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
-                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                        Role a página para ver os projetos reais fabricados sem máquina industrial:
-                    </p>
                 </div>
             </div>
 
@@ -1651,9 +1705,6 @@
                         Quem Aprendeu o Método Bfnine e Vive de Uniformes de Futebol
                     </h2>
                     <div class="mt-1.5 sm:mt-2 h-0.5 w-16 bg-yellow-500/40 mx-auto"></div>
-                    <p class="text-[11px] sm:text-sm text-slate-300 mt-1 sm:mt-1.5 leading-relaxed">
-                        Role a página para ver os depoimentos reais e comprovantes de faturamento dos nossos alunos:
-                    </p>
                 </div>
 
                 <!-- Conteúdo dos Carrosséis (Texto em Loop + Prints no Scroll) -->
@@ -1995,302 +2046,263 @@
         </section>
 
         <!-- SEÇÃO 8: AUTORIDADE (Tela Cheia com Ambientação Futebol Estádio EA FC) -->
-        <section id="autoridade" class="w-full bg-[#051f2d] border-t border-white/5 relative">
-            
-            <!-- Imagem de Fundo Ambiental do Estádio EA FC -->
-            <div class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay pointer-events-none" style="background-image: url('assets/futebol_tunel_estadio.jpg');"></div>
-
-            <div class="min-h-screen flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-                <div class="lg:col-span-5 flex justify-center items-center animate-on-scroll">
-                    <div class="relative group w-full max-w-[380px]" style="border-radius: 28px;">
-                        <!-- Efeito de Brilho Azul Celeste de Fundo -->
-                        <div class="absolute -inset-1.5 bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-600 rounded-[30px] blur-xl opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-                        
-                        <!-- Notificações Flutuantes Laterais (Efeito Vidro Transparente) -->
-                        <!-- Nubank (Superior Esquerdo) -->
-                        <div class="absolute left-1 lg:-left-12 top-4 lg:top-6 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-nb pointer-events-none">
-                            <div class="w-6 h-6 rounded-lg bg-purple-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">NB</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] font-bold text-purple-400 uppercase tracking-wider">Nubank</p>
-                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.500,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Itaú (Médio Direito) -->
-                        <div class="absolute right-1 sm:right-2 lg:-right-12 top-20 lg:top-24 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-it pointer-events-none">
-                            <div class="w-6 h-6 rounded-lg bg-orange-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">IT</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] font-bold text-orange-400 uppercase tracking-wider">Itaú</p>
-                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 3.200,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Banco do Brasil (Médio Esquerdo) -->
-                        <div class="absolute left-2 lg:-left-16 top-36 lg:top-40 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-bancob pointer-events-none">
-                            <div class="w-6 h-6 rounded-lg bg-sky-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">BB</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] font-bold text-sky-400 uppercase tracking-wider">Banco do Brasil</p>
-                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.100,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Bradesco (Inferior Direito) -->
-                        <div class="absolute right-2 lg:-right-10 bottom-16 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-br pointer-events-none">
-                            <div class="w-6 h-6 rounded-lg bg-rose-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">BD</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] font-bold text-rose-400 uppercase tracking-wider">Bradesco</p>
-                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.450,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Mercado Pago (Inferior Esquerdo) -->
-                        <div class="absolute left-1 sm:left-2 lg:-left-10 bottom-2 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-merp pointer-events-none">
-                            <div class="w-6 h-6 rounded-lg bg-sky-500 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">MP</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] font-bold text-sky-400 uppercase tracking-wider">Mercado Pago</p>
-                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.800,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Contêiner da Imagem do Especialista Flávio -->
-                        <div class="relative rounded-3xl border border-sky-500/20 bg-slate-900 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 28px;">
-                            <img alt="Flávio Bfnine - Especialista do Workshop" class="w-full h-auto object-cover rounded-2xl" src="assets/especialista_hero.png" style="border-radius: 20px;"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7 space-y-6 animate-on-scroll" style="animation-delay: 0.1s;">
-                    <span class="inline-flex items-center rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-sky-300">
-                        🛡️ EXPERIÊNCIA DE MERCADO
-                    </span>
-                    <h2 class="text-3xl font-extrabold text-white tracking-tight">Sua fábrica conduzida por quem entende de verdade</h2>
-                    <div class="h-0.5 w-16 bg-sky-500/40"></div>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        A **Bfnine Camisetas** tem **12 anos de estrada** no mercado B2B de sublimação total esportiva. Com mais de **80.000 fardamentos entregues** em todo o Brasil, vivenciamos na pele os gargalos operacionais da área.
-                    </p>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Neste workshop, eu vou compartilhar o meu método exato de fechamento de arquivos e anúncios online para que você aplique na sua estamparia imediatamente.
-                    </p>
-                </div>
-            </div>
-        </div>
-        </section>
 
         <!-- SEÇÃO 9: OFERTA + CTA FINAL (Único botão de compra com preço) -->
-        <section id="comprar" class="w-full bg-[#020d14] border-t border-white/5 relative py-20">
-            <div class="flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-            
-                <!-- Bloco de Reforço da Promessa 4 (Acima do Checkout - Decisão Final) -->
-                <div class="mb-16 w-full max-w-[1200px] mx-auto text-left">
+                <!-- SEÇÃO 9: OFERTA + CTA FINAL (Layout Estilo Ingresso Premium Inspirado no Print, Preservando Ancoragem R$ 197 -> R$ 19) -->
+        <section id="comprar" class="w-full bg-[#020d14] border-t border-white/5 relative py-16 sm:py-24">
+            <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+                
+                <!-- Headline Superior de Chamada do Preço -->
+                <div class="text-center max-w-3xl mx-auto mb-12 animate-on-scroll">
+                    <span class="inline-flex items-center rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-sky-300 mb-4">
+                        ⚡ OPORTUNIDADE EXCLUSIVA DE INGRESSO
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                        Tenha toda a experiência do Método Bfnine para fabricar e vender uniformes <span class="text-sky-400">por um preço INACREDITÁVEL:</span>
+                    </h2>
+                </div>
+
+                <!-- CARD PRINCIPAL ESTILO INGRESSO / PASSAPORTE PREMIUM -->
+                <div class="w-full rounded-[32px] border-2 border-sky-400/40 bg-[#052637]/90 p-6 sm:p-8 lg:p-10 shadow-[0_0_50px_rgba(56,189,248,0.15)] backdrop-blur-2xl relative overflow-hidden transition-all duration-300">
                     
-                    <!-- Banner Superior de Destaque -->
-                    <div class="bg-sky-950/40 border border-sky-500/30 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 sm:mb-10 text-center sm:text-left shadow-lg">
-                        <div class="inline-flex items-center gap-2 rounded-xl border border-sky-500/40 bg-sky-500/10 px-4 py-2 text-xs sm:text-sm font-black uppercase tracking-wider text-sky-300">
-                            📅 Sábado e Domingo (29 e 30 de Agosto)
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                        
+                        <!-- COLUNA ESQUERDA: ARTE VISUAL DO INGRESSO / PASSAPORTE DIGITAL -->
+                        <div class="lg:col-span-5 w-full flex justify-center">
+                            <div class="w-full max-w-[340px] rounded-3xl border-2 border-sky-400/50 bg-gradient-to-b from-[#07344b] via-[#052637] to-[#020d14] p-5 shadow-2xl relative flex flex-col justify-between overflow-hidden group hover:border-sky-300 transition-all duration-500" style="border-radius: 28px;">
+                                
+                                <!-- Código de Barras e Header do Ticket -->
+                                <div class="text-center pb-3 border-b border-sky-500/20">
+                                    <div class="flex justify-between items-center text-[9px] font-black tracking-widest text-sky-300/70 uppercase mb-1">
+                                        <span>ÚLTIMAS VAGAS</span>
+                                        <span>LOTE 01</span>
+                                        <span>BFNINE PASS</span>
+                                    </div>
+                                    <!-- Gráfico Simulado de Código de Barras -->
+                                    <div class="w-full h-8 bg-sky-300/10 rounded flex items-center justify-center gap-1 px-2 border border-sky-500/20 overflow-hidden">
+                                        <div class="w-1 h-6 bg-sky-300"></div><div class="w-2 h-6 bg-sky-300"></div><div class="w-0.5 h-6 bg-sky-300"></div>
+                                        <div class="w-1.5 h-6 bg-sky-300"></div><div class="w-1 h-6 bg-sky-300"></div><div class="w-2.5 h-6 bg-sky-300"></div>
+                                        <div class="w-0.5 h-6 bg-sky-300"></div><div class="w-1 h-6 bg-sky-300"></div><div class="w-2 h-6 bg-sky-300"></div>
+                                        <div class="w-1.5 h-6 bg-sky-300"></div><div class="w-1 h-6 bg-sky-300"></div><div class="w-3 h-6 bg-sky-300"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Imagem do Especialista / Manto no Ticket -->
+                                <div class="relative my-4 rounded-2xl overflow-hidden bg-slate-950 border border-sky-500/20 shadow-inner">
+                                    <img src="assets/especialista_hero.png" alt="Ingresso Flávio Bfnine" class="w-full h-48 sm:h-56 object-cover object-top group-hover:scale-105 transition-transform duration-500"/>
+                                    
+                                    <!-- Selos Pill Sobrepostos -->
+                                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                                        <span class="inline-flex items-center gap-1 rounded-full bg-sky-500/90 text-slate-950 px-3 py-1 text-[10px] font-black uppercase tracking-wider shadow-md">
+                                            MÉTODO BFNINE
+                                        </span>
+                                        <span class="inline-flex items-center rounded-full bg-slate-950/80 border border-sky-400/40 text-sky-300 px-2.5 py-0.5 text-[9px] font-bold uppercase">
+                                            EDIÇÃO 01
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Rodapé com Data e Formato -->
+                                <div class="bg-sky-950/60 rounded-xl p-2.5 border border-sky-500/20 text-center">
+                                    <p class="text-[10px] font-extrabold text-white uppercase tracking-wider">
+                                        📅 29 E 30/08 • 09H ÀS 18H • 🎥 GOOGLE MEET
+                                    </p>
+                                </div>
+
+                            </div>
                         </div>
-                        <p class="text-xs sm:text-sm italic font-medium text-sky-200/90 text-center sm:text-right">
-                            "A sua oportunidade de mudar de vida por menos que o valor de um lanche."
-                        </p>
+
+                        <!-- COLUNA DIREITA: DETALHES DE PREÇO, ANCORAGEM E CTA -->
+                        <div class="lg:col-span-7 space-y-6 text-left">
+                            
+                            <!-- Header Interno -->
+                            <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10">
+                                <div>
+                                    <span class="text-xs font-black text-sky-400 uppercase tracking-widest">WORKSHOP FABRICAÇÃO ESPORTIVA</span>
+                                    <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">O ATALHO PARA SUA MARCA PRÓPRIA</h3>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="rounded-full bg-sky-500/20 border border-sky-500/40 px-3 py-1 text-xs font-black text-sky-300 uppercase">EDIÇÃO</span>
+                                    <span class="w-7 h-7 rounded-full bg-sky-400 text-slate-950 font-black text-xs flex items-center justify-center">01</span>
+                                </div>
+                            </div>
+
+                            <!-- Chips de Destaque -->
+                            <div class="flex flex-wrap items-center gap-4 text-xs font-bold text-slate-200">
+                                <div class="flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-xl px-3.5 py-2">
+                                    <span>⏱️ 16h de Conteúdo</span>
+                                </div>
+                                <div class="flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 rounded-xl px-3.5 py-2">
+                                    <span>👤 Experiência 100% Ao Vivo</span>
+                                </div>
+                            </div>
+
+                            <!-- Bloco de Ancoragem e Valor Promocional -->
+                            <div class="pt-2">
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                    De <span class="line-through text-red-400">R$ 197,00</span> por apenas:
+                                </p>
+                                <div class="flex items-baseline gap-3 mt-1">
+                                    <span class="text-4xl sm:text-6xl font-black text-white tracking-tight">R$ 19,00</span>
+                                    <span class="text-xs font-extrabold text-emerald-400 uppercase tracking-wider bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
+                                        Lote 1 Garantido
+                                    </span>
+                                </div>
+                                <p class="text-xs text-emerald-400 font-extrabold mt-2">
+                                    ✓ Um único pedido de uniformes já recupera este investimento.
+                                </p>
+                            </div>
+
+                            <!-- Ícones de Garantia / Pagamento Seguro -->
+                            <div class="flex items-center gap-4 text-xs text-slate-400 pt-1">
+                                <span class="font-bold text-slate-300">Pagamento Seguro via:</span>
+                                <div class="flex items-center gap-2 font-bold text-slate-200">
+                                    <span class="bg-white/10 px-2 py-1 rounded text-[10px] text-emerald-300">⚡ PIX</span>
+                                    <span class="bg-white/10 px-2 py-1 rounded text-[10px]">💳 Cartão</span>
+                                    <span class="bg-white/10 px-2 py-1 rounded text-[10px]">🔒 Kiwify</span>
+                                </div>
+                            </div>
+
+                            <!-- Botão CTA Principal -->
+                            <div class="pt-4">
+                                <a href="https://pxa.fabricaesportiva.com.br/lt/ws" target="_blank" class="w-full text-center flex items-center justify-center gap-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-8 py-5 shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all uppercase tracking-widest text-sm sm:text-base btn-shimmer group" style="border-radius: 9999px;" onclick="if(window.fbq){ fbq('track', 'AddToCart', {content_name: 'Ingresso Workshop', value: 19.00, currency: 'BRL'}); fbq('trackCustom', 'SubscribedButtonClick', {button_name: 'Garantir Vaga'}); }">
+                                    <span>GARANTIR MEU INGRESSO AO VIVO</span>
+                                    <span class="group-hover:translate-x-1 transition-transform">➔</span>
+                                </a>
+                                
+                                <!-- Barra de Escassez / Progresso -->
+                                <div class="mt-4 max-w-md mx-auto">
+                                    <div class="flex justify-between items-center text-[10px] text-slate-300 font-bold mb-1 uppercase tracking-wider">
+                                        <span>🔥 Ingressos LOTE 1 (R$ 19) quase esgotados</span>
+                                        <span class="text-emerald-400 font-black">87% VENDIDOS</span>
+                                    </div>
+                                    <div class="w-full bg-slate-950 rounded-full h-2.5 border border-emerald-500/30 overflow-hidden p-0.5">
+                                        <div class="bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 h-full rounded-full animate-pulse" style="width: 87%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <!-- Bloco Principal de Conteúdo -->
-                    <div class="bg-[#052637]/70 border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
+                    <!-- Lista de 16 Entregas do Método (Preservando Toda a Ancoragem Atual) -->
+                    <div class="mt-10 pt-8 border-t border-white/10">
+                        <h4 class="text-xs font-black text-white uppercase tracking-widest mb-4 text-center sm:text-left">
+                            🎁 TUDO O QUE VOCÊ LEVA INCLUSO NO SEU INGRESSO:
+                        </h4>
                         
-                        <!-- Headline Impactante Específica -->
-                        <div class="text-center sm:text-left mb-8 pb-6 border-b border-white/10">
-                            <span class="inline-block text-[10px] sm:text-xs font-black uppercase tracking-widest text-sky-300 bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20 mb-3">
-                                🛡️ RISCO ZERO GARANTIDO
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-slate-200 font-medium">
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>16h de conteúdo ao Vivo</strong> de fabricação e vendas.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Método de fabricação</strong> sem maquinário próprio.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Publicação em E-commerce</strong> esportivo.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Funil de Vendas</strong> para fardamentos de várzea.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Anúncios no Meta Ads</strong> (Facebook e Instagram).</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Anúncios no Google Ads</strong> para buscas locais.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Anúncios no Youtube Ads</strong> de alta conversão.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Estratégias de Remarketing</strong> na internet.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>IA's gratuitas</strong> para criar posts e vídeos.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Animação 3D com Clo3D</strong> em fardamentos.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Fornecedores Secretos</strong> de Tecidos e Aviamentos.</span>
+                            </li>
+                            <li class="flex items-start gap-2 bg-slate-950/40 p-2.5 rounded-xl border border-white/5">
+                                <span class="text-emerald-400 font-bold">✓</span>
+                                <span><strong>Mentoria ao Vivo</strong> e tira-dúvidas direto com Flávio.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            
+                <!-- BLOCO DE QUEBRA DE OBJEÇÃO: POR QUE TÃO BARATO? (Integrado com a Seção de Preço) -->
+                <div class="mt-12 w-full rounded-[32px] border border-sky-500/25 bg-[#052637]/80 p-6 sm:p-8 lg:p-10 shadow-2xl backdrop-blur-2xl text-left relative overflow-hidden transition-all duration-300">
+                    
+                    <!-- Brilho Ambiente de Suporte -->
+                    <div class="absolute -top-24 -right-24 w-72 h-72 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <!-- Header da Quebra de Objeção -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10 mb-6">
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3.5 py-1 text-xs font-black uppercase tracking-widest text-yellow-400 mb-2">
+                                💡 TRANSPARÊNCIA TOTAL
                             </span>
-                            <h3 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight leading-snug">
-                                Garanta sua vaga no workshop ao vivo com <span class="text-sky-400">Risco Zero</span>: se você assistir e achar que não valeu a pena, devolvemos 100% do seu dinheiro.
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+                                Por que tão barato?
                             </h3>
                         </div>
-
-                        <!-- Lista de Entregas / Informações Espaçada e Limpa -->
-                        <div class="space-y-4 sm:space-y-5 text-slate-200">
-                            
-                            <div class="flex items-start gap-3.5">
-                                <span class="w-6 h-6 rounded-full bg-green-500/20 border border-green-500/40 flex items-center justify-center text-green-400 font-extrabold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                                    <strong class="text-white">Sábado e Domingo (29 e 30 de Agosto)</strong> das 09h às 18h com mentoria direta.
-                                </p>
-                            </div>
-
-                            <div class="flex items-start gap-3.5">
-                                <span class="w-6 h-6 rounded-full bg-green-500/20 border border-green-500/40 flex items-center justify-center text-green-400 font-extrabold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                                    <strong class="text-white">Conteúdo 100% Prático e Aplicável</strong> (Focado em faturamento imediato com várzea).
-                                </p>
-                            </div>
-
-                            <div class="flex items-start gap-3.5">
-                                <span class="w-6 h-6 rounded-full bg-green-500/20 border border-green-500/40 flex items-center justify-center text-green-400 font-extrabold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                                    <strong class="text-white">Transmissão Online e Ao Vivo pelo Google Meet</strong> em sala fechada para inscritos.
-                                </p>
-                            </div>
-
-                            <div class="flex items-start gap-3.5 pt-4 border-t border-white/10">
-                                <span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-extrabold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                                    <strong class="text-emerald-400 font-bold">Comprou e se arrependeu?</strong> Sem problemas! Você tem até <strong class="text-white">48 horas após o encerramento do evento</strong> para solicitar seu reembolso de 100%. O risco é todo meu.
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            
-            <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-                <span class="inline-flex items-center rounded-full border border-sky-500/30 bg-sky-500/10 px-3.5 py-1.5 text-xs font-black uppercase tracking-widest text-sky-300 mb-6">
-                    O que está incluso neste Workshop da Sublimação Esportiva?
-                </span>
-                <h2 class="text-sky-400 text-xl sm:text-2xl mt-4 font-black uppercase tracking-wider">UM método de fabricação com estratégias validadas.</h2>
-                <p class="text-slate-300 text-xs mt-2">E você pode garantir o seu ingresso agora.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start w-full">
-                
-                <!-- Caixa de Oferta -->
-                <div class="lg:col-span-7 rounded-3xl border border-sky-500/20 bg-[#052637]/50 backdrop-blur-xl p-8 relative shadow-2xl animate-on-scroll hover-card-effect" style="border-radius: 24px;">
-                    <span class="inline-flex items-center rounded-full bg-sky-500/10 text-sky-300 px-3 py-1 text-xs font-bold border border-sky-500/30 mb-6">
-                        O que está incluso neste Workshop da Sublimação Esportiva?
-                    </span>
-                    <h3 class="text-2xl font-extrabold tracking-tight">Um Workshop que você participa uma vez e usa o conhecimento por anos.</h3>
-                    <p class="text-slate-300 text-xs mt-3 leading-relaxed">
-                        Garante o seu acesso exclusivo de participação ao vivo ao Workshop nos dias 29 e 30 de agosto de 2026.
-                    </p>
-                    
-                    <div class="mt-8 border-t border-b border-white/5 py-6">
-                        <p class="text-xs text-slate-400 line-through">DE R$ 197,00 POR APENAS...</p>
-                        <div class="flex items-baseline gap-2 mt-2">
-                            <span class="text-sm font-bold text-sky-400">Lote 1 por apenas</span>
-                            <span class="text-5xl font-black text-white tracking-tight">R$ 19,00</span>
-                        </div>
-                        <p class="text-xs text-green-400 font-bold mt-2">Um único pedido já recupera esse investimento.</p>
-                    </div>
-
-                    <h4 class="text-xs font-bold text-white mt-6 uppercase tracking-wider">O que está incluído:</h4>
-                    <ul class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-[10px] text-slate-300">
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span><strong>16h de conteúdo ao Vivo</strong> de fabricação, vendas e escala de marca esportiva.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span><strong>Método de fabricação esportiva</strong> validada por mais de 400 fabricantes.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span><strong>Publicação de Camisetas e Uniformes</strong> em um <strong>E-commerce esportivo</strong>.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span><strong>Funil de Vendas</strong> específico para vender Camisetas Esportivas e Uniformes.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span>Anúncios para <strong>Tráfego no Meta Ads Facebook</strong> para vender Uniformes.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span>Anúncios para <strong>Tráfego no Meta Ads Instagram</strong> para vender Uniformes.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span>Anúncios para Tráfego <strong>no Google Ads</strong> para sua marca aparecer no topo das pesquisas.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span>Anúncios para Tráfego <strong>no Youtube Ads</strong> para anunciar e vender Uniformes.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span><strong>Estratégias de Remarketing</strong> para seguir seus clientes na internet.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span>Utilização de <strong>IA's gratuitas</strong> para criar posts e vídeos para clientes.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span><strong>Animação 3D</strong> com Clo3D aplicada a fardamentos esportivos.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span><strong>Revelação do meus Fornecedores Secretos</strong> de Aviamentos e Tecidos.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span><strong>Sem enrolação e direto ao ponto</strong>, focado em resultados.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span>Experiência <strong>100% ao Vivo</strong> via Google Meet.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span><strong>Momento ao Vivo</strong> para você tirar qualquer tipo de dúvida técnica.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span>
-                            <span>Com esse ingresso <strong>você adquire o direito de participar Online e Ao Vivo</strong>.</span>
-                        </li>
-                    </ul>
-
-                    <div class="mt-8 flex gap-4 items-start border-t border-white/5 pt-6">
-                        <div class="w-10 h-10 bg-sky-500/10 rounded-xl flex-shrink-0 flex items-center justify-center text-sky-400">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">Garantia Blindada de 7 Dias</h4>
-                            <p class="text-[10px] text-slate-400 mt-1 leading-relaxed">
-                                Garanta o seu ingresso sem risco. Se em até 7 dias você desistir ou achar que o conteúdo não é para o seu momento, devolvemos R$ 19,00 imediatamente.
-                            </p>
+                        <div class="hidden sm:flex items-center gap-2 bg-sky-500/10 border border-sky-500/20 px-4 py-2 rounded-2xl">
+                            <span class="text-sky-300 font-bold text-xs">Ingresso por apenas R$ 19,00</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- CTA Final -->
-                <div class="lg:col-span-5 space-y-6 animate-on-scroll" style="animation-delay: 0.1s;">
-                    <div class="rounded-3xl border border-sky-500/20 bg-slate-900/60 p-8 shadow-xl hover-card-effect" style="border-radius: 24px;">
-                        <h3 class="text-lg font-bold text-white">Garanta Seu Ingresso</h3>
-                        <p class="text-slate-400 text-xs mt-4 leading-relaxed">
-                            O preço de R$ 19,00 é simbólico para garantir o comprometimento dos participantes. O Workshop é 100% ao vivo e interativo.
-                        </p>
-                        <p class="text-xs text-red-400 font-bold mt-2">Quando virar o lote, volta mais caro ou encerra.</p>
+                    <!-- Texto Editorial da Objeção -->
+                    <div class="space-y-4 text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed font-normal">
                         
-                        <div class="mt-8">
-                            <a href="https://checkout.kiwify.com.br/workshop-ingresso" target="_blank" class="w-full text-center inline-block rounded-full bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-4 shadow-[0_4px_20px_rgba(34,197,94,0.3)] transition-all uppercase tracking-widest text-xs btn-shimmer pulse-effect" style="border-radius: 9999px;">
-                                GARANTIR INGRESSO AO VIVO - R$ 19
-                            </a>
-                            
-                            <!-- Barra de Carregamento de Escassez -->
-                            <div class="mt-5 max-w-xs sm:max-w-sm mx-auto">
-                                <div class="flex justify-between items-center text-[10px] text-slate-400 font-bold mb-1.5 uppercase tracking-wider">
-                                    <span>🔥 Ingressos do LOTE 1 (R$ 19) quase esgotados</span>
-                                    <span class="text-sky-400 font-extrabold">87% Vendidos</span>
-                                </div>
-                                <div class="w-full bg-slate-950 rounded-full h-2 border border-sky-500/20 overflow-hidden p-0.5">
-                                    <div class="bg-gradient-to-r from-sky-600 via-sky-400 to-cyan-400 h-full rounded-full animate-pulse" style="width: 87%;"></div>
-                                </div>
-                            </div>
-                        </div>
+                        <p>
+                            Minha missão aqui é clara: <strong class="text-white font-extrabold">ajudar o maior número de pessoas possível a alcançar resultados reais</strong>, sem que o preço seja um obstáculo para começar a fabricar uniformes de futebol.
+                        </p>
+
+                        <p>
+                            Eu acredito que, para a maioria, o maior desafio não é aprender a teoria, mas <strong class="text-white font-extrabold">aplicar o que sabe e começar a faturar de verdade</strong>. Este workshop foi desenhado para fornecer exatamente tudo o que você precisa para <strong class="text-white font-extrabold">transformar suas horas vagas em resultados concretos</strong>.
+                        </p>
+
+                        <p>
+                            <strong class="text-white font-extrabold">O preço baixo é uma escolha minha</strong>, porque eu quero que você tenha acesso direto ao conhecimento prático do Método Bfnine que vai mudar o seu negócio, sem precisar estudar por anos. <strong class="text-white font-extrabold">O valor aqui está no conteúdo, na experiência real de 12 anos que compartilho com você</strong>, e na transformação que vamos construir juntos.
+                        </p>
+
+                        <p>
+                            Este workshop é seu primeiro passo no <strong class="text-sky-300 font-extrabold">Método Bfnine</strong> e <strong class="text-white font-extrabold">você já sairá dele com tudo pronto para começar a faturar</strong>.<br/>
+                            <span class="text-slate-300 text-xs sm:text-sm block mt-1">
+                                Porém, para aqueles que estão verdadeiramente comprometidos e querem continuar a jornada rumo ao topo da fabricação esportiva, teremos uma formação completa que vai acelerar ainda mais esses resultados.
+                            </span>
+                        </p>
+
                     </div>
-                    
-                    <p class="text-center text-xs text-green-400 font-bold mt-4">Com a aplicação de apenas uma dessas estratégias no seu negócio, você já recupera o investimento.</p>
+
+                    <!-- Chamada de Impacto Final -->
+                    <div class="mt-6 pt-5 border-t border-white/10 text-center sm:text-left bg-sky-950/50 p-5 rounded-2xl border border-sky-500/20">
+                        <p class="text-xs sm:text-sm md:text-base text-slate-200 font-medium leading-snug">
+                            A hora de transformar seu conhecimento em resultados reais e<br class="hidden sm:block"/>
+                            <strong class="text-sky-400 font-black text-sm sm:text-base md:text-lg uppercase tracking-wider block mt-1">começar a faturar de verdade com uniformes de futebol é agora.</strong>
+                        </p>
+                    </div>
+
                 </div>
 
             </div>
-        </div>
         </section>
 
         <!-- SEÇÃO 10: GARANTIA DE SATISFAÇÃO TOTAL (Preenchimento 100%, 48hs após o evento) -->
@@ -2319,7 +2331,7 @@
                 </div>
 
                 <div class="mt-10 animate-on-scroll">
-                    <a href="https://checkout.kiwify.com.br/workshop-ingresso" target="_blank" class="inline-block rounded-full bg-green-600 hover:bg-green-500 text-white font-bold px-10 py-5 shadow-[0_4px_30px_rgba(34,197,94,0.3)] transition-all uppercase tracking-widest text-xs btn-shimmer" style="border-radius: 9999px;">
+                    <a href="https://pxa.fabricaesportiva.com.br/lt/ws" target="_blank" class="inline-block rounded-full bg-green-600 hover:bg-green-500 text-white font-bold px-10 py-5 shadow-[0_4px_30px_rgba(34,197,94,0.3)] transition-all uppercase tracking-widest text-xs btn-shimmer" style="border-radius: 9999px;" onclick="if(window.fbq){ fbq('track', 'AddToCart', {content_name: 'Ingresso Workshop', value: 19.00, currency: 'BRL'}); fbq('trackCustom', 'SubscribedButtonClick', {button_name: 'Garantir Vaga'}); }">
                         Garantir Minha Vaga Sem Risco
                     </a>
                 </div>
@@ -2327,8 +2339,126 @@
             </div>
         </section>
 
+
+                <!-- SEÇÃO 8: QUEM SERÁ SEU PROFESSOR / EXPERIÊNCIA DE MERCADO (Estrutura idêntica ao Print 2) -->
+        <section id="autoridade" class="w-full bg-[#020d14] border-t border-white/5 relative py-16 sm:py-24">
+            <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+                    
+                    <!-- Coluna Esquerda: Conteúdo Editorial Completo (Bio + Q&A) -->
+                    <div class="lg:col-span-7 space-y-6 text-left">
+                        
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+                            Quem será seu professor?
+                        </h2>
+
+                        <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                            <p>
+                                <strong class="text-white font-bold">Flávio Bfnine</strong> é a <strong class="text-white font-bold">maior referência do Brasil</strong> e criador do <strong class="text-white font-bold">método oficial da sublimação esportiva no Brasil</strong>, responsável por treinar mais de <strong class="text-white font-bold">1.597 fabricantes</strong> que hoje vivem da produção e venda de uniformes personalizados — mesmo sem maquinário próprio. Com mais de <strong class="text-white font-bold">91.388 camisetas entregues</strong> por seus alunos e clientes, Flavio se tornou referência nacional ao transformar uma paixão por futebol em um negócio altamente lucrativo, estruturado e escalável.
+                            </p>
+                            <p>
+                                Seu método é direto, validado no campo de batalha e pensado para quem <strong class="text-white font-bold">quer sair do amadorismo e entrar no jogo de verdade</strong>.
+                            </p>
+                            <p>
+                                Hoje, ele ensina como qualquer pessoa pode criar, modelar, personalizar e vender uniformes com padrão profissional em até 48h — mesmo começando do zero.
+                            </p>
+                            <p>
+                                Se você busca um caminho prático, lucrativo e com suporte de quem realmente vive o que ensina...<br/>
+                                <strong class="text-white font-bold block mt-1">Seja bem-vindo. Você acaba de encontrar seu mentor.</strong>
+                            </p>
+                        </div>
+
+                        <!-- Bloco 1: Por que iniciantes confiam nele? -->
+                        <div class="pt-6 border-t border-white/10 mt-8 space-y-3">
+                            <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">
+                                Por que iniciantes confiam nele?
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                                Porque ele <strong class="text-white font-bold">simplifica o processo</strong>, entrega atalhos, evita desperdícios e mostra que é possível começar mesmo sem equipamentos caros. Flávio ensina o passo a passo com didática clara, prática e com exemplos reais do mercado. Muitos dos seus alunos começaram sem saber nem o que era uma modelagem e hoje já vendem para times de várzea, empresas, projetos sociais e até para prefeituras.
+                            </p>
+                        </div>
+
+                        <!-- Bloco 2: Por que veteranos também aprendem com ele? -->
+                        <div class="pt-6 border-t border-white/10 mt-6 space-y-3">
+                            <h3 class="text-lg sm:text-xl font-extrabold text-white tracking-tight">
+                                Por que que veteranos também aprendem com ele?
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                                Porque <strong class="text-white font-bold">mesmo quem já está no mercado, precisa de diferenciação</strong>. Flávio mostra como sair do básico, parar de brigar por preço e <strong class="text-white font-bold">vender uniformes de verdade</strong> — com recortes modernos, estampas de impacto e modelagens inspiradas nos grandes clubes do mundo. Ele também compartilha estratégias de vendas, fornecedores secretos, técnicas de produção rápida e escalável, e mindset de negócio.
+                            </p>
+                        </div>
+
+                    </div>
+
+                                        <!-- Coluna Direita: Foto do Especialista Flávio da Página Aspirante + Notificações PIX Flutuantes -->
+                    <div class="lg:col-span-5 lg:sticky lg:top-24 w-full">
+                        <div class="relative w-full max-w-[420px] mx-auto">
+                            
+                            <!-- Notificações Flutuantes Laterais (Efeito Vidro Transparente) -->
+                            <!-- Nubank (Superior Esquerdo) -->
+                            <div class="absolute left-1 lg:-left-12 top-4 lg:top-6 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-nb pointer-events-none">
+                                <div class="w-6 h-6 rounded-lg bg-purple-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">NB</div>
+                                <div class="text-left min-w-0">
+                                    <p class="text-[7px] font-bold text-purple-400 uppercase tracking-wider">Nubank</p>
+                                    <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                    <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.500,00</p>
+                                </div>
+                            </div>
+
+                            <!-- Itaú (Médio Direito) -->
+                            <div class="absolute right-1 sm:right-2 lg:-right-12 top-20 lg:top-24 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-it pointer-events-none">
+                                <div class="w-6 h-6 rounded-lg bg-orange-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">IT</div>
+                                <div class="text-left min-w-0">
+                                    <p class="text-[7px] font-bold text-orange-400 uppercase tracking-wider">Itaú</p>
+                                    <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                    <p class="text-[8px] text-slate-300 font-medium truncate">R$ 3.200,00</p>
+                                </div>
+                            </div>
+
+                            <!-- Banco do Brasil (Médio Esquerdo) -->
+                            <div class="absolute left-2 lg:-left-16 top-36 lg:top-40 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-bancob pointer-events-none">
+                                <div class="w-6 h-6 rounded-lg bg-sky-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">BB</div>
+                                <div class="text-left min-w-0">
+                                    <p class="text-[7px] font-bold text-sky-400 uppercase tracking-wider">Banco do Brasil</p>
+                                    <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                    <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.100,00</p>
+                                </div>
+                            </div>
+
+                            <!-- Bradesco (Inferior Direito) -->
+                            <div class="absolute right-2 lg:-right-10 bottom-16 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-br pointer-events-none">
+                                <div class="w-6 h-6 rounded-lg bg-rose-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">BD</div>
+                                <div class="text-left min-w-0">
+                                    <p class="text-[7px] font-bold text-rose-400 uppercase tracking-wider">Bradesco</p>
+                                    <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                    <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.450,00</p>
+                                </div>
+                            </div>
+
+                            <!-- Mercado Pago (Inferior Esquerdo) -->
+                            <div class="absolute left-1 sm:left-2 lg:-left-10 bottom-2 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-merp pointer-events-none">
+                                <div class="w-6 h-6 rounded-lg bg-sky-500 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">MP</div>
+                                <div class="text-left min-w-0">
+                                    <p class="text-[7px] font-bold text-sky-400 uppercase tracking-wider">Mercado Pago</p>
+                                    <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                    <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.800,00</p>
+                                </div>
+                            </div>
+
+                            <!-- Contêiner da Imagem do Especialista Flávio -->
+                            <div class="relative rounded-3xl border border-sky-500/20 bg-slate-900 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 28px;">
+                                <img alt="Flávio Bfnine - Especialista do Workshop" class="w-full h-auto object-cover rounded-2xl" src="assets/especialista_hero.png" style="border-radius: 20px;"/>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+        </section>
+
         <!-- SEÇÃO 11: FAQ DE DUAS COLUNAS + SUPORTE + INSTAGRAM (Estilo Dark Navy Azul Celeste) -->
-        <section id="faq-section" class="w-full bg-[#020d14] text-white border-t border-white/5 py-20 relative">
+        <section id="faq-section" class="w-full bg-[#052637] text-white border-t border-sky-500/30 py-20 relative shadow-inner">
             <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
                 
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-12 text-center lg:text-left">
@@ -2427,7 +2557,7 @@
                                 Se ainda estiver com dúvidas nossa equipe está à disposição:
                             </h4>
                             
-                            <a href="https://wa.me/5511999999999" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-green-600 hover:bg-green-500 border border-green-400 px-6 py-3 text-white font-extrabold text-sm shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all btn-shimmer" style="border-radius: 12px;">
+                            <a href="https://wa.me/5511920004354?text=Ol%C3%A1%20Juliana%21%20Preciso%20exclarecer%20algumas%20d%C3%BAvidas%20sobre%20o%20Workshop%20da%20Marca%20Esportiva..." target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-green-600 hover:bg-green-500 border border-green-400 px-6 py-3 text-white font-extrabold text-sm shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all btn-shimmer" style="border-radius: 12px;" onclick="if(window.fbq){ fbq('track', 'Contact', {content_name: 'Suporte WhatsApp Juliana'}); }">
                                 Falar com o suporte no WhatsApp
                                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.966C16.59 1.977 14.113.953 11.493.953 6.059.953 1.633 5.325 1.629 10.756c-.002 1.674.452 3.308 1.311 4.733L1.925 21.8l6.598-1.728.124-.078z"/>
@@ -2737,36 +2867,39 @@
                 }
             }
 
-            // 2. Configuração do Canvas HTML5 de Alta Performance no Fundo
+            // 2. Configuração do Canvas HTML5 de Alta Performance no Fundo (Reativo ao Scroll + Suave)
             const canvas = document.getElementById('hero-scroll-canvas');
-            let ctx = canvas ? canvas.getContext('2d') : null;
+            let ctx = canvas ? canvas.getContext('2d', { alpha: false }) : null;
+
+            const totalWebpFrames = 240;
+            const loadedImages = [];
+            const sequence = { frame: 0 };
+            let currentFrameIndex = 0;
+            let targetFrameIndex = 0;
+            let isInterpolating = false;
 
             function resizeCanvas() {
                 if (canvas) {
                     canvas.width = window.innerWidth;
                     canvas.height = window.innerHeight;
-                    renderCanvasFrame(Math.round(sequence.frame));
+                    renderCanvasFrame(currentFrameIndex);
                 }
             }
 
-            const totalWebpFrames = 240;
-            const loadedImages = [];
-            const sequence = { frame: 0 };
-
-            // Pré-carregamento dos 240 quadros em RAM para renderização ultra-fluida 60fps no Canvas sem travamentos
+            // Pré-carregamento dos 240 quadros em RAM
+            let loadedCount = 0;
             for (let i = 0; i < totalWebpFrames; i++) {
                 const img = new Image();
                 const formattedIndex = String(i).padStart(3, '0');
                 img.src = `assets/hero_frames/frame_${formattedIndex}.webp`;
-                if (i === 0) {
-                    img.onload = () => renderCanvasFrame(0);
-                }
+                img.onload = () => {
+                    loadedCount++;
+                    if (i === 0 || loadedCount === 1) {
+                        renderCanvasFrame(0);
+                    }
+                };
                 loadedImages.push(img);
             }
-
-            let currentFrameIndex = 0;
-            let targetFrameIndex = 0;
-            let isInterpolating = false;
 
             function renderCanvasFrame(index) {
                 if (!ctx || !canvas) return;
@@ -2788,12 +2921,12 @@
                 }
             }
 
-            // Loop de Interpolação Contínua (Lerp de Inércia Suave a 60 FPS)
+            // Loop de Interpolação de Inércia Suave (Ativado SOMENTE no movimento do scroll)
             function startFrameInterpolationLoop() {
                 function loop() {
                     const diff = targetFrameIndex - currentFrameIndex;
                     if (Math.abs(diff) > 0.01) {
-                        currentFrameIndex += diff * 0.18; // Inércia ultra-macia
+                        currentFrameIndex += diff * 0.10; // Suavidade aveludada no scroll
                         renderCanvasFrame(currentFrameIndex);
                         requestAnimationFrame(loop);
                     } else {
@@ -2811,7 +2944,7 @@
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
 
-            // 3. GSAP ScrollTrigger para sequenciar o Canvas com inércia fluida na Hero
+            // 3. GSAP ScrollTrigger (Controle 100% pelo Scroll do Usuário, ritmo suave e macio)
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
             if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -2823,9 +2956,9 @@
                     scrollTrigger: {
                         trigger: "#hero-section",
                         start: "top top",
-                        end: "+=1600",
+                        end: "+=2600",
                         pin: true,
-                        scrub: 0.8,
+                        scrub: 1.2,
                         onUpdate: (self) => {
                             targetFrameIndex = self.progress * (totalWebpFrames - 1);
                             startFrameInterpolationLoop();
