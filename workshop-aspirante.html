@@ -11,6 +11,12 @@
     <script src="assets/resource_3fa48481346f.js"></script>
     <script src="assets/iconify_654a1ef798a3.js"></script>
     
+    <!-- GSAP, ScrollTrigger & Lenis Smooth Scroll -->
+    <link href="assets/lenis.min.css" rel="stylesheet"/>
+    <script src="assets/gsap.min.js"></script>
+    <script src="assets/ScrollTrigger.min.js"></script>
+    <script src="assets/lenis.min.js"></script>
+    
     <style>
         /* Animações */
         @keyframes fadeSlideIn {
@@ -332,7 +338,13 @@
 </head>
 <body class="min-h-screen bg-slate-950 text-white antialiased" style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
     
-
+    <!-- Container Fixo de Fundo: Canvas HTML5 Renderizado via GSAP + ScrollTrigger + Frames WebP -->
+    <div id="canvas-bg-container" class="fixed inset-0 w-full h-full z-0 pointer-events-none overflow-hidden bg-[#020d14]">
+        <canvas id="hero-scroll-canvas" class="w-full h-full object-cover filter brightness-90 contrast-110"></canvas>
+        
+        <!-- Overlay Grafite Noturno Suave para Leitura Perfeita de Toda a Copy -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#020d14]/70 via-[#020d14]/40 to-[#020d14]/80 pointer-events-none"></div>
+    </div>
 
     <!-- Background Grid -->
     <div class="fixed inset-0 -z-10 bg-gradient-to-b from-[#03151f] via-[#052130] to-[#021017]">
@@ -380,131 +392,57 @@
 
     <main class="relative z-10">
         
-        <!-- SEÇÃO 1: HERO (Preenchimento 100%, Ambientação Futebol EA FC com Bola 3D Parallax Flutuante) -->
-        <section class="w-full relative min-h-screen flex items-center bg-[#020d14] overflow-hidden" style="background-image: linear-gradient(to right, rgba(2, 13, 20, 0.98) 35%, rgba(2, 13, 20, 0.6) 100%), url('assets/varzea_hero_bg.png'); background-size: cover; background-position: center;">
-            
-            <!-- Imagem de Fundo Ambiental do Túnel do Estádio EA FC -->
-            <div class="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-overlay pointer-events-none" style="background-image: url('assets/futebol_tunel_estadio.jpg');"></div>
-
-            <div class="w-full mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-            
-            <!-- Grid de 2 Colunas -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full relative z-20">
+        <!-- SEÇÃO 1: HERO (Preenchimento 100%, Sequência Canvas Animada em Fundo Grafite) -->
+        <section id="hero-section" class="w-full relative min-h-screen flex items-center bg-transparent overflow-hidden py-16">
+            <div class="w-full mx-auto max-w-[1000px] px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center justify-center space-y-6">
                 
-                <!-- Coluna Esquerda: Copywriting e CTA -->
-                <div class="lg:col-span-7 text-center lg:text-left flex flex-col justify-center items-center lg:items-start space-y-6">
-                    
-                    <!-- Sobrancelha Discreta (Efeito Vidro Fosco) -->
-                    <div class="animate-fade-in">
-                        <span class="inline-flex items-center gap-1.5 rounded-xl border border-sky-500/30 bg-sky-500/10 backdrop-blur px-3 py-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.1)]">
-                            ⚡ Liberdade Financeira Fabricando Uniforme de Futebol
-                        </span>
-                    </div>
-
-                    <!-- Headline -->
-                    <div class="animate-fade-in" style="animation-delay: 0.1s;">
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white">
-                            Como sair do CLT e criar sua própria <span class="text-sky-400">marca esportiva</span> de dentro de casa em <span class="text-sky-400">2 dias</span>
-                        </h1>
-                        <p class="mt-6 text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
-                            Aprenda a faturar de <span class="text-sky-300 font-extrabold">5 a 15 mil reais por mês</span> fabricando uniformes de futebol 100% personalizados com a sua própria marca. <span class="text-white font-semibold">Usando o computador de dentro do seu quarto.</span>
-                        </p>
-                    </div>
-
-                    <!-- CTA Inicial (Sem preço) -->
-                    <div class="w-full max-w-md animate-fade-in" style="animation-delay: 0.2s;">
-                        <a href="#comprar" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 rounded-full bg-green-600 hover:bg-green-500 text-white px-8 py-4 text-xs font-bold uppercase tracking-widest transition-all btn-shimmer shadow-[0_4px_20px_rgba(34,197,94,0.3)] hover:shadow-[0_4px_25px_rgba(34,197,94,0.5)]" style="border-radius: 9999px;">
-                            Garantir Minha Vaga Ao Vivo
-                        </a>
-                        
-                        <!-- Barra de Carregamento de Escassez -->
-                        <div class="mt-5 max-w-xs sm:max-w-sm mx-auto lg:mx-0">
-                            <div class="flex justify-between items-center text-[10px] sm:text-xs text-slate-300 font-extrabold mb-2 uppercase tracking-wider whitespace-nowrap gap-2">
-                                <span class="flex items-center gap-1"><span class="animate-pulse text-red-500">🔥</span> Lote 1 quase esgotado</span>
-                                <span class="text-sky-300 font-black bg-sky-500/10 px-2.5 py-0.5 rounded-md border border-sky-500/30">87% Vendidos</span>
-                            </div>
-                            <div class="w-full bg-slate-950 rounded-full h-4 sm:h-5 border-2 border-sky-500/40 overflow-hidden p-1 shadow-inner shadow-black">
-                                <div class="bg-gradient-to-r from-sky-600 via-sky-400 to-cyan-400 h-full rounded-full animate-pulse shadow-[0_0_12px_rgba(56,189,248,0.6)]" style="width: 87%;"></div>
-                            </div>
-                            <!-- Informações de Data e Transmissão -->
-                            <div class="mt-4 flex flex-col gap-2 items-center lg:items-start text-center lg:text-left">
-                                <span class="inline-flex items-center gap-1.5 rounded-xl border border-sky-500/30 bg-sky-500/10 backdrop-blur px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.1)]">
-                                    📅 29 e 30 de Agosto
-                                </span>
-                                <p class="text-[11px] text-slate-300 font-medium tracking-wide mt-1 text-center lg:text-left">
-                                    ⚡ Evento <span class="text-sky-300 font-bold">100% Online e Ao Vivo pelo Google Meet</span> (Sem replay).
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
+                <!-- Sobrancelha Discreta (Efeito Vidro Fosco) -->
+                <div class="animate-fade-in">
+                    <span class="inline-flex items-center gap-1.5 rounded-xl border border-sky-500/30 bg-sky-500/10 backdrop-blur px-3 py-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.1)]">
+                        ⚡ Liberdade Financeira Fabricando Uniforme de Futebol
+                    </span>
                 </div>
 
-                <!-- Coluna Direita: Imagem de Resultado (Especialista + Produto) -->
-                <div class="lg:col-span-5 flex justify-center items-center animate-fade-in" style="animation-delay: 0.2s;">
-                    <div class="relative group w-full max-w-[400px]" style="border-radius: 28px;">
-                        <!-- Efeito de Brilho Azul Celeste de Fundo -->
-                        <div class="absolute -inset-1.5 bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-600 rounded-[30px] blur-xl opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                <!-- Headline Editorial Impactante -->
+                <div class="animate-fade-in max-w-4xl" style="animation-delay: 0.1s;">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-white">
+                        Como sair do CLT e criar sua própria <span class="text-sky-400">marca esportiva</span> de dentro de casa em <span class="text-sky-400">2 dias</span>
+                    </h1>
+                    <p class="mt-6 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                        Aprenda a faturar de <span class="text-sky-300 font-extrabold">5 a 15 mil reais por mês</span> fabricando uniformes de futebol 100% personalizados com a sua própria marca. <span class="text-white font-semibold">Usando o computador de dentro do seu quarto.</span>
+                    </p>
+                </div>
+
+                <!-- CTA Inicial (Sem preço) -->
+                <div class="w-full max-w-md animate-fade-in flex flex-col items-center" style="animation-delay: 0.2s;">
+                    <a href="#comprar" class="w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 rounded-full bg-green-600 hover:bg-green-500 text-white px-8 py-4 text-xs font-bold uppercase tracking-widest transition-all btn-shimmer shadow-[0_4px_20px_rgba(34,197,94,0.3)] hover:shadow-[0_4px_25px_rgba(34,197,94,0.5)]" style="border-radius: 9999px;">
+                        Garantir Minha Vaga Ao Vivo
+                    </a>
+                    
+                    <!-- Barra de Carregamento de Escassez -->
+                    <div class="mt-5 w-full max-w-xs sm:max-w-sm mx-auto">
+                        <div class="flex justify-between items-center text-[10px] sm:text-xs text-slate-300 font-extrabold mb-2 uppercase tracking-wider whitespace-nowrap gap-2">
+                            <span class="flex items-center gap-1"><span class="animate-pulse text-red-500">🔥</span> Lote 1 quase esgotado</span>
+                            <span class="text-sky-300 font-black bg-sky-500/10 px-2.5 py-0.5 rounded-md border border-sky-500/30">87% Vendidos</span>
+                        </div>
+                        <div class="w-full bg-slate-950 rounded-full h-4 sm:h-5 border-2 border-sky-500/40 overflow-hidden p-1 shadow-inner shadow-black">
+                            <div class="bg-gradient-to-r from-sky-600 via-sky-400 to-cyan-400 h-full rounded-full animate-pulse shadow-[0_0_12px_rgba(56,189,248,0.6)]" style="width: 87%;"></div>
+                        </div>
                         
-                        <!-- Notificações Flutuantes Laterais (Efeito Vidro Transparente) -->
-                        <!-- Nubank (Superior Esquerdo) -->
-                        <div class="absolute left-1 lg:-left-16 top-4 lg:top-6 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-nb pointer-events-none">
-                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-purple-600 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">NB</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] sm:text-[8px] font-bold text-purple-400 uppercase tracking-wider">Nubank</p>
-                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 2.500,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Itaú (Médio Direito) -->
-                        <div class="absolute right-1 sm:right-2 lg:-right-16 top-20 lg:top-24 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-it pointer-events-none">
-                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-orange-600 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">IT</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] sm:text-[8px] font-bold text-orange-400 uppercase tracking-wider">Itaú</p>
-                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 3.200,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Banco do Brasil (Médio Esquerdo) -->
-                        <div class="absolute left-2 lg:-left-20 top-36 lg:top-40 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-bancob pointer-events-none">
-                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-sky-600 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">BB</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] sm:text-[8px] font-bold text-sky-400 uppercase tracking-wider">Banco do Brasil</p>
-                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 2.100,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Bradesco (Inferior Direito) -->
-                        <div class="absolute right-2 lg:-right-14 bottom-16 lg:bottom-16 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-br pointer-events-none">
-                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-rose-600 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">BD</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] sm:text-[8px] font-bold text-rose-400 uppercase tracking-wider">Bradesco</p>
-                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 2.450,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Mercado Pago (Inferior Esquerdo) -->
-                        <div class="absolute left-1 sm:left-2 lg:-left-12 bottom-2 lg:bottom-4 z-20 w-[150px] sm:w-[190px] rounded-2xl p-2 sm:p-3 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 lg:gap-2.5 float-merp pointer-events-none">
-                            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-sky-500 flex items-center justify-center text-white font-black text-[9px] sm:text-[10px] flex-shrink-0">MP</div>
-                            <div class="text-left min-w-0">
-                                <p class="text-[7px] sm:text-[8px] font-bold text-sky-400 uppercase tracking-wider">Mercado Pago</p>
-                                <p class="text-[9px] sm:text-[10px] font-semibold text-white truncate">PIX Recebido!</p>
-                                <p class="text-[8px] sm:text-[9px] text-slate-300 font-medium truncate">R$ 2.800,00</p>
-                            </div>
-                        </div>
-
-                        <!-- Contêiner da Imagem do Especialista -->
-                        <div class="relative rounded-3xl border border-sky-500/20 bg-slate-900 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 28px;">
-                            <img alt="Especialista Bfnine e Manto Premium" class="w-full h-auto object-cover rounded-2xl" src="assets/especialista_hero.png" style="border-radius: 20px;"/>
+                        <!-- Informações de Data e Transmissão -->
+                        <div class="mt-4 flex flex-col gap-2 items-center text-center">
+                            <span class="inline-flex items-center gap-1.5 rounded-xl border border-sky-500/30 bg-sky-500/10 backdrop-blur px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-sky-300 shadow-[0_0_15px_rgba(56,189,248,0.1)]">
+                                📅 29 e 30 de Agosto
+                            </span>
+                            <p class="text-[11px] text-slate-300 font-medium tracking-wide mt-1 text-center">
+                                ⚡ Evento <span class="text-sky-300 font-bold">100% Online e Ao Vivo pelo Google Meet</span> (Sem replay).
+                            </p>
                         </div>
                     </div>
                 </div>
 
             </div>
+        </section>
 
             
 
@@ -2181,9 +2119,66 @@
 
             <div class="min-h-screen flex flex-col justify-center items-center mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 py-20 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-                <div class="lg:col-span-5 animate-on-scroll">
-                    <div class="rounded-3xl border border-yellow-500/10 bg-slate-900/60 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 24px;">
-                        <img alt="Bfnine Estamparia" class="w-full h-80 object-cover rounded-2xl opacity-80" src="assets/357cb3d1-9f65-4810-884b-f0072a_b391591fa18c.webp"/>
+                <div class="lg:col-span-5 flex justify-center items-center animate-on-scroll">
+                    <div class="relative group w-full max-w-[380px]" style="border-radius: 28px;">
+                        <!-- Efeito de Brilho Azul Celeste de Fundo -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-600 rounded-[30px] blur-xl opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                        
+                        <!-- Notificações Flutuantes Laterais (Efeito Vidro Transparente) -->
+                        <!-- Nubank (Superior Esquerdo) -->
+                        <div class="absolute left-1 lg:-left-12 top-4 lg:top-6 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-nb pointer-events-none">
+                            <div class="w-6 h-6 rounded-lg bg-purple-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">NB</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] font-bold text-purple-400 uppercase tracking-wider">Nubank</p>
+                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.500,00</p>
+                            </div>
+                        </div>
+
+                        <!-- Itaú (Médio Direito) -->
+                        <div class="absolute right-1 sm:right-2 lg:-right-12 top-20 lg:top-24 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-it pointer-events-none">
+                            <div class="w-6 h-6 rounded-lg bg-orange-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">IT</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] font-bold text-orange-400 uppercase tracking-wider">Itaú</p>
+                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 3.200,00</p>
+                            </div>
+                        </div>
+
+                        <!-- Banco do Brasil (Médio Esquerdo) -->
+                        <div class="absolute left-2 lg:-left-16 top-36 lg:top-40 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-bancob pointer-events-none">
+                            <div class="w-6 h-6 rounded-lg bg-sky-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">BB</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] font-bold text-sky-400 uppercase tracking-wider">Banco do Brasil</p>
+                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.100,00</p>
+                            </div>
+                        </div>
+
+                        <!-- Bradesco (Inferior Direito) -->
+                        <div class="absolute right-2 lg:-right-10 bottom-16 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-br pointer-events-none">
+                            <div class="w-6 h-6 rounded-lg bg-rose-600 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">BD</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] font-bold text-rose-400 uppercase tracking-wider">Bradesco</p>
+                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.450,00</p>
+                            </div>
+                        </div>
+
+                        <!-- Mercado Pago (Inferior Esquerdo) -->
+                        <div class="absolute left-1 sm:left-2 lg:-left-10 bottom-2 z-20 w-[140px] sm:w-[170px] rounded-2xl p-2 shadow-xl backdrop-blur-md border border-white/10 bg-white/5 flex items-center gap-2 float-merp pointer-events-none">
+                            <div class="w-6 h-6 rounded-lg bg-sky-500 flex items-center justify-center text-white font-black text-[9px] flex-shrink-0">MP</div>
+                            <div class="text-left min-w-0">
+                                <p class="text-[7px] font-bold text-sky-400 uppercase tracking-wider">Mercado Pago</p>
+                                <p class="text-[9px] font-semibold text-white truncate">PIX Recebido!</p>
+                                <p class="text-[8px] text-slate-300 font-medium truncate">R$ 2.800,00</p>
+                            </div>
+                        </div>
+
+                        <!-- Contêiner da Imagem do Especialista Flávio -->
+                        <div class="relative rounded-3xl border border-sky-500/20 bg-slate-900 p-2 overflow-hidden shadow-2xl hover-card-effect" style="border-radius: 28px;">
+                            <img alt="Flávio Bfnine - Especialista do Workshop" class="w-full h-auto object-cover rounded-2xl" src="assets/especialista_hero.png" style="border-radius: 20px;"/>
+                        </div>
                     </div>
                 </div>
 
@@ -2837,30 +2832,147 @@
         window.activateCronoItem = activateCronoItem;
 
         (function() {
+            // 1. Inicialização do Lenis Smooth Scroll
+            let lenis = null;
+            if (typeof Lenis !== 'undefined') {
+                lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    smoothWheel: true,
+                    smoothTouch: false
+                });
+
+                if (typeof ScrollTrigger !== 'undefined') {
+                    lenis.on('scroll', ScrollTrigger.update);
+                }
+
+                if (typeof gsap !== 'undefined') {
+                    gsap.ticker.add((time) => {
+                        lenis.raf(time * 1000);
+                    });
+                    gsap.ticker.lagSmoothing(0);
+                }
+            }
+
+            // 2. Configuração do Canvas HTML5 de Alta Performance no Fundo
+            const canvas = document.getElementById('hero-scroll-canvas');
+            let ctx = canvas ? canvas.getContext('2d') : null;
+
+            function resizeCanvas() {
+                if (canvas) {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    renderCanvasFrame(Math.round(sequence.frame));
+                }
+            }
+
+            const totalWebpFrames = 240;
+            const loadedImages = [];
+            const sequence = { frame: 0 };
+
+            // Pré-carregamento dos 240 quadros em RAM para renderização ultra-fluida 60fps no Canvas sem travamentos
+            for (let i = 0; i < totalWebpFrames; i++) {
+                const img = new Image();
+                const formattedIndex = String(i).padStart(3, '0');
+                img.src = `assets/hero_frames/frame_${formattedIndex}.webp`;
+                if (i === 0) {
+                    img.onload = () => renderCanvasFrame(0);
+                }
+                loadedImages.push(img);
+            }
+
+            let currentFrameIndex = 0;
+            let targetFrameIndex = 0;
+            let isInterpolating = false;
+
+            function renderCanvasFrame(index) {
+                if (!ctx || !canvas) return;
+                const safeIndex = Math.min(Math.max(Math.round(index), 0), totalWebpFrames - 1);
+                const img = loadedImages[safeIndex];
+
+                if (img && img.complete && img.naturalWidth > 0) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.imageSmoothingEnabled = true;
+                    ctx.imageSmoothingQuality = 'high';
+                    
+                    const hRatio = canvas.width / img.width;
+                    const vRatio = canvas.height / img.height;
+                    const ratio = Math.max(hRatio, vRatio);
+                    const centerShift_x = (canvas.width - img.width * ratio) / 2;
+                    const centerShift_y = (canvas.height - img.height * ratio) / 2;
+                    
+                    ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
+                }
+            }
+
+            // Loop de Interpolação Contínua (Lerp de Inércia Suave a 60 FPS)
+            function startFrameInterpolationLoop() {
+                function loop() {
+                    const diff = targetFrameIndex - currentFrameIndex;
+                    if (Math.abs(diff) > 0.01) {
+                        currentFrameIndex += diff * 0.18; // Inércia ultra-macia
+                        renderCanvasFrame(currentFrameIndex);
+                        requestAnimationFrame(loop);
+                    } else {
+                        currentFrameIndex = targetFrameIndex;
+                        renderCanvasFrame(currentFrameIndex);
+                        isInterpolating = false;
+                    }
+                }
+                if (!isInterpolating) {
+                    isInterpolating = true;
+                    requestAnimationFrame(loop);
+                }
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            // 3. GSAP ScrollTrigger para sequenciar o Canvas com inércia fluida na Hero
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                gsap.to(sequence, {
+                    frame: totalWebpFrames - 1,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "#hero-section",
+                        start: "top top",
+                        end: "+=1600",
+                        pin: true,
+                        scrub: 0.8,
+                        onUpdate: (self) => {
+                            targetFrameIndex = self.progress * (totalWebpFrames - 1);
+                            startFrameInterpolationLoop();
+                        }
+                    }
+                });
+            } else {
+                renderCanvasFrame(0);
+            }
+
+            // 4. Manter o controle visual das seções existentes (Dores, Processo, Cronograma, Depoimentos)
             const doresSection = document.getElementById('dores-section');
             const doresTrack = document.getElementById('dores-track');
             const doresTrackContainer = document.getElementById('dores-track-container');
-
             const processSection = document.getElementById('processo-section');
-
-            const portSection = document.getElementById('portfolio-section');
             const img2 = document.getElementById('port-img-2');
             const img3 = document.getElementById('port-img-3');
 
             function handleVisualScrolls() {
                 const isMobile = window.innerWidth < 1024;
 
-                // Reset de efeitos específicos para celular
                 if (isMobile) {
                     if (img2) { img2.style.transform = ''; img2.style.opacity = ''; }
                     if (img3) { img3.style.transform = ''; img3.style.opacity = ''; }
                 }
 
-                // Efeito de Rolagem do Cronograma (Detecção por Posição em Relação ao Viewport)
                 const cronoSection = document.getElementById('cronograma-3d-section');
                 if (cronoSection && !manualCronoOverride) {
                     const viewHeight = window.innerHeight || document.documentElement.clientHeight;
-                    const focusY = viewHeight * 0.4; // Ponto focal a 40% do topo da janela
+                    const focusY = viewHeight * 0.4;
 
                     const allItems = [
                         ...Array.from({length: 9}, (_, i) => ({ day: 1, idx: i, id: `sabado-item-${i}` })),
@@ -2875,7 +2987,6 @@
                         if (!el) continue;
                         const rect = el.getBoundingClientRect();
                         
-                        // Verificar se o item está visível na janela
                         if (rect.bottom > 50 && rect.top < viewHeight - 50) {
                             const itemCenter = rect.top + (rect.height / 2);
                             const dist = Math.abs(itemCenter - focusY);
@@ -2891,7 +3002,6 @@
                     }
                 }
 
-                // 1. Scroll Transform dos Cards de Dores
                 if (doresSection && doresTrack && doresTrackContainer) {
                     const rect = doresSection.getBoundingClientRect();
                     const viewHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -2908,7 +3018,6 @@
                     }
                 }
 
-                // 2. Scroll Transform do Processo Completo em 7 Passos
                 if (processSection) {
                     const procRect = processSection.getBoundingClientRect();
                     const viewHeight = window.innerHeight;
@@ -2935,7 +3044,6 @@
                     }
                 }
 
-                // 3. Scroll Transform da Seção Depoimentos (Executa em Mobile Touch e Desktop)
                 const depSection = document.getElementById('depoimentos-section');
                 if (depSection) {
                     const depImgTrack = document.getElementById('dep-img-track');
@@ -2953,7 +3061,6 @@
                         const trackWidth = depImgTrack.scrollWidth;
                         const containerWidth = depImgContainer.clientWidth;
                         const maxTranslateImg = Math.max(trackWidth - containerWidth + 24, 0);
-                        // Fileira de Prints: Desliza para a ESQUERDA durante o Scroll (Mobile e Desktop)
                         depImgTrack.style.transform = `translate3d(-${pct * maxTranslateImg}px, 0, 0)`;
                     }
                 }
